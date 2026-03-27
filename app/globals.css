@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.prose-copy {
+  @apply text-[15px] leading-7 text-slate-600;
+}
+
+.shell-container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.glass-panel {
+  @apply rounded-[28px] border border-white/60 bg-white/75 shadow-soft backdrop-blur;
+}
+
+.section-space {
+  @apply py-10 sm:py-14 lg:py-16;
+}

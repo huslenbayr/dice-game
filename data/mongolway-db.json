@@ -1,0 +1,886 @@
+{
+  "site": {
+    "brandName": "MongolWay",
+    "contactPerson": "Huslenbayr",
+    "contact": {
+      "phone": "+976 9911 2233",
+      "email": "hello@mongolway.mn",
+      "officeLocation": "Sukhbaatar District, Ulaanbaatar, Mongolia",
+      "socialLinks": {
+        "instagram": "https://instagram.com/mongolway",
+        "facebook": "https://facebook.com/mongolway",
+        "x": "https://x.com/mongolway"
+      }
+    },
+    "home": {
+      "eyebrow": {
+        "en": "A fresh travel company for Mongolia",
+        "mn": "Монгол орны шинэ аяллын брэнд"
+      },
+      "heroTitle": {
+        "en": "Travel through Mongolia with room to breathe, look around, and settle in.",
+        "mn": "Амьсгал авч, эргэн тойрноо ажиглаж, аясаар нь мэдрэх Монголын аялал."
+      },
+      "heroSubtitle": {
+        "en": "MongolWay designs small, thoughtful journeys across culture, grassland, lake country, and festival season with a warm modern approach.",
+        "mn": "MongolWay нь соёл, тал нутаг, нуурын бүс, баяр наадмын улирлыг орчин үеийн, дулаан мэдрэмжтэйгээр холбосон жижиг хэмжээний аяллуудыг зохион байгуулна."
+      },
+      "sectionIntro": {
+        "en": "Three sample journeys shaped around culture, landscape, and local rhythm.",
+        "mn": "Соёл, байгаль, орон нутгийн хэмнэлд тулгуурласан гурван жишиг аялал."
+      },
+      "storyTitle": {
+        "en": "Made for visitors who want a clearer, calmer way to explore Mongolia",
+        "mn": "Монголыг илүү тодорхой, тайван хэмнэлээр үзэхийг хүссэн хүмүүст зориулав"
+      },
+      "storyBody": {
+        "en": "The company is new, but the goal is simple: thoughtful routes, helpful coordination, and enough space in each day to actually enjoy where you are.",
+        "mn": "Компанийн түүх шинэ ч зорилго нь тодорхой. Замнал сайтай төлөвлөгөө, ойлгомжтой зохион байгуулалт, тухайн газраа тайван мэдрэх хангалттай завтай аяллыг бүтээх."
+      }
+    },
+    "about": {
+      "title": {
+        "en": "A new Mongolian travel company with a simple point of view",
+        "mn": "Энгийн боловч тодорхой үзэл баримтлалтай Монголын шинэ аяллын компани"
+      },
+      "intro": {
+        "en": "MongolWay focuses on contemporary Mongolia: open space, everyday hospitality, local stories, and routes that feel personal instead of crowded.",
+        "mn": "MongolWay нь орчин цагийн Монголыг танилцуулна. Уудам орон зай, энгийн зочломтгой байдал, нутгийн түүх, хэт шахуу бус хувийн мэдрэмжтэй маршрут энд төв байрлана."
+      },
+      "approachTitle": {
+        "en": "How we want the experience to feel",
+        "mn": "Бид аяллыг ямар мэдрэмжтэй байлгахыг хүсдэг вэ"
+      },
+      "approachBody": {
+        "en": "Clear communication, adaptable pacing, and a balance between iconic moments and quieter local encounters.",
+        "mn": "Тодорхой харилцаа, уян хатан хэмнэл, алдартай цэгүүд ба нам гүм орон нутгийн мөчүүдийн тэнцвэр."
+      }
+    },
+    "contactPage": {
+      "title": {
+        "en": "Contact MongolWay",
+        "mn": "MongolWay-тай холбогдох"
+      },
+      "body": {
+        "en": "Questions about dates, custom departures, or local details are welcome. Huslenbayr is the main contact for this sample company profile.",
+        "mn": "Огноо, хувийн маршрут эсвэл орон нутгийн мэдээлэлтэй холбоотой асуултыг бид хүлээн авна. Энэхүү жишиг компанийн гол холбоо барих хүн нь Huslenbayr."
+      }
+    },
+    "faqIntro": {
+      "en": "Answers to the main questions travelers often ask before planning a Mongolia trip.",
+      "mn": "Монголын аяллаа төлөвлөхөөс өмнө аялагчдын ихэвчлэн асуудаг асуултууд."
+    },
+    "faqs": [
+      {
+        "id": "faq-1",
+        "question": {
+          "en": "What kind of travelers are these sample journeys for?",
+          "mn": "Эдгээр жишиг аяллууд ямар төрлийн аялагчдад тохирох вэ?"
+        },
+        "answer": {
+          "en": "They suit guests who want guided travel with structure, but still want time for landscape, culture, and local pace.",
+          "mn": "Хөтөчтэй, зохион байгуулалттай мөртлөө байгаль, соёл, орон нутгийн хэмнэлийг мэдрэх зайтай аяллыг хүссэн хүмүүст тохирно."
+        }
+      },
+      {
+        "id": "faq-2",
+        "question": {
+          "en": "Can departures be adjusted for private groups?",
+          "mn": "Хувийн группт зориулж аяллын хөтөлбөрийг өөрчилж болох уу?"
+        },
+        "answer": {
+          "en": "Yes. The project structure is ready for custom departures and tailored dates.",
+          "mn": "Болно. Энэхүү бүтэц нь хувийн аялал болон өөрчилсөн огноог дэмжихээр бэлтгэгдсэн."
+        }
+      },
+      {
+        "id": "faq-3",
+        "question": {
+          "en": "How will payments work later?",
+          "mn": "Цаашид төлбөр хэрхэн ажиллах вэ?"
+        },
+        "answer": {
+          "en": "This demo prepares a QPay-ready payment layer so QR generation and callback handling can be added later.",
+          "mn": "Энэ демо нь QPay-д бэлэн төлбөрийн давхаргатай бөгөөд QR үүсгэх, callback боловсруулах боломжийг дараа нэмэхээр бүтээгдсэн."
+        }
+      },
+      {
+        "id": "faq-4",
+        "question": {
+          "en": "Who should I contact?",
+          "mn": "Хэнтэй холбогдох вэ?"
+        },
+        "answer": {
+          "en": "Huslenbayr is listed as the main company contact in the contact section.",
+          "mn": "Холбоо барих хэсэгт Huslenbayr-ийг үндсэн холбоо барих хүнээр оруулсан."
+        }
+      }
+    ]
+  },
+  "guides": [
+    {
+      "id": "guide-1",
+      "name": "Temuulen",
+      "role": {
+        "en": "Festival host",
+        "mn": "Наадмын хөтөч"
+      },
+      "bio": {
+        "en": "Temuulen enjoys explaining how Naadam feels in the city and on the steppe, from wrestling grounds to everyday summer rituals.",
+        "mn": "Тэмүүлэн нь Наадам хот болон тал нутагт хэрхэн мэдрэгддэгийг, бөхийн талбайгаас зуны энгийн заншил хүртэл тайлбарлах дуртай."
+      }
+    },
+    {
+      "id": "guide-2",
+      "name": "Ariunaa",
+      "role": {
+        "en": "Nature route guide",
+        "mn": "Байгалийн чиглэлийн хөтөч"
+      },
+      "bio": {
+        "en": "Ariunaa leads slow-paced routes through valleys, forest edges, and volcanic landscapes in central Mongolia.",
+        "mn": "Ариунаа нь төв Монголын хөндий, ойт зах, галт уулын тогтоц бүхий газруудаар тайван хэмнэлтэй аяллыг удирдана."
+      }
+    },
+    {
+      "id": "guide-3",
+      "name": "Saruul",
+      "role": {
+        "en": "Northern lake companion",
+        "mn": "Хойд нутгийн нуурын хөтөч"
+      },
+      "bio": {
+        "en": "Saruul focuses on lake country, forest atmosphere, and practical support for travelers heading north.",
+        "mn": "Саруул нь хойд нутгийн нуур, ой тайгын уур амьсгал болон хойд зүгт аялагчдад хэрэгтэй зохион байгуулалтад төвлөрдөг."
+      }
+    }
+  ],
+  "tours": [
+    {
+      "id": "tour-naadam",
+      "slug": "naadam-experience",
+      "title": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "intro": {
+        "en": "A short summer journey built around Naadam atmosphere, local food, ceremony, and time in and around Ulaanbaatar.",
+        "mn": "Улаанбаатар болон ойролцоох бүсэд Наадмын уур амьсгал, хоол, ёслол, зуны хэмнэлийг мэдрүүлэх богино аялал."
+      },
+      "destination": {
+        "en": "Ulaanbaatar & nearby steppe",
+        "mn": "Улаанбаатар ба ойролцоох тал нутаг"
+      },
+      "durationDays": 4,
+      "durationLabel": {
+        "en": "4 days / 3 nights",
+        "mn": "4 өдөр / 3 шөнө"
+      },
+      "price": 780,
+      "dates": [
+        "2026-07-10",
+        "2026-07-12",
+        "2026-07-14"
+      ],
+      "guideNames": [
+        "Temuulen",
+        "Namuun"
+      ],
+      "highlights": {
+        "en": [
+          "Opening ceremony energy",
+          "Traditional food tasting",
+          "Day trip beyond the city"
+        ],
+        "mn": [
+          "Нээлтийн ёслолын уур амьсгал",
+          "Үндэсний хоолны амталгаа",
+          "Хотын гаднах өдөрлөг"
+        ]
+      },
+      "itinerary": [
+        {
+          "day": 1,
+          "title": {
+            "en": "Arrival and summer city rhythm",
+            "mn": "Ирэх өдөр ба зуны хотын хэмнэл"
+          },
+          "description": {
+            "en": "Meet in Ulaanbaatar, settle in, and walk through key Naadam spaces as the city prepares.",
+            "mn": "Улаанбаатарт уулзаж байрлаад, хот Наадамд бэлтгэж буй гол орон зайгаар алхана."
+          }
+        },
+        {
+          "day": 2,
+          "title": {
+            "en": "Ceremony and festival grounds",
+            "mn": "Ёслол ба наадмын талбай"
+          },
+          "description": {
+            "en": "Spend the day with the main festival mood, food stops, and explanation of what you are seeing.",
+            "mn": "Наадмын гол өдөрлөгийг мэдэрч, хоолны зогсоолуудаар орж, үзэж буй зүйлсээ тайлбартайгаар таниулна."
+          }
+        },
+        {
+          "day": 3,
+          "title": {
+            "en": "Steppe edge outing",
+            "mn": "Талын захын аялал"
+          },
+          "description": {
+            "en": "Leave the city for open grassland, a ger meal, and a calmer side of the holiday season.",
+            "mn": "Хотын гадна гарч, тал нутаг, гэрийн хоол, баярын үеийн тайван талтай танилцана."
+          }
+        },
+        {
+          "day": 4,
+          "title": {
+            "en": "Market time and departure",
+            "mn": "Захын зогсоол ба буцах өдөр"
+          },
+          "description": {
+            "en": "A final morning for souvenirs or coffee before airport transfer support.",
+            "mn": "Нисэх буудлын унаа руу гарахаас өмнө дурсгалын зүйл эсвэл кофены завтай өглөө."
+          }
+        }
+      ],
+      "included": {
+        "en": [
+          "3 nights accommodation",
+          "Airport pickup",
+          "Festival guidance",
+          "2 lunches"
+        ],
+        "mn": [
+          "3 шөнийн байр",
+          "Нисэх буудлын тосолт",
+          "Наадмын чиглүүлэг",
+          "2 өдрийн хоол"
+        ]
+      },
+      "excluded": {
+        "en": [
+          "International flights",
+          "Travel insurance",
+          "Dinner on free evening"
+        ],
+        "mn": [
+          "Олон улсын нислэг",
+          "Аяллын даатгал",
+          "Чөлөөт оройн хоол"
+        ]
+      },
+      "gallery": [
+        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1400&q=80"
+      ]
+    },
+    {
+      "id": "tour-arkhangai",
+      "slug": "arkhangai-adventure",
+      "title": {
+        "en": "Arkhangai Adventure",
+        "mn": "Архангайн аялал"
+      },
+      "intro": {
+        "en": "A central Mongolia route across valleys, volcanic terrain, hot springs, and long horizon roads.",
+        "mn": "Төв Монголын хөндий, галт уулын тогтоц, халуун рашаан, урт замын хаяаг холбосон маршрут."
+      },
+      "destination": {
+        "en": "Arkhangai Province",
+        "mn": "Архангай аймаг"
+      },
+      "durationDays": 6,
+      "durationLabel": {
+        "en": "6 days / 5 nights",
+        "mn": "6 өдөр / 5 шөнө"
+      },
+      "price": 1190,
+      "dates": [
+        "2026-06-08",
+        "2026-07-22",
+        "2026-08-19"
+      ],
+      "guideNames": [
+        "Ariunaa",
+        "Bilegt"
+      ],
+      "highlights": {
+        "en": [
+          "Khorgo volcanic landscape",
+          "Terkhiin Tsagaan Lake",
+          "Ger camp evenings"
+        ],
+        "mn": [
+          "Хоргын галт уулын тогтоц",
+          "Тэрхийн цагаан нуур",
+          "Жуулчны баазын оройн уур амьсгал"
+        ]
+      },
+      "itinerary": [
+        {
+          "day": 1,
+          "title": {
+            "en": "Road west from Ulaanbaatar",
+            "mn": "Улаанбаатараас баруун зүгт замд гарах"
+          },
+          "description": {
+            "en": "Begin the route with open-country driving, meal stops, and a slower arrival into central Mongolia.",
+            "mn": "Төв Монгол руу чиглэх замдаа уудам нутаг, хоолны зогсоол, аясаар нь хүрэх мэдрэмжийг авна."
+          }
+        },
+        {
+          "day": 2,
+          "title": {
+            "en": "Valley and spring country",
+            "mn": "Хөндий ба рашааны бүс"
+          },
+          "description": {
+            "en": "Move through river valleys and hot-spring country with flexible stops for weather and pace.",
+            "mn": "Голын хөндий, рашаантай бүсээр цаг агаар, хэмнэлдээ тохируулсан зогсоолтой аялна."
+          }
+        },
+        {
+          "day": 3,
+          "title": {
+            "en": "Khorgo crater walk",
+            "mn": "Хоргын тогооны алхалт"
+          },
+          "description": {
+            "en": "A measured walk around the crater landscape with time for photos and open views.",
+            "mn": "Тогооны орчмын тогтоцоор алхаж, зураг авах, уудам дүр төрхийг харах хангалттай цаг гаргана."
+          }
+        },
+        {
+          "day": 4,
+          "title": {
+            "en": "Lake and camp afternoon",
+            "mn": "Нуур ба баазын үдээс хойш"
+          },
+          "description": {
+            "en": "Slow down beside the lake with room for rest, short walks, and sunset light.",
+            "mn": "Нуурын эрэгт тайван хэмнэлээр амарч, богино алхалт хийж, нар жаргах үеийн гэрлийг мэдэрнэ."
+          }
+        },
+        {
+          "day": 5,
+          "title": {
+            "en": "Return route through open countryside",
+            "mn": "Уудам хөдөөгөөр буцах чиглэл"
+          },
+          "description": {
+            "en": "Drive back with stops for scenery and small local breaks.",
+            "mn": "Байгалийн үзэмж, нутгийн жижиг завсарлага бүхий замаар буцна."
+          }
+        },
+        {
+          "day": 6,
+          "title": {
+            "en": "Ulaanbaatar arrival",
+            "mn": "Улаанбаатарт ирэх"
+          },
+          "description": {
+            "en": "Return to the city and arrange onward plans.",
+            "mn": "Хотод ирж дараагийн төлөвлөгөөгөө үргэлжлүүлэхэд бэлэн болно."
+          }
+        }
+      ],
+      "included": {
+        "en": [
+          "Transport from Ulaanbaatar",
+          "5 nights camp/lodge stay",
+          "Guide support",
+          "Breakfasts"
+        ],
+        "mn": [
+          "Улаанбаатараас тээвэр",
+          "5 шөнийн бааз/байр",
+          "Хөтөчийн үйлчилгээ",
+          "Өглөөний цай"
+        ]
+      },
+      "excluded": {
+        "en": [
+          "Flights to Mongolia",
+          "Personal snacks",
+          "Travel insurance"
+        ],
+        "mn": [
+          "Монгол руу ирэх нислэг",
+          "Хувийн зууш",
+          "Аяллын даатгал"
+        ]
+      },
+      "gallery": [
+        "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80"
+      ]
+    },
+    {
+      "id": "tour-khuvsgul",
+      "slug": "khuvsgul-lake-escape",
+      "title": {
+        "en": "Khuvsgul Lake Escape",
+        "mn": "Хөвсгөл нуурын аялал"
+      },
+      "intro": {
+        "en": "A northern route built around water, forest air, simple camp comfort, and long summer light.",
+        "mn": "Хойд нутгийн ус, ой модны агаар, энгийн тухтай бааз, зуны урт гэрлийг мэдрүүлэх маршрут."
+      },
+      "destination": {
+        "en": "Khuvsgul Lake",
+        "mn": "Хөвсгөл нуур"
+      },
+      "durationDays": 5,
+      "durationLabel": {
+        "en": "5 days / 4 nights",
+        "mn": "5 өдөр / 4 шөнө"
+      },
+      "price": 1380,
+      "dates": [
+        "2026-06-18",
+        "2026-07-28",
+        "2026-08-25"
+      ],
+      "guideNames": [
+        "Saruul",
+        "Munkhjin"
+      ],
+      "highlights": {
+        "en": [
+          "Lake shore mornings",
+          "Forest-edge walks",
+          "Relaxed northern camp atmosphere"
+        ],
+        "mn": [
+          "Нуурын эргийн өглөө",
+          "Ой захын алхалт",
+          "Хойд нутгийн тайван баазын уур амьсгал"
+        ]
+      },
+      "itinerary": [
+        {
+          "day": 1,
+          "title": {
+            "en": "Flight north and lakeside arrival",
+            "mn": "Хойд зүгт нисээд нуурын эрэгт хүрэх"
+          },
+          "description": {
+            "en": "Travel to the north, settle beside the water, and ease into the colder, clearer air.",
+            "mn": "Хойд зүгт хүрч, нуурын эрэгт байрлаад сэрүүн, тунгалаг агаарт аажмаар дасна."
+          }
+        },
+        {
+          "day": 2,
+          "title": {
+            "en": "Shoreline day",
+            "mn": "Эргийн өдөр"
+          },
+          "description": {
+            "en": "A flexible day for short walks, boat time, and resting by the lake.",
+            "mn": "Богино алхалт, завины цаг, нуурын эрэгт амрах уян хэмнэлтэй өдөр."
+          }
+        },
+        {
+          "day": 3,
+          "title": {
+            "en": "Forest and hill paths",
+            "mn": "Ой ба толгодын зам"
+          },
+          "description": {
+            "en": "Move through quiet paths with guide support and time for photography.",
+            "mn": "Чимээгүй замаар хөтөчтэй явж, зураг авах хангалттай хугацаа гаргана."
+          }
+        },
+        {
+          "day": 4,
+          "title": {
+            "en": "Slow camp day",
+            "mn": "Баазын тайван өдөр"
+          },
+          "description": {
+            "en": "Keep the day open for rest, conversations, and the lake’s changing light.",
+            "mn": "Амрах, ярилцах, нуурын өнгө өөрчлөгдөхийг харах нээлттэй өдөр."
+          }
+        },
+        {
+          "day": 5,
+          "title": {
+            "en": "Departure and return",
+            "mn": "Буцах өдөр"
+          },
+          "description": {
+            "en": "Return south with support for airport timing and onward plans.",
+            "mn": "Нисэх буудлын цаг болон дараагийн төлөвлөгөөнд тохируулан буцна."
+          }
+        }
+      ],
+      "included": {
+        "en": [
+          "Domestic transport support",
+          "4 nights stay",
+          "Guide coordination",
+          "Selected meals"
+        ],
+        "mn": [
+          "Дотоодын тээврийн зохицуулалт",
+          "4 шөнийн байр",
+          "Хөтөчийн зохицуулалт",
+          "Сонгосон хоол"
+        ]
+      },
+      "excluded": {
+        "en": [
+          "International flights",
+          "Alcoholic drinks",
+          "Travel insurance"
+        ],
+        "mn": [
+          "Олон улсын нислэг",
+          "Согтууруулах ундаа",
+          "Аяллын даатгал"
+        ]
+      },
+      "gallery": [
+        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "3089ca27-306a-4189-82ac-db4456ea46dd",
+      "userId": "user-admin-huslenbayr",
+      "tourId": "tour-arkhangai",
+      "tourTitle": {
+        "en": "Arkhangai Adventure",
+        "mn": "Архангайн аялал"
+      },
+      "date": "2026-06-08",
+      "people": 2,
+      "name": "Huslenbayr",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "+976 9911 2233",
+      "nationality": "Mongolian",
+      "specialRequest": "",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": null,
+      "createdAt": "2026-03-27T05:54:42.251Z",
+      "updatedAt": "2026-03-27T05:54:42.251Z"
+    },
+    {
+      "id": "9174bedb-cbf2-4bb2-9dc5-e37ecb2fc925",
+      "userId": "user-admin-huslenbayr",
+      "tourId": "tour-naadam",
+      "tourTitle": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "date": "2026-07-10",
+      "people": 2,
+      "name": "Huslenbayr",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "+976 9911 2233",
+      "nationality": "Mongolian",
+      "specialRequest": "",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": null,
+      "createdAt": "2026-03-27T05:13:03.957Z"
+    },
+    {
+      "id": "0cbc727a-32c1-47c1-b3d1-41fa0ee8b72e",
+      "userId": null,
+      "tourId": "tour-arkhangai",
+      "tourTitle": {
+        "en": "Arkhangai Adventure",
+        "mn": "Архангайн аялал"
+      },
+      "date": "2026-07-22",
+      "people": 1,
+      "name": "Hybrid Verification",
+      "email": "hybrid-verification@example.com",
+      "phone": "+41 700000000",
+      "nationality": "Swiss",
+      "specialRequest": "DELETE-ME-HYBRID",
+      "status": "paid",
+      "paymentStatus": "paid",
+      "paymentSessionId": "354e4896-abc9-4e4c-bda3-53f34f8decd7",
+      "createdAt": "2026-03-27T01:01:34.049Z"
+    },
+    {
+      "id": "16320c00-1056-4890-be2f-c1a79850ea94",
+      "userId": null,
+      "tourId": "tour-arkhangai",
+      "tourTitle": {
+        "en": "Arkhangai Adventure",
+        "mn": "Архангайн аялал"
+      },
+      "date": "2026-06-08",
+      "people": 4,
+      "name": "Хүслэнбаяр Давааням",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "94789779",
+      "nationality": "Swiss",
+      "specialRequest": "",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": "5f680d12-7fc9-4591-a0f3-361610b5998b",
+      "createdAt": "2026-03-26T06:48:47.707Z"
+    },
+    {
+      "id": "fc3e8b8b-0a5e-492e-9a9f-a7c671575710",
+      "userId": null,
+      "tourId": "tour-naadam",
+      "tourTitle": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "date": "2026-07-10",
+      "people": 2,
+      "name": "Huslenbayr huslen Dawaanym",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "94789779",
+      "nationality": "Mongolian",
+      "specialRequest": "",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": null,
+      "createdAt": "2026-03-25T16:27:24.692Z"
+    },
+    {
+      "id": "65e55cf8-f80c-45b7-8ae9-34a262236774",
+      "userId": null,
+      "tourId": "tour-naadam",
+      "tourTitle": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "date": "2026-07-10",
+      "people": 1,
+      "name": "Huslenbayr huslen Dawaanym",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "94789779",
+      "nationality": "Mongolian",
+      "specialRequest": "",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": "a51d48ff-0eb6-4c1d-911e-ebb030fb89f2",
+      "createdAt": "2026-03-25T16:27:06.776Z"
+    },
+    {
+      "id": "169ed721-84ca-4fa6-981e-d530763839e7",
+      "tourId": "tour-naadam",
+      "tourTitle": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "date": "2026-07-10",
+      "people": 2,
+      "name": "Huslenbayr huslen Dawaanym",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "94789779",
+      "nationality": "Mongolian",
+      "specialRequest": "s",
+      "status": "paid",
+      "paymentStatus": "paid",
+      "paymentSessionId": "2f2e2f27-224b-46ad-a079-6f4cd31bd133",
+      "createdAt": "2026-03-25T15:42:22.735Z"
+    },
+    {
+      "id": "booking-demo-1",
+      "tourId": "tour-naadam",
+      "tourTitle": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "date": "2026-07-12",
+      "people": 2,
+      "name": "Sample Traveler",
+      "email": "traveler@example.com",
+      "phone": "+976 8811 2299",
+      "nationality": "Japanese",
+      "specialRequest": "Vegetarian meals when possible",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": null,
+      "createdAt": "2026-03-20T09:10:00.000Z"
+    }
+  ],
+  "paymentSessions": [
+    {
+      "id": "354e4896-abc9-4e4c-bda3-53f34f8decd7",
+      "bookingId": "0cbc727a-32c1-47c1-b3d1-41fa0ee8b72e",
+      "method": "card",
+      "provider": "card-gateway-ready",
+      "status": "paid",
+      "amount": 1190,
+      "currency": "USD",
+      "reference": "CARD-C3242F80",
+      "qrText": null,
+      "deepLink": null,
+      "applePayEligible": true,
+      "cardSummary": {
+        "brand": "Visa",
+        "last4": "4242",
+        "cardholderName": "Hybrid Verification"
+      },
+      "callbackToken": null,
+      "instructions": {
+        "en": "The mock card gateway approved this payment. Replace it with a live card provider when credentials are ready.",
+        "mn": "Mock картын gateway энэ төлбөрийг зөвшөөрлөө. Бодит provider холбох үед энэ симуляцийг солино."
+      },
+      "createdAt": "2026-03-27T01:03:08.030Z"
+    },
+    {
+      "id": "5f680d12-7fc9-4591-a0f3-361610b5998b",
+      "bookingId": "16320c00-1056-4890-be2f-c1a79850ea94",
+      "provider": "qpay-ready-mock",
+      "status": "pending",
+      "qrText": "QPAY-DEMO|16320c00-1056-4890-be2f-c1a79850ea94|2026-06-08|4",
+      "callbackToken": "a521cfb3-1d44-45f4-b36a-dd79a80fe0d9",
+      "instructions": {
+        "en": "QPay dynamic QR and callback handling can be connected here later.",
+        "mn": "Энд дараа нь QPay-ийн динамик QR болон callback боловсруулалтыг холбоно."
+      },
+      "createdAt": "2026-03-26T06:48:52.664Z"
+    },
+    {
+      "id": "a51d48ff-0eb6-4c1d-911e-ebb030fb89f2",
+      "bookingId": "65e55cf8-f80c-45b7-8ae9-34a262236774",
+      "provider": "qpay-ready-mock",
+      "status": "pending",
+      "qrText": "QPAY-DEMO|65e55cf8-f80c-45b7-8ae9-34a262236774|2026-07-10|1",
+      "callbackToken": "87d2da14-7516-4a63-9bf3-3198ee13ec9f",
+      "instructions": {
+        "en": "QPay dynamic QR and callback handling can be connected here later.",
+        "mn": "Энд дараа нь QPay-ийн динамик QR болон callback боловсруулалтыг холбоно."
+      },
+      "createdAt": "2026-03-25T16:27:09.095Z"
+    },
+    {
+      "id": "2f2e2f27-224b-46ad-a079-6f4cd31bd133",
+      "bookingId": "169ed721-84ca-4fa6-981e-d530763839e7",
+      "provider": "qpay-ready-mock",
+      "status": "paid",
+      "qrText": "QPAY-DEMO|169ed721-84ca-4fa6-981e-d530763839e7|2026-07-10|2",
+      "callbackToken": "2f1ffe35-f139-4fda-897c-b7cc76459aa9",
+      "instructions": {
+        "en": "QPay dynamic QR and callback handling can be connected here later.",
+        "mn": "Энд дараа нь QPay-ийн динамик QR болон callback боловсруулалтыг холбоно."
+      },
+      "createdAt": "2026-03-25T15:42:26.469Z"
+    }
+  ],
+  "emailOutbox": [
+    {
+      "id": "8ac7563b-b3a4-4330-9521-7ff05df6ec95",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Arkhangai Adventure - MongolWay",
+      "html": "\n    <div style=\"font-family:Arial,sans-serif;background:#f4f1ea;padding:32px;\">\n      <div style=\"max-width:640px;margin:0 auto;background:#ffffff;border-radius:24px;padding:32px;color:#18222f;\">\n        <p style=\"margin:0 0 12px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#8a7b63;\">MongolWay</p>\n        <h2 style=\"margin:0 0 20px;font-size:28px;line-height:1.2;\">New booking submitted</h2>\n        \n      <p><strong>Tour:</strong> Arkhangai Adventure</p>\n      <p><strong>Booking ID:</strong> 3089ca27-306a-4189-82ac-db4456ea46dd</p>\n      <p><strong>Date:</strong> 2026-06-08</p>\n      <p><strong>People:</strong> 2</p>\n      <p><strong>Name:</strong> Huslenbayr</p>\n      <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n      <p><strong>Phone:</strong> +976 9911 2233</p>\n      <p><strong>Nationality:</strong> Mongolian</p>\n      <p><strong>Special request:</strong> None</p>\n      <p><strong>Status:</strong> pending</p>\n    \n      </div>\n    </div>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-27T05:54:42.257Z"
+    },
+    {
+      "id": "2351467a-a0e0-4d5a-8cb9-011b8584a646",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Naadam Experience - MongolWay",
+      "html": "\n    <h2>New MongolWay booking</h2>\n    <p><strong>Tour:</strong> Naadam Experience</p>\n    <p><strong>Date:</strong> 2026-07-10</p>\n    <p><strong>People:</strong> 2</p>\n    <p><strong>Name:</strong> Huslenbayr</p>\n    <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n    <p><strong>Phone:</strong> +976 9911 2233</p>\n    <p><strong>Nationality:</strong> Mongolian</p>\n    <p><strong>Special request:</strong> None</p>\n    <p><strong>Status:</strong> pending</p>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-27T05:13:03.960Z"
+    },
+    {
+      "id": "a5321956-e592-4818-bdf5-4c8f77c13c08",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Arkhangai Adventure - MongolWay",
+      "html": "\n    <h2>New MongolWay booking</h2>\n    <p><strong>Tour:</strong> Arkhangai Adventure</p>\n    <p><strong>Date:</strong> 2026-07-22</p>\n    <p><strong>People:</strong> 1</p>\n    <p><strong>Name:</strong> Hybrid Verification</p>\n    <p><strong>Email:</strong> hybrid-verification@example.com</p>\n    <p><strong>Phone:</strong> +41 700000000</p>\n    <p><strong>Nationality:</strong> Swiss</p>\n    <p><strong>Special request:</strong> DELETE-ME-HYBRID</p>\n    <p><strong>Status:</strong> pending</p>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-27T01:01:34.318Z"
+    },
+    {
+      "id": "48b49cc7-0317-4a09-9452-3989bbcc0154",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Arkhangai Adventure - MongolWay",
+      "html": "\n    <h2>New MongolWay booking</h2>\n    <p><strong>Tour:</strong> Arkhangai Adventure</p>\n    <p><strong>Date:</strong> 2026-06-08</p>\n    <p><strong>People:</strong> 4</p>\n    <p><strong>Name:</strong> Хүслэнбаяр Давааням</p>\n    <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n    <p><strong>Phone:</strong> 94789779</p>\n    <p><strong>Nationality:</strong> Swiss</p>\n    <p><strong>Special request:</strong> None</p>\n    <p><strong>Status:</strong> pending</p>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-26T06:48:47.713Z"
+    },
+    {
+      "id": "f5c913f7-8f25-413b-86c0-7efbeef2b145",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Naadam Experience - MongolWay",
+      "html": "\n    <h2>New MongolWay booking</h2>\n    <p><strong>Tour:</strong> Naadam Experience</p>\n    <p><strong>Date:</strong> 2026-07-10</p>\n    <p><strong>People:</strong> 2</p>\n    <p><strong>Name:</strong> Huslenbayr huslen Dawaanym</p>\n    <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n    <p><strong>Phone:</strong> 94789779</p>\n    <p><strong>Nationality:</strong> Mongolian</p>\n    <p><strong>Special request:</strong> None</p>\n    <p><strong>Status:</strong> pending</p>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-25T16:27:24.701Z"
+    },
+    {
+      "id": "f1b61b20-9edd-4a9c-898c-1ece02333249",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Naadam Experience - MongolWay",
+      "html": "\n    <h2>New MongolWay booking</h2>\n    <p><strong>Tour:</strong> Naadam Experience</p>\n    <p><strong>Date:</strong> 2026-07-10</p>\n    <p><strong>People:</strong> 1</p>\n    <p><strong>Name:</strong> Huslenbayr huslen Dawaanym</p>\n    <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n    <p><strong>Phone:</strong> 94789779</p>\n    <p><strong>Nationality:</strong> Mongolian</p>\n    <p><strong>Special request:</strong> None</p>\n    <p><strong>Status:</strong> pending</p>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-25T16:27:06.783Z"
+    },
+    {
+      "id": "4f718418-3c3c-4a20-8c22-280785cc195d",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Naadam Experience - MongolWay",
+      "html": "\n    <h2>New MongolWay booking</h2>\n    <p><strong>Tour:</strong> Naadam Experience</p>\n    <p><strong>Date:</strong> 2026-07-10</p>\n    <p><strong>People:</strong> 2</p>\n    <p><strong>Name:</strong> Huslenbayr huslen Dawaanym</p>\n    <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n    <p><strong>Phone:</strong> 94789779</p>\n    <p><strong>Nationality:</strong> Mongolian</p>\n    <p><strong>Special request:</strong> s</p>\n    <p><strong>Status:</strong> pending</p>\n  ",
+      "provider": "mock",
+      "createdAt": "2026-03-25T15:42:22.737Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "user-admin-huslenbayr",
+      "fullName": "Huslenbayr",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "+976 9911 2233",
+      "nationality": "Mongolian",
+      "role": "admin",
+      "authProvider": "credentials",
+      "passwordSalt": "6ea9eded07bab4b3e9d96d65ff8b4a62",
+      "passwordHash": "a8c1c895e4e6be1114530dfb199526c06c3eee04a197d36e63f5d04120091cc251eb398324945d7d30bb665cb2cfb29a4c3062913ee1384f07b793eaecdcba41",
+      "createdAt": "2026-03-25T16:10:00.000Z"
+    },
+    {
+      "id": "user-demo-traveler",
+      "fullName": "Sample Traveler",
+      "email": "traveler@example.com",
+      "phone": "+976 8811 2299",
+      "nationality": "Japanese",
+      "role": "user",
+      "authProvider": "credentials",
+      "passwordSalt": "179d332d2f6fc3a624fef25295831d48",
+      "passwordHash": "261faae5a38e54996dc0202841f70e7862c1a6b9e549d49c8d04d0c4ab428b9f5d4ad1f7ea049f99694e4b1f4004150f9d9a0ccb36c473eb5a255da18aa5bc24",
+      "createdAt": "2026-03-25T16:10:00.000Z"
+    }
+  ],
+  "authSessions": [
+    {
+      "id": "7f6fdeb3-62b5-4a28-9a93-12cc74f5ef6d",
+      "token": "c2905723-b1da-4849-98a0-6b00e4488dbb",
+      "userId": "user-admin-huslenbayr",
+      "provider": "credentials",
+      "createdAt": "2026-03-26T10:24:48.407Z",
+      "expiresAt": "2026-04-09T10:24:48.407Z"
+    }
+  ]
+}

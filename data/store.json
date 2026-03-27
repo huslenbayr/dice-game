@@ -1,0 +1,1257 @@
+{
+  "company": {
+    "name": "Atlas Path Travel",
+    "tagline": "Trusted guide-led journeys for modern travelers.",
+    "intro": "Atlas Path Travel is a premium online tourism guide service blending beautifully planned itineraries with the reassurance of vetted local experts, secure booking, and calm guest care from the first enquiry to the final transfer.",
+    "mission": "To make ambitious travel feel personal, dependable, and deeply local.",
+    "vision": "To be the most trusted digital guide service for curated small-group and private journeys worldwide.",
+    "founded": 2012,
+    "experienceYears": 14,
+    "base": "Geneva, Switzerland",
+    "serviceHighlights": [
+      {
+        "title": "Concierge itinerary design",
+        "description": "Every itinerary is refined around seasonality, pacing, and meaningful local access."
+      },
+      {
+        "title": "Verified local experts",
+        "description": "We work only with hand-selected guides known for language skills, safety standards, and regional knowledge."
+      },
+      {
+        "title": "Secure booking confidence",
+        "description": "Deposits, full balances, invoices, and booking records are tracked in one trusted flow."
+      },
+      {
+        "title": "Guest-first support",
+        "description": "Travelers receive pre-departure guidance, WhatsApp support, and rapid response if plans need to change."
+      }
+    ],
+    "reasons": [
+      {
+        "title": "Well-known for reliability",
+        "description": "Repeat guests, corporate travel planners, and families use Atlas Path for dependable execution."
+      },
+      {
+        "title": "Small groups by design",
+        "description": "We keep groups intimate so guides can move at a thoughtful pace and personalize the journey."
+      },
+      {
+        "title": "Transparent inclusions",
+        "description": "Each package clearly explains what is included, excluded, and payable later."
+      },
+      {
+        "title": "Responsible travel partners",
+        "description": "Accommodation, transport, and community partners are selected for quality and sustainability."
+      }
+    ],
+    "stats": [
+      {
+        "label": "Guest satisfaction",
+        "value": "4.9/5"
+      },
+      {
+        "label": "Journeys delivered",
+        "value": "3,200+"
+      },
+      {
+        "label": "Destinations curated",
+        "value": "24"
+      },
+      {
+        "label": "Response time",
+        "value": "< 20 min"
+      }
+    ]
+  },
+  "contact": {
+    "email": "huslenbayr9779@gmail.com",
+    "phone": "+96794789779",
+    "whatsapp": "+97694789779",
+    "address": "Mongolia",
+    "officeHours": "Mon-Sat, 08:00-20:00 UMT 8+",
+    "mapEmbedUrl": "https://maps.app.goo.gl/HHspZZJfpNY2GbBYA",
+    "socials": {
+      "instagram": "https://instagram.com/mogulway",
+      "facebook": "https://facebook.com/mogulway",
+      "linkedin": "https://linkedin.com/mogulway/mogulway",
+      "x": "https://x.com/mogulway"
+    }
+  },
+  "policies": {
+    "cancellation": "Bookings may be cancelled online up to 14 days before departure. Paid balances inside the window require manual review.",
+    "modification": "Guests can request a date or guest-count change until the modification deadline shown in the dashboard.",
+    "payments": "A 30% deposit secures space on most departures. Balance can be paid later or settled in full at booking."
+  },
+  "destinations": [
+    {
+      "id": "dest_alps",
+      "name": "Swiss Alps",
+      "region": "Europe",
+      "teaser": "High-altitude rail journeys, glacier viewpoints, and polished mountain hospitality.",
+      "image": "https://images.unsplash.com/photo-1508261303786-6f1fd3a77ed6?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "dest_kyoto",
+      "name": "Kyoto & Nara",
+      "region": "Asia",
+      "teaser": "Temple districts, tea culture, seasonal gardens, and deeply knowledgeable hosts.",
+      "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "dest_sahara",
+      "name": "Marrakech & Sahara",
+      "region": "Africa",
+      "teaser": "Souks, kasbahs, and desert nights with comfort-focused logistics.",
+      "image": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "dest_fjords",
+      "name": "Norwegian Fjords",
+      "region": "Nordics",
+      "teaser": "Scenic cruising, design-forward stays, and measured outdoor adventure.",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer_spring",
+      "title": "Spring Signature Departures",
+      "description": "Save 10% on selected April and May journeys with code SPRING10.",
+      "badge": "Seasonal Offer"
+    },
+    {
+      "id": "offer_family",
+      "title": "Private Family Upgrade",
+      "description": "Upgrade select departures to a private family format with concierge planning support.",
+      "badge": "Family Travel"
+    },
+    {
+      "id": "offer_newsletter",
+      "title": "Insider Dispatch",
+      "description": "Join our newsletter for early-release itineraries, destination notes, and private departure windows.",
+      "badge": "Newsletter"
+    }
+  ],
+  "trustBadges": [
+    {
+      "title": "Verified local guides",
+      "description": "Background-checked guide partners with destination-specific expertise."
+    },
+    {
+      "title": "Secure checkout",
+      "description": "Protected payment flow with clear invoice records and traceable statuses."
+    },
+    {
+      "title": "24/7 guest care",
+      "description": "Rapid support before departure and while travelers are in destination."
+    },
+    {
+      "title": "Responsible partners",
+      "description": "Preferred suppliers selected for safety, quality, and sustainability practices."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can I reserve a place with a deposit?",
+      "answer": "Yes. Most departures can be secured with a 30% deposit. You can also pay in full if you prefer."
+    },
+    {
+      "question": "How do online modifications work?",
+      "answer": "Eligible bookings show modification controls in the customer dashboard. If a trip is inside the policy window, our team reviews the request manually."
+    },
+    {
+      "question": "Do your guides speak multiple languages?",
+      "answer": "Yes. Each guide profile lists spoken languages and specialties so guests can choose the best fit."
+    },
+    {
+      "question": "Are airport transfers included?",
+      "answer": "Included services vary by package. Every tour detail page clearly lists inclusions and exclusions."
+    },
+    {
+      "question": "Can I use promo codes with a deposit?",
+      "answer": "Yes, when a promo is valid for the selected departure and category, the discount is applied to the payment being processed."
+    },
+    {
+      "question": "Is WhatsApp support available?",
+      "answer": "Yes. Guests can contact our guest care desk on WhatsApp for pre-departure and in-destination support."
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "blog-alpine-packing",
+      "title": "How to Pack for Shoulder-Season Alpine Touring",
+      "category": "Travel Tips",
+      "excerpt": "A practical guide to layering, footwear, and weather-ready planning for spring and autumn alpine departures.",
+      "author": "Atlas Path Editorial",
+      "publishedAt": "2026-03-08",
+      "image": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "blog-kyoto-rituals",
+      "title": "Kyoto Beyond the Checklists: Slower Rituals Worth Planning For",
+      "category": "Destination Guide",
+      "excerpt": "Tea houses, craft alleys, and the calm spaces that turn a good city break into a meaningful cultural stay.",
+      "author": "Kenji Nakamura",
+      "publishedAt": "2026-02-21",
+      "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "blog-family-travel",
+      "title": "Designing Premium Family Trips Without Overpacking the Schedule",
+      "category": "Planning",
+      "excerpt": "Why smart pacing, trusted logistics, and flexible daily structure matter more than trying to see everything.",
+      "author": "Atlas Path Guest Care",
+      "publishedAt": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "guides": [
+    {
+      "id": "guide_elena",
+      "name": "Elena Rousseau",
+      "role": "Hangai",
+      "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
+      "bio": "Elena blends mountain logistics, cultural storytelling, and polished hospitality across Switzerland, northern Italy, and the wider Alps.",
+      "languages": [
+        "English",
+        "French",
+        "Spanish"
+      ],
+      "specialties": [
+        "Alpine rail journeys",
+        "Wellness pacing",
+        "Luxury small groups"
+      ],
+      "rating": 5,
+      "experienceYears": 11,
+      "certifications": [
+        "Swiss mountain first-aid",
+        "Licensed cultural guide"
+      ]
+    },
+    {
+      "id": "guide_kenji",
+      "name": "Kenji Nakamura",
+      "role": "Huske",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+      "bio": "Kenji designs calm, deeply informed journeys through Kyoto, Nara, and Osaka with a focus on craft, ritual, and neighborhood detail.",
+      "languages": [
+        "English",
+        "Japanese"
+      ],
+      "specialties": [
+        "Temple districts",
+        "Tea culture",
+        "Culinary walks"
+      ],
+      "rating": 4.9,
+      "experienceYears": 9,
+      "certifications": [
+        "National guide interpreter",
+        "Heritage route specialist"
+      ]
+    },
+    {
+      "id": "guide_amine",
+      "name": "Amine El Idrissi",
+      "role": "Desert Expedition Guide",
+      "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+      "bio": "Amine is known for meticulous route timing, warm guest care, and immersive storytelling from Marrakech to the Sahara.",
+      "languages": [
+        "English",
+        "French",
+        "Arabic"
+      ],
+      "specialties": [
+        "Sahara camps",
+        "Souk navigation",
+        "Berber history"
+      ],
+      "rating": 4.8,
+      "experienceYears": 10,
+      "certifications": [
+        "Desert logistics specialist",
+        "Emergency response trained"
+      ]
+    },
+    {
+      "id": "guide_ingrid",
+      "name": "Ingrid Solberg",
+      "role": "Nordic Nature Guide",
+      "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+      "bio": "Ingrid leads fjord-focused itineraries with a careful balance of outdoor activity, Scandinavian design stays, and regional food culture.",
+      "languages": [
+        "English",
+        "Norwegian",
+        "German"
+      ],
+      "specialties": [
+        "Scenic sailings",
+        "Soft adventure",
+        "Photography stops"
+      ],
+      "rating": 4.9,
+      "experienceYears": 12,
+      "certifications": [
+        "Wilderness first responder",
+        "Nordic route leader"
+      ]
+    },
+    {
+      "id": "guide_mateo",
+      "name": "Mateo Silva",
+      "role": "Patagonia Trek Leader",
+      "photo": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80",
+      "bio": "Mateo specializes in high-service adventure departures across Patagonia, helping guests tackle big landscapes with confidence and rhythm.",
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "specialties": [
+        "Patagonian trekking",
+        "Trail safety",
+        "Private adventure groups"
+      ],
+      "rating": 4.8,
+      "experienceYears": 8,
+      "certifications": [
+        "WFR certified",
+        "High-altitude guide"
+      ]
+    },
+    {
+      "id": "guide_lucia",
+      "name": "Lucia Bianchi",
+      "role": "Mediterranean Heritage Guide",
+      "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=900&q=80",
+      "bio": "Lucia combines art history, food storytelling, and effortless route planning for guests exploring the Adriatic and Italian coasts.",
+      "languages": [
+        "English",
+        "Italian",
+        "Croatian"
+      ],
+      "specialties": [
+        "Food heritage",
+        "UNESCO sites",
+        "Private shore excursions"
+      ],
+      "rating": 4.8,
+      "experienceYears": 13,
+      "certifications": [
+        "Licensed art history guide",
+        "Coastal heritage specialist"
+      ]
+    }
+  ],
+  "tours": [
+    {
+      "id": "tour_alpine",
+      "slug": "alpine-grand-circuit",
+      "title": "Alpine Grand Circuit",
+      "location": "Swiss Alps, Switzerland",
+      "destination": "Switzerland",
+      "category": "Adventure",
+      "durationDays": 7,
+      "durationLabel": "7 days / 6 nights",
+      "price": 2890,
+      "rating": 4.9,
+      "reviewsCount": 124,
+      "difficulty": "Moderate",
+      "maxGroupSize": 12,
+      "availability": [
+        "2026-04-18",
+        "2026-05-09",
+        "2026-06-20",
+        "2026-09-12"
+      ],
+      "image": "https://images.unsplash.com/photo-1508261303786-6f1fd3a77ed6?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1508261303786-6f1fd3a77ed6?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "overview": "A polished small-group alpine route with panoramic rail journeys, glacier viewpoints, village stays, and wellness-friendly pacing.",
+      "highlights": [
+        "Panoramic rail segments and mountain villages",
+        "Small-group pacing with guide-managed logistics",
+        "Curated hotel stays and regional tasting menus",
+        "Glacier viewpoints, lakefront time, and wellness moments"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Geneva arrival and welcome briefing",
+          "description": "Private station transfers, welcome aperitif, and route orientation with your lead guide."
+        },
+        {
+          "day": "Day 2",
+          "title": "Golden Pass rail to the high valleys",
+          "description": "Scenic train travel and a gentle village walk with time to settle into altitude."
+        },
+        {
+          "day": "Day 3",
+          "title": "Glacier viewpoint and local farm lunch",
+          "description": "Cable ascent, easy-to-moderate walking, and lunch with local producers."
+        },
+        {
+          "day": "Day 4",
+          "title": "Design hotel stay and spa recovery",
+          "description": "A slower day with optional wellness access and curated dining."
+        },
+        {
+          "day": "Day 5-7",
+          "title": "Lakeside finale and departure support",
+          "description": "Village market visits, final panoramic route, and supported onward transfers."
+        }
+      ],
+      "included": [
+        "6 nights premium accommodation",
+        "Daily breakfast and 3 signature dinners",
+        "Scenic rail passes and destination transfers",
+        "Lead guide and local specialist entries"
+      ],
+      "excluded": [
+        "International flights",
+        "Travel insurance",
+        "Optional spa treatments",
+        "Personal purchases"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "Spanish"
+      ],
+      "guideIds": [
+        "guide_elena"
+      ],
+      "meetingPoint": "Geneva Cornavin Station",
+      "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=7.95%2C46.54%2C8.55%2C46.95&layer=mapnik",
+      "safety": "Altitude pacing, weather checks, and support vehicle options are built into the itinerary.",
+      "featured": true,
+      "popular": true
+    },
+    {
+      "id": "tour_kyoto",
+      "slug": "kyoto-lantern-trail",
+      "title": "Kyoto Lantern Trail",
+      "location": "Kyoto & Nara, Japan",
+      "destination": "Japan",
+      "category": "Culture",
+      "durationDays": 5,
+      "durationLabel": "5 days / 4 nights",
+      "price": 2140,
+      "rating": 4.9,
+      "reviewsCount": 98,
+      "difficulty": "Easy",
+      "maxGroupSize": 10,
+      "availability": [
+        "2026-04-17",
+        "2026-05-15",
+        "2026-10-02",
+        "2026-11-06"
+      ],
+      "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "overview": "A calm cultural circuit through Kyoto and Nara with dawn temple access, tea rituals, and thoughtful neighborhood exploration.",
+      "highlights": [
+        "Early-access temple and shrine visits",
+        "Tea ceremony and craft district walk",
+        "Flexible afternoons for design shops or gardens",
+        "Seamless station logistics and hotel positioning"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Arrival and Gion introduction",
+          "description": "Meet your guide, settle in centrally, and enjoy an evening lantern walk."
+        },
+        {
+          "day": "Day 2",
+          "title": "Temple district at first light",
+          "description": "Quiet morning access followed by a tea experience and neighborhood lunch."
+        },
+        {
+          "day": "Day 3",
+          "title": "Nara cultural day",
+          "description": "Historic sites, parkland pacing, and storytelling around ritual and craftsmanship."
+        },
+        {
+          "day": "Day 4-5",
+          "title": "Markets, gardens, and departure support",
+          "description": "Flexible design-focused exploration with supported onward transfers."
+        }
+      ],
+      "included": [
+        "4 nights boutique accommodation",
+        "Daily breakfast and 2 hosted dinners",
+        "Temple and tea experience entries",
+        "Guide services and regional transit support"
+      ],
+      "excluded": [
+        "International flights",
+        "Lunches",
+        "Optional private workshops",
+        "Travel insurance"
+      ],
+      "languages": [
+        "English",
+        "Japanese"
+      ],
+      "guideIds": [
+        "guide_kenji"
+      ],
+      "meetingPoint": "Kyoto Station",
+      "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=135.71%2C34.97%2C135.82%2C35.06&layer=mapnik",
+      "safety": "The route is low intensity, centrally based, and ideal for solo travelers, couples, and older guests.",
+      "featured": true,
+      "popular": true
+    },
+    {
+      "id": "tour_sahara",
+      "slug": "sahara-star-caravan",
+      "title": "Sahara Star Caravan",
+      "location": "Marrakech & Merzouga, Morocco",
+      "destination": "Morocco",
+      "category": "Adventure",
+      "durationDays": 6,
+      "durationLabel": "6 days / 5 nights",
+      "price": 1760,
+      "rating": 4.8,
+      "reviewsCount": 87,
+      "difficulty": "Moderate",
+      "maxGroupSize": 14,
+      "availability": [
+        "2026-04-27",
+        "2026-06-08",
+        "2026-09-21",
+        "2026-11-09"
+      ],
+      "image": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1489493887464-892be6d1daae?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "overview": "A comfort-led Moroccan circuit pairing Marrakech culture with desert camp nights, smooth private transfers, and warm local hosting.",
+      "highlights": [
+        "Marrakech souk navigation with a local expert",
+        "Atlas crossing with curated stopovers",
+        "Luxury desert camp and astronomy evening",
+        "Berber storytelling and traditional music"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Marrakech arrival and medina orientation",
+          "description": "Welcome transfer, rooftop dinner, and old-city briefing."
+        },
+        {
+          "day": "Day 2",
+          "title": "Atlas route to cinematic kasbahs",
+          "description": "Private road journey with guide commentary and carefully timed scenic stops."
+        },
+        {
+          "day": "Day 3",
+          "title": "Desert edge and camp arrival",
+          "description": "Camel or 4x4 entry options with sunset setup at camp."
+        },
+        {
+          "day": "Day 4-6",
+          "title": "Nomad encounters and return",
+          "description": "Music, heritage visits, and supported travel back toward Marrakech."
+        }
+      ],
+      "included": [
+        "5 nights premium accommodation and camp stay",
+        "Breakfast daily plus 3 dinners",
+        "Private overland transfers",
+        "Guide and camp activities"
+      ],
+      "excluded": [
+        "International flights",
+        "Lunches",
+        "Optional quad biking",
+        "Travel insurance"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "Arabic"
+      ],
+      "guideIds": [
+        "guide_amine"
+      ],
+      "meetingPoint": "Marrakech Menara Airport",
+      "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-7.05%2C31.35%2C-4.00%2C31.95&layer=mapnik",
+      "safety": "Heat planning, hydration guidance, and carefully staged transfer days are built into the route.",
+      "featured": true,
+      "popular": false
+    },
+    {
+      "id": "tour_fjord",
+      "slug": "fjord-light-expedition",
+      "title": "Fjord Light Expedition",
+      "location": "Bergen & the Fjords, Norway",
+      "destination": "Norway",
+      "category": "Nature",
+      "durationDays": 8,
+      "durationLabel": "8 days / 7 nights",
+      "price": 3120,
+      "rating": 4.9,
+      "reviewsCount": 79,
+      "difficulty": "Moderate",
+      "maxGroupSize": 12,
+      "availability": [
+        "2026-05-22",
+        "2026-07-03",
+        "2026-08-14",
+        "2026-09-04"
+      ],
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "overview": "A high-comfort Nordic route balancing fjord cruising, easy hikes, and elegant stays in Bergen and beyond.",
+      "highlights": [
+        "Guided sailing and scenic rail segments",
+        "Boutique waterfront stays",
+        "Easy-to-moderate outdoor experiences",
+        "Scandinavian design, food, and landscape storytelling"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Bergen harbor arrival",
+          "description": "Central hotel check-in and evening harbor briefing."
+        },
+        {
+          "day": "Day 2",
+          "title": "Historic Bergen and design-led food stops",
+          "description": "Walking route through the old quarter and curated tastings."
+        },
+        {
+          "day": "Day 3-5",
+          "title": "Fjord cruising and soft adventure",
+          "description": "Boat segments, optional hikes, and viewpoint pacing adjusted to the group."
+        },
+        {
+          "day": "Day 6-8",
+          "title": "Scenic rail, village stay, and departures",
+          "description": "Classic Norway in a polished sequence with supported onward travel."
+        }
+      ],
+      "included": [
+        "7 nights premium accommodation",
+        "Daily breakfast and 2 hosted dinners",
+        "Cruise and scenic rail tickets",
+        "Guide services and activity logistics"
+      ],
+      "excluded": [
+        "International flights",
+        "Alcoholic beverages",
+        "Optional kayaking",
+        "Travel insurance"
+      ],
+      "languages": [
+        "English",
+        "Norwegian",
+        "German"
+      ],
+      "guideIds": [
+        "guide_ingrid"
+      ],
+      "meetingPoint": "Bergen Airport",
+      "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=5.05%2C60.12%2C7.20%2C61.10&layer=mapnik",
+      "safety": "Weather monitoring and activity alternatives are built into all outdoor days.",
+      "featured": false,
+      "popular": true
+    },
+    {
+      "id": "tour_patagonia",
+      "slug": "patagonia-signature-trek",
+      "title": "Patagonia Signature Trek",
+      "location": "Torres del Paine, Chile",
+      "destination": "Chile",
+      "category": "Adventure",
+      "durationDays": 9,
+      "durationLabel": "9 days / 8 nights",
+      "price": 3680,
+      "rating": 4.8,
+      "reviewsCount": 66,
+      "difficulty": "Challenging",
+      "maxGroupSize": 10,
+      "availability": [
+        "2026-11-13",
+        "2026-12-04",
+        "2027-01-15"
+      ],
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "overview": "A high-touch Patagonian adventure with strong guiding, premium lodges, and trail decisions tailored to weather and guest pace.",
+      "highlights": [
+        "Lodge-based adventure with expert pacing",
+        "Iconic viewpoints and private transfer support",
+        "Route coaching from a certified trek leader",
+        "Excellent option for ambitious but comfort-minded travelers"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1-2",
+          "title": "Puerto Natales arrival and preparation",
+          "description": "Equipment checks, route briefing, and lodge transfer."
+        },
+        {
+          "day": "Day 3-6",
+          "title": "Signature trekking windows",
+          "description": "Viewpoint-focused hiking days adjusted to weather and fitness."
+        },
+        {
+          "day": "Day 7-9",
+          "title": "Wildlife route and departure support",
+          "description": "Scenic drives, final short walks, and onward airport logistics."
+        }
+      ],
+      "included": [
+        "8 nights lodge accommodation",
+        "Daily breakfast and 4 dinners",
+        "Private transfers and park logistics",
+        "Guide support and briefing materials"
+      ],
+      "excluded": [
+        "International flights",
+        "Technical trekking gear rental",
+        "Lunches on free days",
+        "Travel insurance"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "guideIds": [
+        "guide_mateo"
+      ],
+      "meetingPoint": "Puerto Natales",
+      "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-73.35%2C-51.30%2C-72.55%2C-50.70&layer=mapnik",
+      "safety": "Trail decisions are weather-led, with backup route options and daily risk briefings.",
+      "featured": false,
+      "popular": false
+    },
+    {
+      "id": "tour_mediterranean",
+      "slug": "mediterranean-heritage-escape",
+      "title": "Mediterranean Heritage Escape",
+      "location": "Dubrovnik & Puglia",
+      "destination": "Croatia & Italy",
+      "category": "Leisure",
+      "durationDays": 6,
+      "durationLabel": "6 days / 5 nights",
+      "price": 2490,
+      "rating": 4.8,
+      "reviewsCount": 58,
+      "difficulty": "Easy",
+      "maxGroupSize": 12,
+      "availability": [
+        "2026-05-29",
+        "2026-06-19",
+        "2026-09-18"
+      ],
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "overview": "A coastal heritage route combining old-town immersion, culinary stops, and elegant seaside downtime.",
+      "highlights": [
+        "UNESCO heritage walks with expert narration",
+        "Hands-on food experiences and market visits",
+        "Boutique coastal stays",
+        "Ideal for couples and celebratory travel"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Dubrovnik old town arrival",
+          "description": "Private transfer, terrace dinner, and evening walls overview."
+        },
+        {
+          "day": "Day 2-3",
+          "title": "Coastal heritage and tasting route",
+          "description": "Art history walk, market stops, and an olive-oil or wine experience."
+        },
+        {
+          "day": "Day 4-6",
+          "title": "Puglia finale and departure support",
+          "description": "Seaside pacing, craft visits, and onward transfer coordination."
+        }
+      ],
+      "included": [
+        "5 nights boutique accommodation",
+        "Daily breakfast and 2 hosted dinners",
+        "Selected tastings and cultural entries",
+        "Guide support and regional transfers"
+      ],
+      "excluded": [
+        "International flights",
+        "Lunches",
+        "Optional boat charter",
+        "Travel insurance"
+      ],
+      "languages": [
+        "English",
+        "Italian",
+        "Croatian"
+      ],
+      "guideIds": [
+        "guide_lucia"
+      ],
+      "meetingPoint": "Dubrovnik Airport",
+      "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=17.50%2C42.55%2C18.70%2C42.95&layer=mapnik",
+      "safety": "This is a low-intensity route with private transfers and centrally positioned accommodations.",
+      "featured": true,
+      "popular": false
+    }
+  ],
+  "reviews": [
+    {
+      "id": "review_1",
+      "tourId": "tour_alpine",
+      "guestName": "Nora Bennett",
+      "guestLocation": "London, United Kingdom",
+      "rating": 5,
+      "body": "Atlas Path delivered the rare combination of polish and warmth. Every transfer worked, every hotel felt right, and Elena read the room beautifully.",
+      "date": "2026-02-11",
+      "approved": true,
+      "featured": true
+    },
+    {
+      "id": "review_2",
+      "tourId": "tour_kyoto",
+      "guestName": "Marcus Liu",
+      "guestLocation": "Singapore",
+      "rating": 5,
+      "body": "Kenji turned Kyoto into a lived experience instead of a checklist. The pacing was wonderful and the communication before arrival was first-class.",
+      "date": "2026-01-18",
+      "approved": true,
+      "featured": true
+    },
+    {
+      "id": "review_3",
+      "tourId": "tour_sahara",
+      "guestName": "Ava Rodriguez",
+      "guestLocation": "New York, USA",
+      "rating": 5,
+      "body": "The desert camp was beautiful, but what really stood out was how calm and organized the whole route felt. We never had to guess what came next.",
+      "date": "2025-12-05",
+      "approved": true,
+      "featured": true
+    },
+    {
+      "id": "review_4",
+      "tourId": "tour_fjord",
+      "guestName": "Sven Hartmann",
+      "guestLocation": "Hamburg, Germany",
+      "rating": 5,
+      "body": "Ingrid balanced scenery, comfort, and just enough activity for our family. It felt premium without ever feeling stiff.",
+      "date": "2025-11-23",
+      "approved": true,
+      "featured": false
+    },
+    {
+      "id": "review_5",
+      "tourId": "tour_patagonia",
+      "guestName": "Priya Nair",
+      "guestLocation": "Dubai, UAE",
+      "rating": 4,
+      "body": "A serious landscape handled with serious professionalism. Mateo gave us confidence every day and the lodge choices were excellent.",
+      "date": "2025-12-20",
+      "approved": true,
+      "featured": false
+    },
+    {
+      "id": "review_6",
+      "tourId": "tour_mediterranean",
+      "guestName": "Elena Markovic",
+      "guestLocation": "Belgrade, Serbia",
+      "rating": 5,
+      "body": "Lucia made the route feel intimate and elegant. We loved the food stops, the old towns, and how easy it all felt from booking to departure.",
+      "date": "2026-02-02",
+      "approved": true,
+      "featured": false
+    }
+  ],
+  "promoCodes": [
+    {
+      "id": "promo_spring10",
+      "code": "SPRING10",
+      "type": "percent",
+      "value": 10,
+      "active": true,
+      "appliesToCategories": [
+        "Adventure",
+        "Culture",
+        "Leisure"
+      ]
+    },
+    {
+      "id": "promo_family200",
+      "code": "FAMILY200",
+      "type": "amount",
+      "value": 200,
+      "active": true,
+      "appliesToCategories": [
+        "Leisure",
+        "Culture"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "user_admin",
+      "role": "admin",
+      "fullName": "Sofia Laurent",
+      "email": "admin@atlaspath.travel",
+      "phone": "+41 79 201 1148",
+      "nationality": "Swiss",
+      "preferredLanguage": "English",
+      "preferredCurrency": "USD",
+      "passwordHash": "4161a74d17115e91cfb0a47a6f48caef:08271f5c79afd99002a36cd3812eea873a58a79d99db34a8bf72dddec7e534174ee5316d060465e5b0ddab7b61c438dad33d03172041fbfb79504c34030ebfdf",
+      "createdAt": "2025-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "user_customer_daniel",
+      "role": "customer",
+      "fullName": "Huslenbayr",
+      "email": "traveler@atlaspath.travel",
+      "phone": "+97694789779",
+      "nationality": "Mongolian",
+      "preferredLanguage": "English",
+      "preferredCurrency": "USD",
+      "passwordHash": "d9d144b57e74bc53ed4e7446c2ad73dc:33706ce5687d049a921d5af72cf0e019e0cd5993f6a0af87f6095ace34590ee67ac1030df251a33d81ff185369f892aae304f66f10aa5ca3e0b89b31da5c3f4c",
+      "createdAt": "2026-01-04T10:20:00.000Z"
+    },
+    {
+      "id": "user_customer_maya",
+      "role": "customer",
+      "fullName": "Maya Torres",
+      "email": "maya.torres@example.com",
+      "phone": "+1 917 555 2400",
+      "nationality": "American",
+      "preferredLanguage": "English",
+      "preferredCurrency": "USD",
+      "passwordHash": "d9d144b57e74bc53ed4e7446c2ad73dc:33706ce5687d049a921d5af72cf0e019e0cd5993f6a0af87f6095ace34590ee67ac1030df251a33d81ff185369f892aae304f66f10aa5ca3e0b89b31da5c3f4c",
+      "createdAt": "2026-02-12T14:15:00.000Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "48f14ca4b09a74fd44fb32c0d0bbc65fe3b63e6d03e4078a42fb0522ca7332c0",
+      "userId": "user_customer_daniel",
+      "expiresAt": "2026-04-08T11:58:07.281Z"
+    },
+    {
+      "id": "2cde317485f11d8e05a3968ffeee0ba8f2437bf6af0d04655aa6e85565e7727a",
+      "userId": "user_admin",
+      "expiresAt": "2026-04-08T11:58:07.347Z"
+    },
+    {
+      "id": "cc90b363fe6bc7e858237a39374406ef99d904aa74d739078bdc1eab77ccfc57",
+      "userId": "user_admin",
+      "expiresAt": "2026-04-08T14:36:11.804Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "booking_seed_1",
+      "bookingCode": "AT-2026-0001",
+      "accessCode": "alp1demo",
+      "customerId": "user_customer_daniel",
+      "tourId": "tour_alpine",
+      "date": "2026-05-09",
+      "guests": 2,
+      "subtotal": 5780,
+      "totalAmount": 5780,
+      "depositDue": 1734,
+      "paymentStatus": "refunded",
+      "bookingStatus": "cancelled",
+      "traveler": {
+        "fullName": "Daniel Cho",
+        "email": "traveler@atlaspath.travel",
+        "phone": "+65 8123 4411",
+        "nationality": "Singaporean",
+        "specialRequests": "Quiet room preference and one vegetarian dinner option."
+      },
+      "createdAt": "2026-02-14T09:20:00.000Z",
+      "updatedAt": "2026-03-25T14:32:51.184Z",
+      "canModifyUntil": "2026-04-25T09:00:00.000Z",
+      "confirmationSentAt": "2026-02-14T09:25:00.000Z",
+      "confirmationMessage": "Your Alpine Grand Circuit confirmation and arrival guide were sent by email."
+    },
+    {
+      "id": "booking_seed_2",
+      "bookingCode": "AT-2026-0002",
+      "accessCode": "kyt2demo",
+      "customerId": "user_customer_daniel",
+      "tourId": "tour_kyoto",
+      "date": "2026-04-17",
+      "guests": 1,
+      "subtotal": 2140,
+      "totalAmount": 2140,
+      "depositDue": 642,
+      "paymentStatus": "paid",
+      "bookingStatus": "confirmed",
+      "traveler": {
+        "fullName": "Daniel Cho",
+        "email": "traveler@atlaspath.travel",
+        "phone": "+65 8123 4411",
+        "nationality": "Singaporean",
+        "specialRequests": "Interested in a private pottery workshop add-on."
+      },
+      "createdAt": "2026-03-02T12:05:00.000Z",
+      "updatedAt": "2026-03-25T14:35:24.460Z",
+      "canModifyUntil": "2026-04-03T09:00:00.000Z",
+      "confirmationSentAt": "2026-03-02T12:15:00.000Z",
+      "confirmationMessage": "Your Kyoto itinerary briefing and deposit receipt are ready."
+    },
+    {
+      "id": "booking_seed_3",
+      "bookingCode": "AT-2026-0003",
+      "accessCode": "shr3demo",
+      "customerId": "user_customer_maya",
+      "tourId": "tour_sahara",
+      "date": "2026-06-08",
+      "guests": 3,
+      "subtotal": 5280,
+      "totalAmount": 5280,
+      "depositDue": 1584,
+      "paymentStatus": "refunded",
+      "bookingStatus": "cancelled",
+      "traveler": {
+        "fullName": "Maya Torres",
+        "email": "maya.torres@example.com",
+        "phone": "+1 917 555 2400",
+        "nationality": "American",
+        "specialRequests": "Cancelled due to a schedule change."
+      },
+      "createdAt": "2026-02-20T15:30:00.000Z",
+      "updatedAt": "2026-03-05T18:10:00.000Z",
+      "canModifyUntil": "2026-05-25T09:00:00.000Z",
+      "confirmationSentAt": "2026-02-20T15:40:00.000Z",
+      "confirmationMessage": "Your original reservation was confirmed and later moved to refund review."
+    },
+    {
+      "id": "booking_e38c680a5d78",
+      "bookingCode": "AT-2026-0004",
+      "accessCode": "49b51dd1ac9b69cd",
+      "customerId": "user_customer_daniel",
+      "tourId": "tour_mediterranean",
+      "date": "2026-06-19",
+      "guests": 2,
+      "subtotal": 4980,
+      "totalAmount": 4980,
+      "depositDue": 1494,
+      "paymentStatus": "refunded",
+      "bookingStatus": "cancelled",
+      "traveler": {
+        "fullName": "Daniel Cho",
+        "email": "traveler@atlaspath.travel",
+        "phone": "+65 8123 4411",
+        "nationality": "Singaporean",
+        "specialRequests": "Verification booking for platform QA."
+      },
+      "createdAt": "2026-03-25T11:58:07.290Z",
+      "updatedAt": "2026-03-25T14:35:10.462Z",
+      "canModifyUntil": "2026-06-05T09:00:00.000Z",
+      "confirmationSentAt": "2026-03-25T11:58:07.290Z",
+      "confirmationMessage": "A tailored confirmation has been prepared for Daniel Cho."
+    }
+  ],
+  "payments": [
+    {
+      "id": "payment_seed_1",
+      "bookingId": "booking_seed_1",
+      "type": "full",
+      "amount": 5780,
+      "originalAmount": 5780,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "card",
+      "status": "paid",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00001",
+      "billingName": "Daniel Cho",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-02-14T09:40:00.000Z",
+      "paidAt": "2026-02-14T09:40:00.000Z"
+    },
+    {
+      "id": "payment_seed_2",
+      "bookingId": "booking_seed_2",
+      "type": "deposit",
+      "amount": 642,
+      "originalAmount": 642,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "card",
+      "status": "paid",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00002",
+      "billingName": "Daniel Cho",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-03-02T12:10:00.000Z",
+      "paidAt": "2026-03-02T12:10:00.000Z"
+    },
+    {
+      "id": "payment_seed_3",
+      "bookingId": "booking_seed_2",
+      "type": "full",
+      "amount": 1498,
+      "originalAmount": 1498,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "bank_transfer",
+      "status": "pending",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00003",
+      "billingName": "Daniel Cho",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-03-08T08:00:00.000Z",
+      "paidAt": null
+    },
+    {
+      "id": "payment_seed_4",
+      "bookingId": "booking_seed_3",
+      "type": "deposit",
+      "amount": 1584,
+      "originalAmount": 1584,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "card",
+      "status": "refunded",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00004",
+      "billingName": "Maya Torres",
+      "billingEmail": "maya.torres@example.com",
+      "createdAt": "2026-02-20T15:35:00.000Z",
+      "paidAt": "2026-02-20T15:35:00.000Z"
+    },
+    {
+      "id": "payment_f72d45b30a55",
+      "bookingId": "booking_e38c680a5d78",
+      "type": "deposit",
+      "amount": 1344.6,
+      "originalAmount": 1494,
+      "discountAmount": 149.4,
+      "promoCode": "SPRING10",
+      "method": "card",
+      "status": "paid",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00005",
+      "billingName": "Daniel Cho",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-03-25T11:58:07.297Z",
+      "paidAt": "2026-03-25T11:58:07.297Z"
+    },
+    {
+      "id": "payment_aa2ee9e1e891",
+      "bookingId": "booking_e38c680a5d78",
+      "type": "deposit",
+      "amount": 149.4,
+      "originalAmount": 149.4,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "wallet",
+      "status": "paid",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00006",
+      "billingName": "Daniel Cho",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-03-25T14:33:49.081Z",
+      "paidAt": "2026-03-25T14:33:49.081Z"
+    },
+    {
+      "id": "payment_cdc31b058148",
+      "bookingId": "booking_e38c680a5d78",
+      "type": "full",
+      "amount": 3486,
+      "originalAmount": 3486,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "wallet",
+      "status": "paid",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00007",
+      "billingName": "Daniel Cho",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-03-25T14:33:55.256Z",
+      "paidAt": "2026-03-25T14:33:55.256Z"
+    },
+    {
+      "id": "payment_b3559d598e5e",
+      "bookingId": "booking_seed_2",
+      "type": "full",
+      "amount": 1498,
+      "originalAmount": 1498,
+      "discountAmount": 0,
+      "promoCode": null,
+      "method": "wallet",
+      "status": "paid",
+      "currency": "USD",
+      "invoiceNumber": "INV-2026-00008",
+      "billingName": "huslen",
+      "billingEmail": "traveler@atlaspath.travel",
+      "createdAt": "2026-03-25T14:35:24.459Z",
+      "paidAt": "2026-03-25T14:35:24.459Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "note_1",
+      "bookingId": "booking_seed_2",
+      "type": "payment_followup",
+      "message": "Guest requested a pottery workshop add-on.",
+      "createdAt": "2026-03-08T08:30:00.000Z"
+    },
+    {
+      "id": "note_58535b41bacb",
+      "bookingId": "booking_e38c680a5d78",
+      "type": "booking_confirmation",
+      "message": "Confirmation prepared for traveler@atlaspath.travel",
+      "createdAt": "2026-03-25T11:58:07.290Z"
+    }
+  ],
+  "newsletterSubscriptions": [
+    {
+      "id": "newsletter_seed_1",
+      "email": "insider@example.com",
+      "createdAt": "2026-03-01T07:00:00.000Z"
+    },
+    {
+      "id": "newsletter_41f4f9268108",
+      "email": "huslenbayr9779@gmail.com",
+      "createdAt": "2026-03-25T14:28:23.437Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": "contact_seed_1",
+      "name": "Lauren Price",
+      "email": "lauren.price@example.com",
+      "topic": "Private anniversary trip",
+      "message": "We are looking for a private Mediterranean route in late September and would love to discuss pacing and hotel style.",
+      "createdAt": "2026-03-12T10:45:00.000Z"
+    }
+  ]
+}

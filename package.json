@@ -1,0 +1,24 @@
+{
+  "name": "mongolway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual Mongolian tourism website for MongolWay with editable content, booking flow, admin tools, and QPay-ready payment architecture.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.56.1",
+    "autoprefixer": "^10.4.21",
+    "next": "^16.2.1",
+    "nodemailer": "^7.0.10",
+    "postcss": "^8.5.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^3.4.17"
+  }
+}
