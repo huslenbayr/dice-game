@@ -1,9 +1,43 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { HeaderAuthControls } from "@/components/header-auth-controls";
 import { LanguageSwitcher } from "@/components/language-switcher";
 
+function MenuButton({ isOpen, onToggle }) {
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-expanded={isOpen}
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100"
+    >
+      <span className="relative block h-3.5 w-4">
+        <span
+          className={`absolute left-0 top-0 h-0.5 w-4 rounded-full bg-current transition ${
+            isOpen ? "translate-y-[6px] rotate-45" : ""
+          }`}
+        />
+        <span
+          className={`absolute left-0 top-[6px] h-0.5 w-4 rounded-full bg-current transition ${
+            isOpen ? "opacity-0" : "opacity-100"
+          }`}
+        />
+        <span
+          className={`absolute left-0 top-[12px] h-0.5 w-4 rounded-full bg-current transition ${
+            isOpen ? "-translate-y-[6px] -rotate-45" : ""
+          }`}
+        />
+      </span>
+    </button>
+  );
+}
+
 export function SiteHeader({ language, site, ui, currentUser }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const nav = [
     { href: "/", label: ui.nav.home },
     { href: "/about", label: ui.nav.about },
@@ -17,40 +51,81 @@ export function SiteHeader({ language, site, ui, currentUser }) {
     nav.push({ href: "/admin", label: ui.nav.admin });
   }
 
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/90 backdrop-blur">
-      <div className="shell-container flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
-        <Link href="/" className="flex items-center gap-4">
-          <div className="rounded-[24px] border border-slate-200 bg-white px-4 py-3 shadow-soft">
-            <BrandLogo brandName={site.brandName} priority />
-          </div>
-          <div>
-            <div className="text-sm text-slate-500">{site.contact.officeLocation}</div>
-          </div>
-        </Link>
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-          <nav className="flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-600">
+      <div className="shell-container py-2.5 sm:py-3">
+        <div className="flex items-center gap-3 xl:gap-6">
+          <Link href="/" className="flex min-w-0 flex-none items-center gap-3" onClick={closeMenu}>
+            <div className="flex h-10 items-center rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-soft sm:h-11 sm:px-4">
+              <BrandLogo brandName={site.brandName} priority />
+            </div>
+            <div className="hidden min-w-0 2xl:block">
+              <p className="truncate text-xs text-slate-500">{site.contact.officeLocation}</p>
+            </div>
+          </Link>
+
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3 py-2 transition hover:bg-slate-100 hover:text-ink"
+                className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-ink"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
-          <div className="flex flex-wrap items-center gap-3">
-            <LanguageSwitcher language={language} />
+
+          <div className="ml-auto hidden flex-none items-center gap-2 xl:flex">
+            <LanguageSwitcher language={language} compact />
             <HeaderAuthControls currentUser={currentUser} ui={ui} />
             <Link
               href="/booking"
-              className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+              className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-ink px-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 2xl:px-5"
             >
               {ui.common.startBooking}
             </Link>
           </div>
+
+          <div className="ml-auto flex flex-none items-center gap-2 xl:hidden">
+            <LanguageSwitcher language={language} compact />
+            <MenuButton isOpen={isMenuOpen} onToggle={() => setIsMenuOpen((current) => !current)} />
+          </div>
         </div>
+
+        {isMenuOpen ? (
+          <div className="mt-3 rounded-[26px] border border-slate-200 bg-white p-3 shadow-soft xl:hidden">
+            <nav className="grid gap-1">
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className="rounded-2xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-ink"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-3 border-t border-slate-200 pt-3">
+              <div className="flex flex-col gap-2">
+                <HeaderAuthControls currentUser={currentUser} ui={ui} variant="menu" />
+                <Link
+                  href="/booking"
+                  onClick={closeMenu}
+                  className="inline-flex h-10 items-center justify-center rounded-full bg-ink px-4 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+                >
+                  {ui.common.startBooking}
+                </Link>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     </header>
   );

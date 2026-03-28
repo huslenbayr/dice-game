@@ -3,16 +3,28 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const LOGO_SRC = "/assets/MongolWay%20logo%20in%20minimal%20black%20and%20white.png";
+const LOGO_SRC = "/assets/MongolWay_logo_in_minimal_black_and_white-removebg-preview.png";
 
 export function BrandLogo({ brandName, priority = false, variant = "header", className = "" }) {
   const [hasError, setHasError] = useState(false);
-  const sizeClass = variant === "footer" ? "h-20 w-56" : "h-14 w-44";
+  const sizeMap = {
+    header: {
+      width: 170,
+      height: 42,
+      className: "h-7 w-auto sm:h-8"
+    },
+    footer: {
+      width: 220,
+      height: 56,
+      className: "h-10 w-auto sm:h-12"
+    }
+  };
+  const currentSize = sizeMap[variant] || sizeMap.header;
 
   if (hasError) {
     return (
       <div
-        className={`flex items-center justify-center rounded-2xl bg-ink px-4 py-3 font-display text-xl font-semibold text-white ${className}`}
+        className={`flex items-center justify-center rounded-2xl bg-ink px-3 py-2 font-display text-sm font-semibold text-white sm:px-4 sm:text-base ${className}`}
       >
         {brandName}
       </div>
@@ -20,17 +32,17 @@ export function BrandLogo({ brandName, priority = false, variant = "header", cla
   }
 
   return (
-    <div className={`relative ${sizeClass} ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Image
         src={LOGO_SRC}
         alt={`${brandName} logo`}
-        fill
+        width={currentSize.width}
+        height={currentSize.height}
         priority={priority}
-        sizes={variant === "footer" ? "224px" : "176px"}
-        className="object-contain object-left"
+        sizes={variant === "footer" ? "220px" : "170px"}
+        className={`${currentSize.className} object-contain object-left`}
         onError={() => setHasError(true)}
       />
     </div>
   );
 }
-
