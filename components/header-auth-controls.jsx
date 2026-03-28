@@ -10,11 +10,11 @@ export function HeaderAuthControls({ currentUser, ui, variant = "desktop" }) {
   const isMenuVariant = variant === "menu";
   const containerClass = isMenuVariant ? "flex flex-col gap-2 sm:flex-row" : "flex items-center gap-2 whitespace-nowrap";
   const buttonClass = isMenuVariant
-    ? "inline-flex h-10 items-center justify-center rounded-full border border-slate-200 px-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-    : "inline-flex h-9 items-center justify-center rounded-full border border-slate-200 px-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100";
+    ? "inline-flex h-10 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 text-sm font-semibold text-sand transition hover:bg-white/10"
+    : "inline-flex h-9 items-center justify-center rounded-full border border-white/10 bg-white/5 px-3.5 text-sm font-semibold text-sand transition hover:bg-white/10";
   const signOutClass = isMenuVariant
-    ? "inline-flex h-10 items-center justify-center rounded-full bg-slate-900 px-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 disabled:opacity-70"
-    : "inline-flex h-9 items-center justify-center rounded-full bg-slate-900 px-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 disabled:opacity-70";
+    ? "inline-flex h-10 items-center justify-center rounded-full bg-clay px-4 text-sm font-semibold text-sand transition hover:-translate-y-0.5 disabled:opacity-70"
+    : "inline-flex h-9 items-center justify-center rounded-full bg-clay px-3.5 text-sm font-semibold text-sand transition hover:-translate-y-0.5 disabled:opacity-70";
 
   function handleSignOut() {
     startTransition(async () => {

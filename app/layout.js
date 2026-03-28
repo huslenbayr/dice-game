@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "MongolWay",
-  description: "A bilingual tourism website for a new Mongolian travel company."
+  description: "A multilingual tourism website for a new Mongolian travel company."
 };
 
 export default async function RootLayout({ children }) {
@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang={language}>
-      <body className="bg-mongolway-glow font-sans text-ink antialiased">
+      <body className="bg-mongolway-glow font-sans antialiased">
         <div className="min-h-screen">
           <SiteHeader language={language} site={snapshot.site} ui={ui} currentUser={currentUser} />
           <main>{children}</main>

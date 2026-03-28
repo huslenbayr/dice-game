@@ -75,10 +75,10 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
         const payload = await response.json();
 
         if (!response.ok) {
-          throw new Error(payload.error || "Booking failed.");
+          throw new Error(payload.error || ui.booking.errorMessage);
         }
 
-        setSuccessMessage(language === "mn" ? "Захиалга амжилттай хадгалагдлаа." : "Booking saved successfully.");
+        setSuccessMessage(ui.booking.savedMessage);
 
         router.push(payload.nextStep?.paymentUrl || `/payment/${payload.bookingId || payload.booking.id}`);
         router.refresh();
@@ -92,21 +92,21 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
     <div className="grid gap-6 lg:grid-cols-[1fr_0.92fr]">
       <form onSubmit={handleSubmit} className="glass-panel p-6 sm:p-8">
         <div className="mb-6">
-          <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.booking.pageLabel}</p>
+          <p className="section-label">{ui.booking.pageLabel}</p>
           <h2 className="mt-3 font-display text-3xl">{ui.booking.formTitle}</h2>
           <p className="mt-3 prose-copy">{ui.booking.formBody}</p>
           {currentUser ? (
-            <div className="mt-4 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-600">{ui.booking.signedInHint}</div>
+            <div className="mt-4 surface-soft px-4 py-3 text-sm text-white/70">{ui.booking.signedInHint}</div>
           ) : null}
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="space-y-2 text-sm font-medium text-slate-600">
+          <label className="field-label">
             <span>{ui.booking.fields.tour}</span>
             <select
               name="tourId"
               value={values.tourId}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             >
               {tours.map((tour) => (
                 <option key={tour.id} value={tour.id}>
@@ -115,13 +115,13 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
               ))}
             </select>
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600">
+          <label className="field-label">
             <span>{ui.booking.fields.date}</span>
             <select
               name="date"
               value={values.date}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             >
               {(selectedTour?.dates || []).map((date) => (
                 <option key={date} value={date}>
@@ -130,7 +130,7 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
               ))}
             </select>
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600">
+          <label className="field-label">
             <span>{ui.booking.fields.people}</span>
             <input
               name="people"
@@ -139,72 +139,70 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
               max="12"
               value={values.people}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             />
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600">
+          <label className="field-label">
             <span>{ui.booking.fields.nationality}</span>
             <input
               name="nationality"
               value={values.nationality}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             />
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600">
+          <label className="field-label">
             <span>{ui.booking.fields.name}</span>
             <input
               name="name"
               value={values.name}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             />
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600">
+          <label className="field-label">
             <span>{ui.booking.fields.email}</span>
             <input
               name="email"
               type="email"
               value={values.email}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             />
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600 sm:col-span-2">
+          <label className="field-label sm:col-span-2">
             <span>{ui.booking.fields.phone}</span>
             <input
               name="phone"
               value={values.phone}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             />
           </label>
-          <label className="space-y-2 text-sm font-medium text-slate-600 sm:col-span-2">
+          <label className="field-label sm:col-span-2">
             <span>{ui.booking.fields.specialRequest}</span>
             <textarea
               name="specialRequest"
               value={values.specialRequest}
               onChange={handleChange}
               rows={5}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+              className="field-control"
             />
           </label>
         </div>
-        {error ? <div className="mt-4 rounded-2xl bg-rose-50 px-4 py-3 text-sm text-rose-700">{error}</div> : null}
-        {successMessage ? (
-          <div className="mt-4 rounded-2xl bg-emerald-50 px-4 py-3 text-sm text-emerald-700">{successMessage}</div>
-        ) : null}
+        {error ? <div className="error-box mt-4">{error}</div> : null}
+        {successMessage ? <div className="success-box mt-4">{successMessage}</div> : null}
         <button
           type="submit"
           disabled={isPending}
-          className="mt-6 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 disabled:opacity-70"
+          className="btn-primary mt-6 disabled:opacity-70"
         >
           {isPending ? "..." : ui.booking.confirm}
         </button>
       </form>
 
       <aside className="glass-panel p-6 sm:p-8">
-        <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.common.bookingSummary}</p>
+        <p className="section-label">{ui.common.bookingSummary}</p>
         {summary ? (
           <div className="mt-5 space-y-5">
             <div
@@ -217,18 +215,18 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
               <h3 className="font-display text-3xl">{summary.title}</h3>
               <p className="mt-2 prose-copy">{localize(selectedTour.intro, language)}</p>
             </div>
-            <div className="space-y-4 rounded-[24px] bg-slate-50 p-5">
-              <div className="flex items-center justify-between gap-4 text-sm text-slate-600">
+            <div className="surface-soft space-y-4 p-5">
+              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
                 <span>{ui.booking.fields.date}</span>
-                <strong className="text-ink">{summary.date}</strong>
+                <strong className="detail-value">{summary.date}</strong>
               </div>
-              <div className="flex items-center justify-between gap-4 text-sm text-slate-600">
+              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
                 <span>{ui.booking.fields.people}</span>
-                <strong className="text-ink">{values.people}</strong>
+                <strong className="detail-value">{values.people}</strong>
               </div>
-              <div className="flex items-center justify-between gap-4 text-sm text-slate-600">
+              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
                 <span>{ui.common.from}</span>
-                <strong className="text-ink">{formatCurrency(summary.total, language)}</strong>
+                <strong className="detail-value">{formatCurrency(summary.total, language)}</strong>
               </div>
             </div>
           </div>

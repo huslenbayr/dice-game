@@ -2,16 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --mw-ink: #222831;
+  --mw-surface: #393e46;
+  --mw-accent: #00adb5;
+  --mw-light: #eeeeee;
+  --mw-light-soft: rgba(238, 238, 238, 0.76);
+  --mw-light-faint: rgba(238, 238, 238, 0.56);
+  --mw-border: rgba(238, 238, 238, 0.14);
+  --mw-panel: rgba(57, 62, 70, 0.84);
+  --mw-panel-strong: rgba(34, 40, 49, 0.9);
+  --mw-panel-soft: rgba(238, 238, 238, 0.05);
+  --mw-panel-soft-strong: rgba(238, 238, 238, 0.08);
+  --mw-success-bg: rgba(16, 185, 129, 0.16);
+  --mw-success-text: #b9f7df;
+  --mw-error-bg: rgba(248, 113, 113, 0.16);
+  --mw-error-text: #fecaca;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--mw-ink);
 }
 
 body {
   min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(0, 173, 181, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(0, 173, 181, 0.08), transparent 22%),
+    linear-gradient(160deg, #222831 0%, #272d35 44%, #393e46 100%);
+  color: var(--mw-light);
 }
 
 a {
@@ -26,8 +50,24 @@ textarea {
   font: inherit;
 }
 
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--mw-accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(0, 173, 181, 0.3);
+  color: var(--mw-light);
+}
+
 .prose-copy {
-  @apply text-[15px] leading-7 text-slate-600;
+  @apply text-[15px] leading-7;
+  color: var(--mw-light-soft);
 }
 
 .shell-container {
@@ -35,9 +75,146 @@ textarea {
 }
 
 .glass-panel {
-  @apply rounded-[28px] border border-white/60 bg-white/75 shadow-soft backdrop-blur;
+  @apply rounded-[28px] border shadow-soft backdrop-blur;
+  border-color: var(--mw-border);
+  background:
+    linear-gradient(180deg, rgba(57, 62, 70, 0.9), rgba(34, 40, 49, 0.94)),
+    rgba(57, 62, 70, 0.84);
+  color: var(--mw-light);
 }
 
 .section-space {
   @apply py-10 sm:py-14 lg:py-16;
+}
+
+.section-label {
+  @apply text-sm uppercase tracking-[0.25em];
+  color: var(--mw-light-faint);
+}
+
+.surface-soft {
+  @apply rounded-[24px] border;
+  border-color: var(--mw-border);
+  background: var(--mw-panel-soft);
+}
+
+.surface-soft-strong {
+  @apply rounded-[24px] border;
+  border-color: var(--mw-border);
+  background: var(--mw-panel-soft-strong);
+}
+
+.muted-text {
+  color: var(--mw-light-soft);
+}
+
+.faint-text {
+  color: var(--mw-light-faint);
+}
+
+.detail-value {
+  color: var(--mw-light);
+}
+
+.field-label {
+  @apply space-y-2 text-sm font-medium;
+  color: var(--mw-light-soft);
+}
+
+.field-control {
+  @apply w-full rounded-2xl border px-4 py-3 transition;
+  border-color: rgba(0, 173, 181, 0.2);
+  background: rgba(238, 238, 238, 0.08);
+  color: var(--mw-light);
+}
+
+.field-control::placeholder {
+  color: rgba(238, 238, 238, 0.42);
+}
+
+.field-control:focus {
+  border-color: rgba(0, 173, 181, 0.7);
+  background: rgba(238, 238, 238, 0.12);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition;
+  background: var(--mw-accent);
+  color: var(--mw-light);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: #0bbec6;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition;
+  border-color: var(--mw-border);
+  background: rgba(238, 238, 238, 0.04);
+  color: var(--mw-light);
+}
+
+.btn-secondary:hover {
+  background: rgba(238, 238, 238, 0.1);
+}
+
+.btn-danger {
+  @apply inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition;
+  border-color: rgba(248, 113, 113, 0.28);
+  color: #fecaca;
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.btn-danger:hover {
+  background: rgba(248, 113, 113, 0.14);
+}
+
+.success-box {
+  @apply rounded-2xl px-4 py-3 text-sm;
+  background: var(--mw-success-bg);
+  color: var(--mw-success-text);
+}
+
+.error-box {
+  @apply rounded-2xl px-4 py-3 text-sm;
+  background: var(--mw-error-bg);
+  color: var(--mw-error-text);
+}
+
+.admin-editor label {
+  color: var(--mw-light-soft);
+}
+
+.admin-editor label > span {
+  color: var(--mw-light);
+  font-weight: 600;
+}
+
+.admin-editor input,
+.admin-editor textarea,
+.admin-editor select {
+  @apply w-full rounded-2xl px-4 py-3;
+  border: 1px solid rgba(0, 173, 181, 0.2);
+  background: rgba(238, 238, 238, 0.08);
+  color: var(--mw-light);
+}
+
+.admin-editor input:focus,
+.admin-editor textarea:focus,
+.admin-editor select:focus {
+  border-color: rgba(0, 173, 181, 0.7);
+  background: rgba(238, 238, 238, 0.12);
+}
+
+.admin-card {
+  @apply rounded-[28px] border p-6;
+  border-color: var(--mw-border);
+  background: rgba(238, 238, 238, 0.04);
+}
+
+.admin-list-card {
+  @apply rounded-[24px] border p-5;
+  border-color: var(--mw-border);
+  background: rgba(238, 238, 238, 0.04);
 }

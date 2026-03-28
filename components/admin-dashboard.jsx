@@ -101,7 +101,7 @@ function TourEditor({ tour, onSave, onDelete, ui, language }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-[28px] border border-slate-200 bg-white p-6">
+    <form onSubmit={handleSubmit} className="admin-card admin-editor space-y-4">
       <input type="hidden" name="id" defaultValue={tour.id} />
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="space-y-2 text-sm">
@@ -295,11 +295,11 @@ function TourEditor({ tour, onSave, onDelete, ui, language }) {
         </label>
       </div>
       <div className="flex flex-wrap gap-3">
-        <button className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" type="submit">
+        <button className="btn-primary" type="submit">
           {ui.common.saveChanges}
         </button>
         <button
-          className="rounded-full border border-rose-200 px-5 py-3 text-sm font-semibold text-rose-700"
+          className="btn-danger"
           type="button"
           onClick={() => onDelete(tour.id)}
         >
@@ -441,9 +441,9 @@ export function AdminDashboard({ snapshot, language, ui }) {
   return (
     <div className="space-y-10">
       <section className="glass-panel p-6 sm:p-8 lg:p-10">
-        <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.admin.siteTitle}</p>
+        <p className="section-label">{ui.admin.siteTitle}</p>
         <h2 className="mt-4 font-display text-4xl">{ui.admin.contentTitle}</h2>
-        <form onSubmit={updateSite} className="mt-8 grid gap-4 sm:grid-cols-2">
+        <form onSubmit={updateSite} className="admin-editor mt-8 grid gap-4 sm:grid-cols-2">
           <label className="space-y-2 text-sm">
             <span className="font-semibold text-slate-700">{ui.common.contactPerson}</span>
             <input
@@ -681,7 +681,7 @@ export function AdminDashboard({ snapshot, language, ui }) {
             />
           </label>
           <div className="sm:col-span-2">
-            <button className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" type="submit">
+            <button className="btn-primary" type="submit">
               {isPending ? "..." : ui.common.saveChanges}
             </button>
           </div>
@@ -689,7 +689,7 @@ export function AdminDashboard({ snapshot, language, ui }) {
       </section>
 
       <section className="glass-panel p-6 sm:p-8 lg:p-10">
-        <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.admin.toursTitle}</p>
+        <p className="section-label">{ui.admin.toursTitle}</p>
         <div className="mt-8 space-y-8">
           {snapshot.tours.map((tour) => (
             <TourEditor
@@ -705,9 +705,9 @@ export function AdminDashboard({ snapshot, language, ui }) {
       </section>
 
       <section className="glass-panel p-6 sm:p-8 lg:p-10">
-        <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.common.addTour}</p>
+        <p className="section-label">{ui.common.addTour}</p>
         <h2 className="mt-4 font-display text-4xl">{ui.common.addTour}</h2>
-        <form onSubmit={addTour} className="mt-8 grid gap-4 sm:grid-cols-2">
+        <form onSubmit={addTour} className="admin-editor mt-8 grid gap-4 sm:grid-cols-2">
           <label className="space-y-2 text-sm">
             <span className="font-semibold text-slate-700">Title EN</span>
             <input name="titleEn" className="w-full rounded-2xl border border-slate-200 px-4 py-3" />
@@ -797,7 +797,7 @@ export function AdminDashboard({ snapshot, language, ui }) {
             <textarea name="itineraryMn" rows={6} className="w-full rounded-2xl border border-slate-200 px-4 py-3" />
           </label>
           <div className="sm:col-span-2">
-            <button className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" type="submit">
+            <button className="btn-primary" type="submit">
               {ui.common.addTour}
             </button>
           </div>
@@ -805,21 +805,21 @@ export function AdminDashboard({ snapshot, language, ui }) {
       </section>
 
       <section className="glass-panel p-6 sm:p-8 lg:p-10">
-        <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.admin.bookingsTitle}</p>
+        <p className="section-label">{ui.admin.bookingsTitle}</p>
         <div className="mt-8 space-y-4">
           {snapshot.bookings.map((booking) => (
             <form
               key={booking.id}
               onSubmit={updateBooking}
-              className="grid gap-4 rounded-[24px] border border-slate-200 bg-white p-5 lg:grid-cols-[1.3fr_1fr_1fr_auto]"
+              className="admin-list-card admin-editor grid gap-4 lg:grid-cols-[1.3fr_1fr_1fr_auto]"
             >
               <input type="hidden" name="bookingId" value={booking.id} />
               <div>
-                <p className="font-semibold text-ink">{booking.name}</p>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="font-semibold text-sand">{booking.name}</p>
+                <p className="mt-1 text-sm text-white/60">
                   {typeof booking.tourTitle === "string" ? booking.tourTitle : booking.tourTitle[language]}
                 </p>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-white/60">
                   {booking.date} · {booking.people}
                 </p>
               </div>
@@ -852,12 +852,48 @@ export function AdminDashboard({ snapshot, language, ui }) {
                 </select>
               </label>
               <div className="flex items-end">
-                <button className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" type="submit">
+                <button className="btn-primary" type="submit">
                   {ui.common.updateStatus}
                 </button>
               </div>
             </form>
           ))}
+        </div>
+      </section>
+
+      <section className="glass-panel p-6 sm:p-8 lg:p-10">
+        <p className="section-label">{ui.admin.leadsTitle}</p>
+        <h2 className="mt-4 font-display text-4xl">{ui.admin.leadsTitle}</h2>
+        <p className="mt-4 max-w-3xl prose-copy">{ui.admin.leadsBody}</p>
+        <div className="mt-8 space-y-4">
+          {snapshot.emailLeads?.length ? (
+            snapshot.emailLeads.map((lead) => (
+              <article key={lead.id} className="admin-list-card">
+                <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/42">{ui.contact.fields.email}</p>
+                    <p className="mt-2 text-base font-semibold text-sand">{lead.email}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/42">{ui.common.source}</p>
+                    <p className="mt-2 text-sm text-white/72">{lead.source}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/42">{ui.common.status}</p>
+                    <p className="mt-2 text-sm text-white/72">{lead.status}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/42">{ui.common.created}</p>
+                    <p className="mt-2 text-sm text-white/72">
+                      {lead.createdAt ? lead.createdAt.slice(0, 16).replace("T", " ") : "-"}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))
+          ) : (
+            <div className="admin-list-card text-sm text-white/68">{ui.admin.leadsEmpty}</div>
+          )}
         </div>
       </section>
     </div>

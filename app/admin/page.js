@@ -12,17 +12,12 @@ export default async function AdminPage() {
   const repository = await getRepository();
   const snapshot = await repository.getAdminSnapshot();
 
-  const body =
-    language === "mn"
-      ? "Жишиг аяллууд, хоёр хэл дээрх агуулга, холбоо барих мэдээлэл, захиалга болон төлбөрийн placeholder төлөвүүдийг нэг дороос удирдана."
-      : "Manage sample tours, bilingual content, contact details, bookings, and payment placeholder states from one place.";
-
   return (
     <>
       <PageHero
         eyebrow={ui.admin.pageLabel}
         title={ui.admin.siteTitle}
-        body={body}
+        body={ui.admin.pageBody}
         image="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1600&q=80"
       />
 

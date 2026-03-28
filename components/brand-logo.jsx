@@ -24,7 +24,7 @@ export function BrandLogo({ brandName, priority = false, variant = "header", cla
   if (hasError) {
     return (
       <div
-        className={`flex items-center justify-center rounded-2xl bg-ink px-3 py-2 font-display text-sm font-semibold text-white sm:px-4 sm:text-base ${className}`}
+        className={`flex items-center justify-center rounded-2xl bg-clay px-3 py-2 font-display text-sm font-semibold text-sand sm:px-4 sm:text-base ${className}`}
       >
         {brandName}
       </div>

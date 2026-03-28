@@ -552,6 +552,27 @@
   ],
   "bookings": [
     {
+      "id": "1c9c40e9-3dc5-4dc8-b981-d4a61d5cfc03",
+      "userId": "user-admin-huslenbayr",
+      "tourId": "tour-naadam",
+      "tourTitle": {
+        "en": "Naadam Experience",
+        "mn": "Наадмын аялал"
+      },
+      "date": "2026-07-10",
+      "people": 2,
+      "name": "Huslenbayr",
+      "email": "huslenbayr9779@gmail.com",
+      "phone": "+976 9911 2233",
+      "nationality": "Mongolian",
+      "specialRequest": "",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "paymentSessionId": null,
+      "createdAt": "2026-03-28T10:40:55.462Z",
+      "updatedAt": "2026-03-28T10:40:55.462Z"
+    },
+    {
       "id": "3089ca27-306a-4189-82ac-db4456ea46dd",
       "userId": "user-admin-huslenbayr",
       "tourId": "tour-arkhangai",
@@ -566,11 +587,11 @@
       "phone": "+976 9911 2233",
       "nationality": "Mongolian",
       "specialRequest": "",
-      "status": "pending",
-      "paymentStatus": "pending",
+      "status": "paid",
+      "paymentStatus": "failed",
       "paymentSessionId": null,
       "createdAt": "2026-03-27T05:54:42.251Z",
-      "updatedAt": "2026-03-27T05:54:42.251Z"
+      "updatedAt": "2026-03-28T10:39:01.985Z"
     },
     {
       "id": "9174bedb-cbf2-4bb2-9dc5-e37ecb2fc925",
@@ -776,7 +797,36 @@
       "createdAt": "2026-03-25T15:42:26.469Z"
     }
   ],
+  "emailLeads": [
+    {
+      "id": "94ea9326-7e3d-4eff-b1dc-26a890e218b7",
+      "email": "huslenbayr9779@gmail.com",
+      "source": "homepage",
+      "status": "new",
+      "createdAt": "2026-03-28T09:05:28.762Z"
+    }
+  ],
   "emailOutbox": [
+    {
+      "id": "747aff40-1df6-42cc-8c3a-484faa8f0f5d",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New booking for Naadam Experience - MongolWay",
+      "html": "\n    <div style=\"font-family:Arial,sans-serif;background:#222831;padding:32px;\">\n      <div style=\"max-width:640px;margin:0 auto;background:#393E46;border:1px solid rgba(238,238,238,0.12);border-radius:24px;padding:32px;color:#EEEEEE;\">\n        <p style=\"margin:0 0 12px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(238,238,238,0.56);\">MongolWay</p>\n        <h2 style=\"margin:0 0 20px;font-size:28px;line-height:1.2;\">New booking submitted</h2>\n        \n      <p><strong>Tour:</strong> Naadam Experience</p>\n      <p><strong>Booking ID:</strong> 1c9c40e9-3dc5-4dc8-b981-d4a61d5cfc03</p>\n      <p><strong>Date:</strong> 2026-07-10</p>\n      <p><strong>People:</strong> 2</p>\n      <p><strong>Name:</strong> Huslenbayr</p>\n      <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n      <p><strong>Phone:</strong> +976 9911 2233</p>\n      <p><strong>Nationality:</strong> Mongolian</p>\n      <p><strong>Special request:</strong> None</p>\n      <p><strong>Status:</strong> pending</p>\n    \n      </div>\n    </div>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-28T10:40:55.467Z"
+    },
+    {
+      "id": "e8baec4c-897e-4cc5-abcc-3dba67a2dbc6",
+      "to": "huslenbayr9779@gmail.com",
+      "from": "no-reply@mongolway.mn",
+      "subject": "New lead from homepage - MongolWay",
+      "html": "\n    <div style=\"font-family:Arial,sans-serif;background:#222831;padding:32px;\">\n      <div style=\"max-width:640px;margin:0 auto;background:#393E46;border:1px solid rgba(238,238,238,0.12);border-radius:24px;padding:32px;color:#EEEEEE;\">\n        <p style=\"margin:0 0 12px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(238,238,238,0.56);\">MongolWay</p>\n        <h2 style=\"margin:0 0 20px;font-size:28px;line-height:1.2;\">New email lead captured</h2>\n        \n      <p><strong>Email:</strong> huslenbayr9779@gmail.com</p>\n      <p><strong>Lead ID:</strong> 94ea9326-7e3d-4eff-b1dc-26a890e218b7</p>\n      <p><strong>Source:</strong> homepage</p>\n      <p><strong>Status:</strong> new</p>\n      <p><strong>Created at:</strong> 2026-03-28T09:05:28.762Z</p>\n    \n      </div>\n    </div>\n  ",
+      "provider": "mock",
+      "reason": "SMTP is not configured. Stored locally instead of sending.",
+      "createdAt": "2026-03-28T09:05:28.769Z"
+    },
     {
       "id": "8ac7563b-b3a4-4330-9521-7ff05df6ec95",
       "to": "huslenbayr9779@gmail.com",

@@ -8,23 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#14202B",
-        sand: "#F2EAE0",
-        clay: "#A65C3A",
-        sky: "#83B6C9",
-        moss: "#65745B",
-        gold: "#D8A85B"
+        ink: "#222831",
+        sand: "#EEEEEE",
+        clay: "#00ADB5",
+        sky: "#393E46",
+        moss: "#7FD3D6",
+        gold: "#0E8B92"
       },
       fontFamily: {
         display: ["Georgia", "Times New Roman", "serif"],
         sans: ["ui-sans-serif", "system-ui", "sans-serif"]
       },
       boxShadow: {
-        soft: "0 24px 60px rgba(20, 32, 43, 0.12)"
+        soft: "0 28px 72px rgba(8, 10, 15, 0.34)"
       },
       backgroundImage: {
         "mongolway-glow":
-          "radial-gradient(circle at top left, rgba(216, 168, 91, 0.28), transparent 24%), radial-gradient(circle at bottom right, rgba(131, 182, 201, 0.2), transparent 26%), linear-gradient(160deg, #f7f1e8 0%, #f4ece0 48%, #e7eef2 100%)"
+          "radial-gradient(circle at top left, rgba(0, 173, 181, 0.22), transparent 26%), radial-gradient(circle at bottom right, rgba(0, 173, 181, 0.14), transparent 24%), linear-gradient(160deg, #222831 0%, #2b313a 44%, #393E46 100%)"
       }
     }
   },

@@ -22,18 +22,18 @@ export default async function ContactPage() {
       <section className="section-space pt-0">
         <div className="shell-container grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="glass-panel p-6 sm:p-8">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{site.brandName}</p>
+            <p className="section-label">{site.brandName}</p>
             <h2 className="mt-4 font-display text-3xl">{ui.common.contactPerson}</h2>
             <p className="mt-3 prose-copy">{site.contactPerson}</p>
-            <div className="mt-6 space-y-4 text-sm text-slate-600">
+            <div className="mt-6 space-y-4 text-sm text-white/72">
               <p>
-                <strong className="text-ink">{ui.contact.fields.phone}:</strong> {site.contact.phone}
+                <strong className="text-sand">{ui.contact.fields.phone}:</strong> {site.contact.phone}
               </p>
               <p>
-                <strong className="text-ink">{ui.contact.fields.email}:</strong> {site.contact.email}
+                <strong className="text-sand">{ui.contact.fields.email}:</strong> {site.contact.email}
               </p>
               <p>
-                <strong className="text-ink">{ui.contact.fields.office}:</strong> {site.contact.officeLocation}
+                <strong className="text-sand">{ui.contact.fields.office}:</strong> {site.contact.officeLocation}
               </p>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default async function ContactPage() {
             className="glass-panel min-h-[360px] bg-cover bg-center"
             style={{
               backgroundImage:
-                "linear-gradient(180deg, rgba(20,32,43,0.08), rgba(20,32,43,0.3)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80')"
+                "linear-gradient(180deg, rgba(34,40,49,0.08), rgba(34,40,49,0.34)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80')"
             }}
           />
         </div>

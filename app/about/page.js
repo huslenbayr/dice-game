@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/page-hero";
 import { getRepository } from "@/lib/repositories/content-repository";
 import { getCurrentLanguage, localize } from "@/lib/i18n";
+import { UI_LOCALES } from "@/lib/translations/ui-locales";
 import { getUiCopy } from "@/lib/ui-copy";
 
 export default async function AboutPage() {
@@ -14,12 +15,18 @@ export default async function AboutPage() {
     id: name,
     name,
     role: {
-      en: "Journey companion",
-      mn: "Аяллын хамтрагч"
+      en: UI_LOCALES.en.about.fallbackGuideRole,
+      mn: UI_LOCALES.mn.about.fallbackGuideRole,
+      ja: UI_LOCALES.ja.about.fallbackGuideRole,
+      ko: UI_LOCALES.ko.about.fallbackGuideRole,
+      es: UI_LOCALES.es.about.fallbackGuideRole
     },
     bio: {
-      en: "Connected to one of the current MongolWay tour routes.",
-      mn: "Одоогийн MongolWay аяллын нэг чиглэлтэй холбоотой хүн."
+      en: UI_LOCALES.en.about.fallbackGuideBio,
+      mn: UI_LOCALES.mn.about.fallbackGuideBio,
+      ja: UI_LOCALES.ja.about.fallbackGuideBio,
+      ko: UI_LOCALES.ko.about.fallbackGuideBio,
+      es: UI_LOCALES.es.about.fallbackGuideBio
     }
   });
 
@@ -35,7 +42,7 @@ export default async function AboutPage() {
       <section className="section-space pt-0">
         <div className="shell-container grid gap-6 lg:grid-cols-[1fr_1fr]">
           <div className="glass-panel p-6 sm:p-8">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{site.brandName}</p>
+            <p className="section-label">{site.brandName}</p>
             <h2 className="mt-4 font-display text-3xl">{localize(site.about.approachTitle, language)}</h2>
             <p className="mt-4 prose-copy">{localize(site.about.approachBody, language)}</p>
           </div>
@@ -43,7 +50,7 @@ export default async function AboutPage() {
             className="glass-panel min-h-[320px] bg-cover bg-center"
             style={{
               backgroundImage:
-                "linear-gradient(180deg, rgba(20,32,43,0.06), rgba(20,32,43,0.28)), url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1600&q=80')"
+                "linear-gradient(180deg, rgba(34,40,49,0.08), rgba(34,40,49,0.32)), url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1600&q=80')"
             }}
           />
         </div>
@@ -52,16 +59,16 @@ export default async function AboutPage() {
       <section className="section-space pt-0">
         <div className="shell-container">
           <div className="glass-panel p-6 sm:p-8 lg:p-10">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-400">{ui.common.guides}</p>
+            <p className="section-label">{ui.common.guides}</p>
             <h2 className="mt-4 font-display text-4xl">{ui.about.guidesTitle}</h2>
             <p className="mt-4 max-w-3xl prose-copy">{ui.about.guidesBody}</p>
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
               {guideCards.map((guide, index) => (
-                <article key={guide.id} className="rounded-[28px] border border-slate-200 bg-white p-6">
+                <article key={guide.id} className="surface-soft p-6">
                   <div
                     className="h-56 rounded-[24px] bg-cover bg-center"
                     style={{
-                      backgroundImage: `linear-gradient(180deg, rgba(20,32,43,0.08), rgba(20,32,43,0.3)), url('https://images.unsplash.com/photo-${
+                      backgroundImage: `linear-gradient(180deg, rgba(34,40,49,0.08), rgba(34,40,49,0.34)), url('https://images.unsplash.com/photo-${
                         index === 0 ? "1494790108377-be9c29b29330" : index === 1 ? "1438761681033-6461ffad8d80" : "1500648767791-00dcc994a43e"
                       }?auto=format&fit=crop&w=1000&q=80')`
                     }}
