@@ -11,11 +11,17 @@ function getFirstParamValue(value) {
 }
 
 function resolveAuthErrorMessage(errorCode, ui) {
-  if (String(errorCode || "").startsWith("oauth_google")) {
-    return ui.auth.googleErrorMessage;
+  const normalizedError = String(errorCode || "").trim().toLowerCase();
+
+  if (!normalizedError.startsWith("oauth_")) {
+    return "";
   }
 
-  return "";
+  if (normalizedError.endsWith("_unavailable")) {
+    return ui.auth.oauthUnavailableMessage;
+  }
+
+  return ui.auth.oauthErrorMessage;
 }
 
 export default async function SignInPage({ searchParams }) {

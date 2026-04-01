@@ -12,7 +12,7 @@ Bilingual tourism website and admin app for a new Mongolian travel company built
   - Khuvsgul Lake Escape
 - Booking flow with server-side persistence
 - Role-aware sign-in flow with traveler and admin access paths
-- Supabase-backed Google OAuth sign-in with a server callback and local role-aware session linking
+- Supabase-backed Google, Apple, and Facebook OAuth sign-in with a server callback and local role-aware session linking
 - Server-side booking and lead email notification flow with traveler auto-replies
 - QPay-ready payment abstraction for future dynamic QR and callback integration
 - Editable admin dashboard for tours, guide names, bilingual content, contact info, bookings, and payment status
@@ -59,7 +59,7 @@ npm run start
 - Sample content is stored in [data/mongolway-db.json](./data/mongolway-db.json)
 - The current demo works without external services by using the local JSON store
 - Supabase clients and repository seams are already prepared in `lib/supabase` and `lib/repositories`
-- Google OAuth starts at `app/api/auth/oauth/[provider]/route.js` and completes in `app/auth/callback/route.js`
+- Google, Apple, and Facebook OAuth start at `app/api/auth/oauth/[provider]/route.js` and complete in `app/auth/callback/route.js`
 - The callback exchanges the Supabase auth code on the server, then links or creates the MongolWay user and applies the app session cookie
 - Booking emails are sent from the server through `lib/email`
 - If SMTP is not configured, the booking or lead is still saved, the email is stored in `emailOutbox`, and the server logs that delivery failed
@@ -82,11 +82,11 @@ See `.env.example` for:
 - admin notification and sender addresses
 - email provider mode
 - SMTP / Google Workspace credentials
-- Supabase auth URL / anon key values used by the Google OAuth flow
+- Supabase auth URL / anon key values used by the social OAuth flows
 
-## Google OAuth setup
+## Social OAuth setup
 
-The app now supports `Continue with Google` through Supabase Auth. The button is shown on the sign-in page and becomes active when the Supabase auth environment variables are set.
+The app now supports `Continue with Google`, `Continue with Apple`, and `Continue with Facebook` through Supabase Auth. The buttons are shown on the sign-in page and become active when the Supabase auth environment variables are set.
 
 ### App environment
 
@@ -99,7 +99,7 @@ Set these in `.env.local` for local development and in Render for production:
 
 The OAuth UI and callback use the Supabase URL and anon key. The service role key is still used elsewhere in the repository layer for server-side Supabase persistence.
 
-### Google Cloud
+### Google
 
 1. Create or open your Google Cloud project.
 2. Configure the OAuth consent screen.
@@ -112,11 +112,40 @@ For hosted Supabase projects this is typically:
 https://<your-project-ref>.supabase.co/auth/v1/callback
 ```
 
+### Apple
+
+1. Open the Apple Developer portal and create a Services ID for web sign-in.
+2. Configure the Services ID website domain as your Supabase project host, for example:
+
+```text
+<your-project-ref>.supabase.co
+```
+
+3. Add the Supabase callback URL as the return URL:
+
+```text
+https://<your-project-ref>.supabase.co/auth/v1/callback
+```
+
+4. Create a Sign in with Apple key, generate the Apple client secret, and paste the Apple credentials into Supabase.
+
+### Facebook
+
+1. Create a Facebook app in the Meta developers dashboard.
+2. Add Facebook Login and enable the `email` permission.
+3. Add the Supabase callback URL as a valid OAuth redirect URI:
+
+```text
+https://<your-project-ref>.supabase.co/auth/v1/callback
+```
+
+4. Keep the Facebook app in development mode until your test users are added, or move it to live mode before public launch.
+
 ### Supabase
 
-1. Open `Authentication` -> `Providers` -> `Google`.
-2. Enable the Google provider.
-3. Paste the Google client ID and client secret from Google Cloud.
+1. Open `Authentication` -> `Sign In / Providers`.
+2. Enable the provider you want to use: Google, Apple, or Facebook.
+3. Paste the matching provider credentials from Google Cloud, Apple Developer, or Meta for Developers.
 4. Set the Supabase `Site URL` to your app URL, for example:
 
 ```text
@@ -132,9 +161,9 @@ https://mongolway.com/auth/callback
 
 ### Callback flow
 
-1. The sign-in page links to `/api/auth/oauth/google`.
-2. That route starts a Supabase PKCE OAuth flow and redirects the browser to Google.
-3. Google returns to Supabase, and Supabase redirects back to `/auth/callback`.
+1. The sign-in page links to `/api/auth/oauth/google`, `/api/auth/oauth/apple`, or `/api/auth/oauth/facebook`.
+2. That route starts a Supabase PKCE OAuth flow and redirects the browser to the selected provider.
+3. The provider returns to Supabase, and Supabase redirects back to `/auth/callback`.
 4. The callback route exchanges the auth code for a Supabase session on the server.
 5. The app then finds or creates the local MongolWay user, preserves role-aware behavior, sets the MongolWay session cookie, and redirects the user to `/account`, `/admin`, or the requested safe `next` path.
 

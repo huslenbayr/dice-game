@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 
-function ProviderCard({ provider, language }) {
+function ProviderCard({ provider }) {
   return (
     <div className="surface-soft p-5">
       <div className="flex items-center justify-between gap-4">
@@ -46,6 +46,38 @@ function GoogleIcon() {
   );
 }
 
+function AppleIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+      <path d="M16.7 12.7c0-2.1 1.7-3.1 1.8-3.2-1-.9-2.4-1.1-2.9-1.1-1.2-.1-2.4.7-3 .7-.7 0-1.7-.7-2.7-.7-1.5 0-2.8.8-3.6 2.1-1.6 2.7-.4 6.8 1.2 9 .8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .6 1.2 0 2-.9 2.7-2 .9-1.3 1.3-2.6 1.3-2.7 0 0-2.6-1-2.7-4.3ZM14.9 6.9c.7-.8 1.2-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2-.5 2.7-1.3Z" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5">
+      <path
+        fill="#1877F2"
+        d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2V8h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12Z"
+      />
+      <path fill="#fff" d="M16.8 15.5 17.3 12h-3.4V9.9c0-1 .5-1.9 2-1.9h1.5V5.1s-1.3-.2-2.7-.2c-2.7 0-4.5 1.6-4.5 4.6V12h-3v3.5h3v8.4c.6.1 1.2.1 1.8.1s1.2 0 1.8-.1v-8.4h2.9Z" />
+    </svg>
+  );
+}
+
+function ProviderIcon({ providerId }) {
+  switch (providerId) {
+    case "apple":
+      return <AppleIcon />;
+    case "facebook":
+      return <FacebookIcon />;
+    case "google":
+    default:
+      return <GoogleIcon />;
+  }
+}
+
 async function readJsonSafely(response) {
   try {
     return await response.json();
@@ -60,10 +92,7 @@ export function AuthPanel({ language, ui, nextPath, providers, initialError = ""
   const [feedback, setFeedback] = useState("");
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
-  const googleProvider = providers.find((provider) => provider.id === "google") || null;
-  const googleAuthHref = nextPath
-    ? `/api/auth/oauth/google?next=${encodeURIComponent(nextPath)}`
-    : "/api/auth/oauth/google";
+  const oauthProviders = providers.filter((provider) => provider.kind === "oauth");
   const displayedError = error || initialError;
 
   function submit(path, formData) {
@@ -138,34 +167,43 @@ export function AuthPanel({ language, ui, nextPath, providers, initialError = ""
         <p className="mt-4 prose-copy">{ui.auth.providersBody}</p>
         <div className="mt-6 space-y-4">
           {providers.map((provider) => (
-            <ProviderCard key={provider.id} provider={provider} language={language} />
+            <ProviderCard key={provider.id} provider={provider} />
           ))}
         </div>
       </aside>
 
       <section className="glass-panel p-6 sm:p-8">
-        {googleProvider ? (
+        {oauthProviders.length > 0 ? (
           <>
             <div className="surface-soft-strong rounded-[24px] p-4 sm:p-5">
-              {googleProvider.enabled ? (
-                <a
-                  href={googleAuthHref}
-                  className="flex min-h-14 items-center justify-center gap-3 rounded-[18px] border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-5 text-sm font-semibold detail-value transition hover:border-[color:rgba(0,173,181,0.34)] hover:bg-[var(--mw-control-bg-hover)]"
-                >
-                  <GoogleIcon />
-                  <span>{ui.auth.continueWithGoogle}</span>
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  disabled
-                  className="flex min-h-14 w-full cursor-not-allowed items-center justify-center gap-3 rounded-[18px] border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-5 text-sm font-semibold detail-value opacity-70"
-                >
-                  <GoogleIcon />
-                  <span>{ui.auth.continueWithGoogle}</span>
-                </button>
-              )}
-              <p className="mt-3 text-sm leading-6 muted-text">{googleProvider.body}</p>
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {oauthProviders.map((provider) =>
+                  provider.enabled ? (
+                    <a
+                      key={provider.id}
+                      href={
+                        nextPath
+                          ? `/api/auth/oauth/${provider.id}?next=${encodeURIComponent(nextPath)}`
+                          : `/api/auth/oauth/${provider.id}`
+                      }
+                      className="flex min-h-14 items-center justify-center gap-3 rounded-[18px] border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-5 text-sm font-semibold detail-value transition hover:border-[color:rgba(0,173,181,0.34)] hover:bg-[var(--mw-control-bg-hover)]"
+                    >
+                      <ProviderIcon providerId={provider.id} />
+                      <span>{provider.action}</span>
+                    </a>
+                  ) : (
+                    <button
+                      key={provider.id}
+                      type="button"
+                      disabled
+                      className="flex min-h-14 w-full cursor-not-allowed items-center justify-center gap-3 rounded-[18px] border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-5 text-sm font-semibold detail-value opacity-70"
+                    >
+                      <ProviderIcon providerId={provider.id} />
+                      <span>{provider.action}</span>
+                    </button>
+                  )
+                )}
+              </div>
             </div>
 
             <div className="mt-6 flex items-center gap-4">

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { signInWithOAuthProfile } from "@/lib/auth/service";
+import { isSupportedOAuthProvider } from "@/lib/auth/config";
 import { applySessionCookie, resolveSignedInPath, sanitizeRedirectPath } from "@/lib/auth/session";
 import { logError } from "@/lib/logging";
 import { createSupabaseRouteHandlerClient, getRequestOrigin } from "@/lib/supabase/oauth";
@@ -24,19 +25,32 @@ function resolveOAuthFullName(user) {
   return (
     user?.user_metadata?.full_name ||
     user?.user_metadata?.name ||
+    user?.identities?.find((identity) => identity?.identity_data?.full_name)?.identity_data?.full_name ||
+    user?.identities?.find((identity) => identity?.identity_data?.name)?.identity_data?.name ||
     user?.user_metadata?.preferred_username ||
     user?.email ||
     ""
   );
 }
 
+function resolveOAuthEmail(user) {
+  return (
+    user?.email ||
+    user?.user_metadata?.email ||
+    user?.identities?.find((identity) => identity?.identity_data?.email)?.identity_data?.email ||
+    ""
+  );
+}
+
 export async function GET(request) {
   const nextPath = sanitizeRedirectPath(request.nextUrl.searchParams.get("next"));
+  const providerParam = String(request.nextUrl.searchParams.get("provider") || "").trim().toLowerCase();
+  const requestedProvider = isSupportedOAuthProvider(providerParam) ? providerParam : null;
   const code = request.nextUrl.searchParams.get("code");
   const { supabase, applyToResponse } = createSupabaseRouteHandlerClient(request);
 
   if (!supabase || !code) {
-    return applyToResponse(NextResponse.redirect(buildSignInRedirect(request, "oauth_google_failed", nextPath)));
+    return applyToResponse(NextResponse.redirect(buildSignInRedirect(request, "oauth_failed", nextPath)));
   }
 
   try {
@@ -46,14 +60,16 @@ export async function GET(request) {
       throw error;
     }
 
-    if (!data?.user?.email) {
-      throw new Error("Google did not return a usable email address.");
+    const email = resolveOAuthEmail(data?.user);
+
+    if (!email) {
+      throw new Error("The selected OAuth provider did not return a usable email address.");
     }
 
     const result = await signInWithOAuthProfile({
-      email: data.user.email,
+      email,
       fullName: resolveOAuthFullName(data.user),
-      authProvider: String(data.user.app_metadata?.provider || "google")
+      authProvider: String(data.user.app_metadata?.provider || requestedProvider || "oauth")
     });
 
     const redirectTo = resolveSignedInPath(result.user, nextPath);
@@ -62,11 +78,12 @@ export async function GET(request) {
     return response;
   } catch (error) {
     logError("oauth_callback_failed", {
+      provider: requestedProvider,
       reason: error.message || "Unable to complete OAuth sign-in.",
       nextPath,
       stack: error.stack || null
     });
 
-    return applyToResponse(NextResponse.redirect(buildSignInRedirect(request, "oauth_google_failed", nextPath)));
+    return applyToResponse(NextResponse.redirect(buildSignInRedirect(request, "oauth_failed", nextPath)));
   }
 }

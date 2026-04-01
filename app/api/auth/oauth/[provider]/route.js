@@ -25,13 +25,13 @@ export async function GET(request, { params }) {
   const nextPath = sanitizeRedirectPath(request.nextUrl.searchParams.get("next"));
 
   if (!isSupportedOAuthProvider(provider) || !isOAuthProviderEnabled(provider)) {
-    return NextResponse.redirect(buildSignInRedirect(request, "oauth_google_unavailable", nextPath));
+    return NextResponse.redirect(buildSignInRedirect(request, "oauth_unavailable", nextPath));
   }
 
   const { supabase, applyToResponse } = createSupabaseRouteHandlerClient(request);
 
   if (!supabase) {
-    return NextResponse.redirect(buildSignInRedirect(request, "oauth_google_unavailable", nextPath));
+    return NextResponse.redirect(buildSignInRedirect(request, "oauth_unavailable", nextPath));
   }
 
   try {
@@ -40,6 +40,8 @@ export async function GET(request, { params }) {
     if (nextPath) {
       callbackUrl.searchParams.set("next", nextPath);
     }
+
+    callbackUrl.searchParams.set("provider", provider);
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
@@ -62,6 +64,6 @@ export async function GET(request, { params }) {
       stack: error.stack || null
     });
 
-    return applyToResponse(NextResponse.redirect(buildSignInRedirect(request, "oauth_google_failed", nextPath)));
+    return applyToResponse(NextResponse.redirect(buildSignInRedirect(request, "oauth_failed", nextPath)));
   }
 }
