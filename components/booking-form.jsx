@@ -8,6 +8,14 @@ function localize(value, language) {
   return typeof value === "string" ? value : value?.[language] ?? value?.en ?? "";
 }
 
+async function readJsonSafely(response) {
+  try {
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
 export function BookingForm({ tours, language, ui, initialTourId, currentUser }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -75,18 +83,30 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
           })
         });
 
-        const payload = await response.json();
+        const payload = await readJsonSafely(response);
 
         if (!response.ok) {
-          throw new Error(payload.error || ui.booking.errorMessage);
+          throw new Error(payload?.error || ui.booking.errorMessage);
         }
 
         setSuccessMessage(ui.booking.savedMessage);
 
-        router.push(payload.nextStep?.paymentUrl || `/payment/${payload.bookingId || payload.booking.id}`);
+        const paymentUrl =
+          payload?.nextStep?.paymentUrl || (payload?.bookingId || payload?.booking?.id ? `/payment/${payload?.bookingId || payload?.booking?.id}` : null);
+
+        if (!paymentUrl) {
+          throw new Error(ui.booking.errorMessage);
+        }
+
+        router.push(paymentUrl);
         router.refresh();
       } catch (submissionError) {
-        setError(submissionError.message);
+        const message =
+          submissionError instanceof Error && submissionError.message !== "Failed to fetch"
+            ? submissionError.message
+            : ui.booking.errorMessage;
+
+        setError(message);
       }
     });
   }

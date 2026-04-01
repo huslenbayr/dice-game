@@ -6,14 +6,28 @@ import { getCurrentLanguage } from "@/lib/i18n";
 import { getCurrentUser, resolveSignedInPath } from "@/lib/auth/session";
 import { getUiCopy } from "@/lib/ui-copy";
 
+function getFirstParamValue(value) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function resolveAuthErrorMessage(errorCode, ui) {
+  if (String(errorCode || "").startsWith("oauth_google")) {
+    return ui.auth.googleErrorMessage;
+  }
+
+  return "";
+}
+
 export default async function SignInPage({ searchParams }) {
   const params = await searchParams;
   const language = await getCurrentLanguage();
   const ui = getUiCopy(language);
   const currentUser = await getCurrentUser();
+  const nextPath = getFirstParamValue(params.next);
+  const initialError = resolveAuthErrorMessage(getFirstParamValue(params.error), ui);
 
   if (currentUser) {
-    redirect(resolveSignedInPath(currentUser, params.next));
+    redirect(resolveSignedInPath(currentUser, nextPath));
   }
 
   return (
@@ -27,10 +41,15 @@ export default async function SignInPage({ searchParams }) {
 
       <section className="section-space pt-0">
         <div className="shell-container">
-          <AuthPanel language={language} ui={ui} nextPath={params.next} providers={getAuthProviders(language)} />
+          <AuthPanel
+            language={language}
+            ui={ui}
+            nextPath={nextPath}
+            providers={getAuthProviders(language)}
+            initialError={initialError}
+          />
         </div>
       </section>
     </>
   );
 }
-

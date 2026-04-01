@@ -23,12 +23,48 @@ function ProviderCard({ provider, language }) {
   );
 }
 
-export function AuthPanel({ language, ui, nextPath, providers }) {
+function GoogleIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5">
+      <path
+        fill="#EA4335"
+        d="M12 10.2v3.9h5.4c-.2 1.2-.9 2.2-1.9 2.9l3 2.3c1.8-1.6 2.8-4.1 2.8-7 0-.7-.1-1.4-.2-2H12Z"
+      />
+      <path
+        fill="#34A853"
+        d="M12 21c2.7 0 4.9-.9 6.6-2.4l-3-2.3c-.8.6-2 .9-3.6.9-2.7 0-5-1.8-5.8-4.3l-3.1 2.4C4.8 18.8 8.1 21 12 21Z"
+      />
+      <path
+        fill="#4A90E2"
+        d="M6.2 12.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9l-3.1-2.4C2.4 8 2 9.5 2 11s.4 3 1.1 4.3l3.1-2.4Z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M12 4.8c1.4 0 2.7.5 3.7 1.4l2.8-2.8C16.9 1.9 14.7 1 12 1 8.1 1 4.8 3.2 3.1 6.7l3.1 2.4c.8-2.5 3.1-4.3 5.8-4.3Z"
+      />
+    </svg>
+  );
+}
+
+async function readJsonSafely(response) {
+  try {
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+export function AuthPanel({ language, ui, nextPath, providers, initialError = "" }) {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("sign-in");
   const [feedback, setFeedback] = useState("");
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
+  const googleProvider = providers.find((provider) => provider.id === "google") || null;
+  const googleAuthHref = nextPath
+    ? `/api/auth/oauth/google?next=${encodeURIComponent(nextPath)}`
+    : "/api/auth/oauth/google";
+  const displayedError = error || initialError;
 
   function submit(path, formData) {
     setError("");
@@ -47,17 +83,26 @@ export function AuthPanel({ language, ui, nextPath, providers }) {
           })
         });
 
-        const payload = await response.json();
+        const payload = await readJsonSafely(response);
 
         if (!response.ok) {
-          throw new Error(payload.error || ui.auth.errorMessage);
+          throw new Error(payload?.error || ui.auth.errorMessage);
         }
 
         setFeedback(ui.auth.successMessage);
+        if (!payload?.redirectTo) {
+          throw new Error(ui.auth.errorMessage);
+        }
+
         router.push(payload.redirectTo);
         router.refresh();
       } catch (submissionError) {
-        setError(submissionError.message);
+        const message =
+          submissionError instanceof Error && submissionError.message !== "Failed to fetch"
+            ? submissionError.message
+            : ui.auth.errorMessage;
+
+        setError(message);
       }
     });
   }
@@ -99,7 +144,39 @@ export function AuthPanel({ language, ui, nextPath, providers }) {
       </aside>
 
       <section className="glass-panel p-6 sm:p-8">
-        <div className="theme-control inline-flex rounded-full p-1">
+        {googleProvider ? (
+          <>
+            <div className="surface-soft-strong rounded-[24px] p-4 sm:p-5">
+              {googleProvider.enabled ? (
+                <a
+                  href={googleAuthHref}
+                  className="flex min-h-14 items-center justify-center gap-3 rounded-[18px] border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-5 text-sm font-semibold detail-value transition hover:border-[color:rgba(0,173,181,0.34)] hover:bg-[var(--mw-control-bg-hover)]"
+                >
+                  <GoogleIcon />
+                  <span>{ui.auth.continueWithGoogle}</span>
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="flex min-h-14 w-full cursor-not-allowed items-center justify-center gap-3 rounded-[18px] border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-5 text-sm font-semibold detail-value opacity-70"
+                >
+                  <GoogleIcon />
+                  <span>{ui.auth.continueWithGoogle}</span>
+                </button>
+              )}
+              <p className="mt-3 text-sm leading-6 muted-text">{googleProvider.body}</p>
+            </div>
+
+            <div className="mt-6 flex items-center gap-4">
+              <div className="h-px flex-1 bg-[color:var(--mw-border)]" />
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] faint-text">{ui.auth.orContinueWithEmail}</p>
+              <div className="h-px flex-1 bg-[color:var(--mw-border)]" />
+            </div>
+          </>
+        ) : null}
+
+        <div className="theme-control mt-6 inline-flex rounded-full p-1">
           <button
             type="button"
             onClick={() => setActiveTab("sign-in")}
@@ -207,7 +284,7 @@ export function AuthPanel({ language, ui, nextPath, providers }) {
           </div>
         )}
 
-        {error ? <div className="error-box mt-5">{error}</div> : null}
+        {displayedError ? <div className="error-box mt-5">{displayedError}</div> : null}
         {feedback ? <div className="success-box mt-5">{feedback}</div> : null}
       </section>
     </div>
