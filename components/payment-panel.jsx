@@ -288,7 +288,12 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
                 </div>
                 <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.from}</span>
-                  <strong className="detail-value">{formatCurrency(session.amount, language)}</strong>
+                  <strong className="detail-value">
+                    {formatCurrency(session.amount, language, {
+                      currency: session.currency || "USD",
+                      convert: false
+                    })}
+                  </strong>
                 </div>
                 <div className="surface-soft-strong px-4 py-4 text-sm muted-text">
                   <p>

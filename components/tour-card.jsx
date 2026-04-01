@@ -29,12 +29,12 @@ export function TourCard({ tour, language, ui }) {
             </span>
           ))}
         </div>
-        <div className="flex items-end justify-between gap-4">
-          <div>
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+          <div className="min-w-0">
             <p className="text-sm uppercase tracking-[0.25em] faint-text">{ui.common.from}</p>
             <p className="mt-1 font-display text-3xl">{formatCurrency(tour.price, language)}</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 xl:justify-end">
             <Link
               href={`/tours/${tour.slug}`}
               className="btn-secondary btn-cta px-4"
