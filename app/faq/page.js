@@ -25,7 +25,7 @@ export default async function FaqPage() {
             <div className="space-y-4">
               {site.faqs.map((item) => (
                 <details key={item.id} className="surface-soft p-5">
-                  <summary className="cursor-pointer text-lg font-semibold text-sand">
+                  <summary className="cursor-pointer text-lg font-semibold detail-value">
                     {localize(item.question, language)}
                   </summary>
                   <p className="mt-4 prose-copy">{localize(item.answer, language)}</p>

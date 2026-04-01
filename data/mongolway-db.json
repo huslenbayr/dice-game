@@ -1,10 +1,10 @@
 {
   "site": {
     "brandName": "MongolWay",
-    "contactPerson": "Huslenbayr",
+    "contactPerson": "MongolWay Team",
     "contact": {
-      "phone": "+976 9911 2233",
-      "email": "hello@mongolway.mn",
+      "phone": "+976 94789779",
+      "email": "info@mongolway.com",
       "officeLocation": "Sukhbaatar District, Ulaanbaatar, Mongolia",
       "socialLinks": {
         "instagram": "https://instagram.com/mongolway",
@@ -14,28 +14,28 @@
     },
     "home": {
       "eyebrow": {
-        "en": "A fresh travel company for Mongolia",
-        "mn": "Монгол орны шинэ аяллын брэнд"
+        "en": "Experience through all five senses",
+        "mn": "Таван мэдрэхүйгээр мэдрэх аялал"
       },
       "heroTitle": {
-        "en": "Travel through Mongolia with room to breathe, look around, and settle in.",
-        "mn": "Амьсгал авч, эргэн тойрноо ажиглаж, аясаар нь мэдрэх Монголын аялал."
+        "en": "Experience Mongolia through all five senses.",
+        "mn": "Монголыг таван мэдрэхүйгээр мэдрэх аялал."
       },
       "heroSubtitle": {
-        "en": "MongolWay designs small, thoughtful journeys across culture, grassland, lake country, and festival season with a warm modern approach.",
-        "mn": "MongolWay нь соёл, тал нутаг, нуурын бүс, баяр наадмын улирлыг орчин үеийн, дулаан мэдрэмжтэйгээр холбосон жижиг хэмжээний аяллуудыг зохион байгуулна."
+        "en": "Travel beyond the view alone. Hear the steppe, taste the table, feel the texture of felt and open air, and settle into the atmosphere of culture and landscape through calm, carefully paced journeys.",
+        "mn": "Зөвхөн үзээд өнгөрөхөөс илүү. Талын чимээ, нутгийн амт, эсгий ба задгай агаарын мэдрэмж, соёл ба байгалийн уур амьсгалыг тайван, нягт төлөвлөсөн аяллаар гүн мэдэрнэ."
       },
       "sectionIntro": {
-        "en": "Three sample journeys shaped around culture, landscape, and local rhythm.",
-        "mn": "Соёл, байгаль, орон нутгийн хэмнэлд тулгуурласан гурван жишиг аялал."
+        "en": "Three sample journeys shaped around atmosphere, landscape, culture, and Mongolia's slower sensory rhythm.",
+        "mn": "Уур амьсгал, байгаль, соёл, Монгол орны удаан хэмнэлтэй мэдрэмжийг дагасан гурван жишиг аялал."
       },
       "storyTitle": {
-        "en": "Made for visitors who want a clearer, calmer way to explore Mongolia",
-        "mn": "Монголыг илүү тодорхой, тайван хэмнэлээр үзэхийг хүссэн хүмүүст зориулав"
+        "en": "Journeys designed to let Mongolia be felt, not only seen",
+        "mn": "Монголыг зөвхөн харах бус, гүн мэдрэхэд зориулсан аяллууд"
       },
       "storyBody": {
-        "en": "The company is new, but the goal is simple: thoughtful routes, helpful coordination, and enough space in each day to actually enjoy where you are.",
-        "mn": "Компанийн түүх шинэ ч зорилго нь тодорхой. Замнал сайтай төлөвлөгөө, ойлгомжтой зохион байгуулалт, тухайн газраа тайван мэдрэх хангалттай завтай аяллыг бүтээх."
+        "en": "Each route leaves room for the sound of open land, the warmth of shared meals, the texture of local materials, and the quiet details that make a place stay with you.",
+        "mn": "Маршрут бүр уудам нутгийн чимээ, хамтдаа зооглох ширээний дулаан, нутгийн материалын мэдрэмж, дурсамж болон үлдэх нам гүм жижиг мөчүүдэд зориуд зай гаргана."
       }
     },
     "about": {
@@ -62,8 +62,8 @@
         "mn": "MongolWay-тай холбогдох"
       },
       "body": {
-        "en": "Questions about dates, custom departures, or local details are welcome. Huslenbayr is the main contact for this sample company profile.",
-        "mn": "Огноо, хувийн маршрут эсвэл орон нутгийн мэдээлэлтэй холбоотой асуултыг бид хүлээн авна. Энэхүү жишиг компанийн гол холбоо барих хүн нь Huslenbayr."
+        "en": "Questions about dates, custom departures, or local details are always welcome. The MongolWay team replies from info@mongolway.com and can help with planning, availability, and travel logistics.",
+        "mn": "Огноо, хувийн маршрут, эсвэл орон нутгийн мэдээлэлтэй холбоотой асуултыг бид үргэлж хүлээн авна. MongolWay баг info@mongolway.com хаягаас хариу өгч, төлөвлөлт, боломжит аялал, зохион байгуулалтын талаар тусална."
       }
     },
     "faqIntro": {
@@ -111,8 +111,8 @@
           "mn": "Хэнтэй холбогдох вэ?"
         },
         "answer": {
-          "en": "Huslenbayr is listed as the main company contact in the contact section.",
-          "mn": "Холбоо барих хэсэгт Huslenbayr-ийг үндсэн холбоо барих хүнээр оруулсан."
+          "en": "Use info@mongolway.com or +976 94789779 and the MongolWay team will guide you from the contact section onward.",
+          "mn": "info@mongolway.com эсвэл +976 94789779-аар холбогдоход MongolWay баг холбоо барих хэсгээс эхлэн танд тусална."
         }
       }
     ]

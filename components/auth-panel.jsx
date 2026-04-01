@@ -8,12 +8,12 @@ function ProviderCard({ provider, language }) {
     <div className="surface-soft p-5">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h3 className="font-semibold text-sand">{provider.title}</h3>
-          <p className="mt-2 text-sm leading-6 text-white/70">{provider.body}</p>
+          <h3 className="font-semibold detail-value">{provider.title}</h3>
+          <p className="mt-2 text-sm leading-6 muted-text">{provider.body}</p>
         </div>
         <span
           className={`rounded-full px-3 py-1 text-xs font-semibold ${
-            provider.enabled ? "bg-clay/[0.15] text-[#90f2f5]" : "bg-white/[0.06] text-white/60"
+            provider.enabled ? "bg-[color:rgba(0,173,181,0.14)] text-[color:var(--mw-accent)]" : "theme-control faint-text"
           }`}
         >
           {provider.enabled ? provider.uiActiveLabel : provider.uiPlannedLabel}
@@ -99,12 +99,12 @@ export function AuthPanel({ language, ui, nextPath, providers }) {
       </aside>
 
       <section className="glass-panel p-6 sm:p-8">
-        <div className="inline-flex rounded-full border border-white/10 bg-white/5 p-1">
+        <div className="theme-control inline-flex rounded-full p-1">
           <button
             type="button"
             onClick={() => setActiveTab("sign-in")}
             className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-              activeTab === "sign-in" ? "bg-clay text-sand" : "text-white/70"
+              activeTab === "sign-in" ? "theme-control-active" : "theme-nav-link"
             }`}
           >
             {ui.auth.signInTab}
@@ -113,7 +113,7 @@ export function AuthPanel({ language, ui, nextPath, providers }) {
             type="button"
             onClick={() => setActiveTab("register")}
             className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-              activeTab === "register" ? "bg-clay text-sand" : "text-white/70"
+              activeTab === "register" ? "theme-control-active" : "theme-nav-link"
             }`}
           >
             {ui.auth.registerTab}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { HeaderAuthControls } from "@/components/header-auth-controls";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 function MenuButton({ isOpen, onToggle, ui }) {
   return (
@@ -13,7 +14,7 @@ function MenuButton({ isOpen, onToggle, ui }) {
       onClick={onToggle}
       aria-expanded={isOpen}
       aria-label={isOpen ? ui.common.closeMenu : ui.common.openMenu}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sand transition hover:bg-white/10"
+      className="theme-control inline-flex h-10 w-10 items-center justify-center rounded-full transition"
     >
       <span className="relative block h-3.5 w-4">
         <span
@@ -36,7 +37,7 @@ function MenuButton({ isOpen, onToggle, ui }) {
   );
 }
 
-export function SiteHeader({ language, site, ui, currentUser }) {
+export function SiteHeader({ language, site, ui, currentUser, defaultTheme = null }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const nav = [
     { href: "/", label: ui.nav.home },
@@ -56,76 +57,82 @@ export function SiteHeader({ language, site, ui, currentUser }) {
   }
 
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-ink/92 backdrop-blur">
-      <div className="shell-container py-2.5 sm:py-3">
-        <div className="flex items-center gap-3 xl:gap-6">
-          <Link href="/" className="flex min-w-0 flex-none items-center gap-3" onClick={closeMenu}>
-            <div className="flex h-10 items-center rounded-2xl border border-white/10 bg-sand px-3 py-2 shadow-soft sm:h-11 sm:px-4">
-              <BrandLogo brandName={site.brandName} priority />
-            </div>
-            <div className="hidden min-w-0 2xl:block">
-              <p className="truncate text-xs text-white/48">{site.contact.officeLocation}</p>
-            </div>
-          </Link>
-
-          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold text-white/72 transition hover:bg-white/10 hover:text-sand"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="ml-auto hidden flex-none items-center gap-2 xl:flex">
-            <LanguageSwitcher language={language} compact />
-            <HeaderAuthControls currentUser={currentUser} ui={ui} />
-            <Link
-              href="/booking"
-              className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-clay px-4 text-sm font-semibold text-sand transition hover:-translate-y-0.5 2xl:px-5"
-            >
-              {ui.common.startBooking}
+    <header className="sticky top-0 z-40 pt-3 sm:pt-4">
+      <div className="shell-container">
+        <div className="theme-header rounded-[30px] border px-3 py-3 backdrop-blur sm:px-4 lg:px-5">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <Link href="/" className="flex min-w-0 shrink-0 items-center gap-3" onClick={closeMenu}>
+              <div className="theme-logo-surface flex h-12 items-center rounded-[22px] px-3.5 py-2 shadow-soft sm:h-14 sm:px-4">
+                <BrandLogo brandName={site.brandName} priority />
+              </div>
+              <div className="hidden min-w-0 2xl:block">
+                <p className="truncate text-[11px] font-medium uppercase tracking-[0.22em] faint-text">
+                  {site.contact.officeLocation}
+                </p>
+              </div>
             </Link>
-          </div>
 
-          <div className="ml-auto flex flex-none items-center gap-2 xl:hidden">
-            <LanguageSwitcher language={language} compact />
-            <MenuButton isOpen={isMenuOpen} onToggle={() => setIsMenuOpen((current) => !current)} ui={ui} />
-          </div>
-        </div>
-
-        {isMenuOpen ? (
-          <div className="mt-3 rounded-[26px] border border-white/10 bg-sky/95 p-3 shadow-soft xl:hidden">
-            <nav className="grid gap-1">
+            <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex 2xl:gap-1">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={closeMenu}
-                  className="rounded-2xl px-3 py-2.5 text-sm font-semibold text-sand transition hover:bg-white/10"
+                  className="theme-nav-link whitespace-nowrap rounded-full px-2.5 py-2 text-[12px] font-semibold 2xl:px-3 2xl:py-2.5 2xl:text-sm"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="mt-3 border-t border-white/10 pt-3">
-              <div className="flex flex-col gap-2">
-                <HeaderAuthControls currentUser={currentUser} ui={ui} variant="menu" />
-                <Link
-                  href="/booking"
-                  onClick={closeMenu}
-                  className="inline-flex h-10 items-center justify-center rounded-full bg-clay px-4 text-sm font-semibold text-sand transition hover:-translate-y-0.5"
-                >
-                  {ui.common.startBooking}
-                </Link>
-              </div>
+            <div className="ml-auto hidden shrink-0 items-center gap-2 xl:flex">
+              <ThemeToggle ui={ui} compact defaultTheme={defaultTheme} />
+              <LanguageSwitcher language={language} compact />
+              <HeaderAuthControls currentUser={currentUser} ui={ui} />
+              <Link
+                href="/booking"
+                className="btn-primary btn-cta hidden h-10 whitespace-nowrap px-5 2xl:inline-flex"
+              >
+                {ui.common.startBooking}
+              </Link>
+            </div>
+
+            <div className="ml-auto flex shrink-0 items-center gap-2 xl:hidden">
+              <ThemeToggle ui={ui} compact defaultTheme={defaultTheme} />
+              <LanguageSwitcher language={language} compact />
+              <MenuButton isOpen={isMenuOpen} onToggle={() => setIsMenuOpen((current) => !current)} ui={ui} />
             </div>
           </div>
-        ) : null}
+
+          {isMenuOpen ? (
+            <div className="theme-menu mt-3 rounded-[26px] border p-4 shadow-soft xl:hidden">
+              <nav className="grid gap-1">
+                {nav.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    className="theme-nav-link rounded-2xl px-3 py-3 text-sm font-semibold"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="mt-4 border-t border-[color:var(--mw-border)] pt-4">
+                <div className="flex flex-col gap-2">
+                  <HeaderAuthControls currentUser={currentUser} ui={ui} variant="menu" />
+                  <Link
+                    href="/booking"
+                    onClick={closeMenu}
+                    className="btn-primary btn-cta inline-flex h-10 px-4"
+                  >
+                    {ui.common.startBooking}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
       </div>
     </header>
   );

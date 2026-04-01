@@ -35,7 +35,7 @@ export default async function TourDetailsPage({ params }) {
         actions={
           <Link
             href={`/booking?tour=${tour.id}`}
-            className="btn-primary px-6"
+            className="btn-primary btn-cta px-6"
           >
             {ui.common.startBooking}
           </Link>
@@ -50,7 +50,7 @@ export default async function TourDetailsPage({ params }) {
               <div className="mt-6 space-y-4">
                 {tour.itinerary.map((item) => (
                   <div key={`${tour.id}-${item.day}`} className="surface-soft p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-clay">
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--mw-accent)]">
                       {interpolate(ui.common.dayLabel, { day: item.day })}
                     </p>
                     <h3 className="mt-3 font-display text-2xl">{localize(item.title, language)}</h3>
@@ -63,7 +63,7 @@ export default async function TourDetailsPage({ params }) {
             <div className="grid gap-6 lg:grid-cols-2">
               <div className="glass-panel p-6 sm:p-8">
                 <p className="section-label">{ui.common.included}</p>
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-white/72">
+                <ul className="mt-5 space-y-3 text-sm leading-7 muted-text">
                   {localize(tour.included, language).map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
@@ -71,7 +71,7 @@ export default async function TourDetailsPage({ params }) {
               </div>
               <div className="glass-panel p-6 sm:p-8">
                 <p className="section-label">{ui.common.excluded}</p>
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-white/72">
+                <ul className="mt-5 space-y-3 text-sm leading-7 muted-text">
                   {localize(tour.excluded, language).map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
@@ -84,34 +84,34 @@ export default async function TourDetailsPage({ params }) {
             <div className="glass-panel p-6 sm:p-8">
               <p className="section-label">{ui.common.bookingSummary}</p>
               <h2 className="mt-4 font-display text-4xl">{formatCurrency(tour.price, language)}</h2>
-              <p className="mt-1 text-sm text-white/55">{ui.common.perPerson}</p>
-              <div className="mt-6 space-y-4 text-sm text-white/72">
+              <p className="mt-1 text-sm faint-text">{ui.common.perPerson}</p>
+              <div className="mt-6 space-y-4 text-sm muted-text">
                 <div className="flex items-center justify-between gap-4">
                   <span>{ui.common.dates}</span>
-                  <strong className="text-sand">{tour.dates.length}</strong>
+                  <strong className="detail-value">{tour.dates.length}</strong>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <span>{ui.common.guides}</span>
-                  <strong className="text-sand">{tour.guideNames.length}</strong>
+                  <strong className="detail-value">{tour.guideNames.length}</strong>
                 </div>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 {tour.dates.map((date) => (
-                  <span key={date} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-sm text-white/72">
+                  <span key={date} className="rounded-full border border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] px-3 py-2 text-sm muted-text">
                     {date}
                   </span>
                 ))}
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 {tour.guideNames.map((guide) => (
-                  <span key={guide} className="rounded-full border border-white/10 px-3 py-2 text-sm text-white/72">
+                  <span key={guide} className="rounded-full border border-[color:var(--mw-border)] px-3 py-2 text-sm muted-text">
                     {guide}
                   </span>
                 ))}
               </div>
               <Link
                 href={`/booking?tour=${tour.id}`}
-                className="btn-primary mt-8 px-6"
+                className="btn-primary btn-cta mt-8 px-6"
               >
                 {ui.common.startBooking}
               </Link>

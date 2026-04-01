@@ -74,7 +74,7 @@ export default async function AboutPage() {
                     }}
                   />
                   <h3 className="mt-5 font-display text-2xl">{guide.name}</h3>
-                  <p className="mt-2 text-sm font-semibold text-clay">{localize(guide.role, language)}</p>
+                  <p className="mt-2 text-sm font-semibold text-[color:var(--mw-accent)]">{localize(guide.role, language)}</p>
                   <p className="mt-4 prose-copy">{localize(guide.bio, language)}</p>
                 </article>
               ))}

@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 
-export function HomeEmailCapture({ ui }) {
+export function HomeEmailCapture({ ui, language }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -36,7 +36,8 @@ export function HomeEmailCapture({ ui }) {
           },
           body: JSON.stringify({
             email,
-            source: "homepage"
+            source: "homepage",
+            language
           })
         });
 
@@ -78,13 +79,19 @@ export function HomeEmailCapture({ ui }) {
                     autoComplete="email"
                     required
                   />
-                  <button type="submit" disabled={isPending} className="btn-primary min-w-[156px] disabled:opacity-70">
+                  <button
+                    type="submit"
+                    disabled={isPending}
+                    className="btn-primary btn-cta min-w-[156px] disabled:opacity-70"
+                  >
                     {ui.home.emailCaptureSubmit}
                   </button>
                 </div>
               </label>
-              {error ? <div className="error-box mt-4">{error}</div> : null}
-              {success ? <div className="success-box mt-4">{success}</div> : null}
+              <div aria-live="polite" className="min-h-0">
+                {error ? <div className="error-box mt-4">{error}</div> : null}
+                {success ? <div className="success-box mt-4">{success}</div> : null}
+              </div>
             </form>
           </div>
         </div>

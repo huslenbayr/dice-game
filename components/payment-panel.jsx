@@ -9,22 +9,18 @@ function MethodCard({ method, selected, recommended, language, ui, onSelect }) {
     <button
       type="button"
       onClick={() => onSelect(method.id)}
-      className={`rounded-[24px] border p-5 text-left transition ${
-        selected ? "border-clay bg-clay/[0.16] text-sand" : "border-white/10 bg-white/5 hover:border-clay/50"
+      className={`surface-soft rounded-[24px] p-5 text-left transition ${
+        selected ? "border-[color:var(--mw-accent)] bg-[color:rgba(0,173,181,0.12)]" : "hover:border-[color:rgba(0,173,181,0.42)]"
       }`}
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className={`font-semibold ${selected ? "text-sand" : "text-sand"}`}>{localize(method.title, language)}</h3>
-          <p className={`mt-2 text-sm leading-6 ${selected ? "text-white/78" : "text-white/65"}`}>
-            {localize(method.description, language)}
-          </p>
+          <h3 className="font-semibold detail-value">{localize(method.title, language)}</h3>
+          <p className="mt-2 text-sm leading-6 muted-text">{localize(method.description, language)}</p>
         </div>
         {recommended ? (
           <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${
-              selected ? "bg-white/12 text-sand" : "bg-white/10 text-white/75"
-            }`}
+            className={`rounded-full px-3 py-1 text-xs font-semibold ${selected ? "theme-control-active" : "theme-control faint-text"}`}
           >
             {ui.common.recommended}
           </span>
@@ -139,23 +135,23 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
         <p className="mt-3 prose-copy">{ui.payment.body}</p>
 
         <div className="surface-soft mt-8 grid gap-4 p-5">
-          <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+          <div className="flex items-center justify-between gap-4 text-sm muted-text">
             <span>{ui.booking.fields.tour}</span>
             <strong className="detail-value">{localize(tour.title, language)}</strong>
           </div>
-          <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+          <div className="flex items-center justify-between gap-4 text-sm muted-text">
             <span>{ui.booking.fields.date}</span>
             <strong className="detail-value">{booking.date}</strong>
           </div>
-          <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+          <div className="flex items-center justify-between gap-4 text-sm muted-text">
             <span>{ui.booking.fields.people}</span>
             <strong className="detail-value">{booking.people}</strong>
           </div>
-          <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+          <div className="flex items-center justify-between gap-4 text-sm muted-text">
             <span>{ui.common.paymentSummary}</span>
             <strong className="detail-value">{statusLabel(session?.status || booking.paymentStatus, language)}</strong>
           </div>
-          <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+          <div className="flex items-center justify-between gap-4 text-sm muted-text">
             <span>{ui.common.from}</span>
             <strong className="detail-value">{formatCurrency(bookingAmount, language)}</strong>
           </div>
@@ -163,7 +159,7 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
 
         <div className="mt-8">
           <p className="section-label">{ui.payment.methodsTitle}</p>
-          <p className="mt-3 text-sm text-white/68">
+          <p className="mt-3 text-sm muted-text">
             {paymentContext.travelerMarket === "local" ? ui.payment.localHint : ui.payment.internationalHint}
           </p>
           <div className="mt-5 grid gap-4">
@@ -232,12 +228,12 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
                 className="field-control"
               />
             </label>
-            <div className="surface-soft px-5 py-4 text-sm text-white/70 sm:col-span-2">
+            <div className="surface-soft px-5 py-4 text-sm muted-text sm:col-span-2">
               {ui.payment.applePayNote}
             </div>
           </div>
         ) : (
-          <div className="surface-soft mt-8 px-5 py-4 text-sm leading-7 text-white/70">
+          <div className="surface-soft mt-8 px-5 py-4 text-sm leading-7 muted-text">
             {ui.payment.qpayPanelNote}
           </div>
         )}
@@ -263,40 +259,40 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
           <div className="mt-5 space-y-5">
             {session.method === "qpay" ? (
               <>
-                <div className="rounded-[28px] border border-dashed border-white/20 bg-white/5 p-8 text-center">
-                  <div className="mx-auto flex h-44 w-44 items-center justify-center rounded-[28px] bg-white/[0.08] text-center text-xs text-white/55 shadow-sm">
+                <div className="rounded-[28px] border border-dashed border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] p-8 text-center">
+                  <div className="mx-auto flex h-44 w-44 items-center justify-center rounded-[28px] bg-[var(--mw-panel-soft)] text-center text-xs faint-text shadow-sm">
                     QPay QR Placeholder
                   </div>
-                  <p className="mt-5 text-sm text-white/70">{localize(session.instructions, language)}</p>
+                  <p className="mt-5 text-sm muted-text">{localize(session.instructions, language)}</p>
                 </div>
                 <div className="surface-soft p-5">
-                  <p className="text-sm font-semibold text-sand">{ui.payment.reference}</p>
-                  <p className="mt-2 break-all text-sm text-white/60">{session.reference}</p>
-                  <p className="mt-4 text-sm font-semibold text-sand">{ui.payment.deepLink}</p>
-                  <p className="mt-2 break-all text-sm text-white/60">{session.deepLink}</p>
+                  <p className="text-sm font-semibold detail-value">{ui.payment.reference}</p>
+                  <p className="mt-2 break-all text-sm muted-text">{session.reference}</p>
+                  <p className="mt-4 text-sm font-semibold detail-value">{ui.payment.deepLink}</p>
+                  <p className="mt-2 break-all text-sm muted-text">{session.deepLink}</p>
                 </div>
               </>
             ) : (
               <div className="surface-soft space-y-4 p-5">
-                <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.status}</span>
                   <strong className="detail-value">{statusLabel(session.status, language)}</strong>
                 </div>
-                <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.paymentMethod}</span>
                   <strong className="detail-value">{localize(sessionOption.title, language)}</strong>
                 </div>
-                <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.payment.reference}</span>
                   <strong className="detail-value">{session.reference}</strong>
                 </div>
-                <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.from}</span>
                   <strong className="detail-value">{formatCurrency(session.amount, language)}</strong>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-white/70">
+                <div className="surface-soft-strong px-4 py-4 text-sm muted-text">
                   <p>
-                    <strong className="text-sand">{session.cardSummary?.brand || "Card"}</strong>
+                    <strong className="detail-value">{session.cardSummary?.brand || "Card"}</strong>
                     {session.cardSummary?.last4 ? ` ending in ${session.cardSummary.last4}` : ""}
                   </p>
                   <p className="mt-2">{localize(session.instructions, language)}</p>
@@ -305,7 +301,7 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
             )}
           </div>
         ) : (
-          <div className="mt-5 rounded-[28px] border border-dashed border-white/20 bg-white/5 p-8 text-center text-sm text-white/60">
+          <div className="mt-5 rounded-[28px] border border-dashed border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] p-8 text-center text-sm faint-text">
             {selectedMethod === "card" ? ui.payment.cardPanelPlaceholder : ui.payment.qpayPanelPlaceholder}
           </div>
         )}

@@ -12,7 +12,7 @@ Bilingual tourism website and admin app for a new Mongolian travel company built
   - Khuvsgul Lake Escape
 - Booking flow with server-side persistence
 - Role-aware sign-in flow with traveler and admin access paths
-- Server-side booking email notification flow
+- Server-side booking and lead email notification flow with traveler auto-replies
 - QPay-ready payment abstraction for future dynamic QR and callback integration
 - Editable admin dashboard for tours, guide names, bilingual content, contact info, bookings, and payment status
 
@@ -22,7 +22,7 @@ Bilingual tourism website and admin app for a new Mongolian travel company built
 - React 19
 - Tailwind CSS
 - Supabase-ready repository layer
-- SMTP-ready email provider abstraction
+- SMTP-ready email provider abstraction with Google Workspace-compatible delivery
 
 ## Local development
 
@@ -59,7 +59,7 @@ npm run start
 - The current demo works without external services by using the local JSON store
 - Supabase clients and repository seams are already prepared in `lib/supabase` and `lib/repositories`
 - Booking emails are sent from the server through `lib/email`
-- If SMTP is not configured, the booking is still saved, the email is stored in `emailOutbox`, and the server logs that delivery failed
+- If SMTP is not configured, the booking or lead is still saved, the email is stored in `emailOutbox`, and the server logs that delivery failed
 - QPay is not implemented yet, but the payment layer is structured for future QR generation and callback handling
 
 ## Demo accounts
@@ -75,9 +75,10 @@ See `.env.example` for:
 
 - Supabase connection settings
 - admin email allowlist and session duration
-- booking notification recipient/sender
+- site URL metadata
+- admin notification and sender addresses
 - email provider mode
-- SMTP host credentials
+- SMTP / Google Workspace credentials
 - Google OAuth placeholders for future social login
 
-The default booking notification target is `huslenbayr9779@gmail.com`, and that can later be changed to a company address such as `info@mongolway.mn` without changing the booking API flow.
+For Google Workspace delivery, set `EMAIL_PROVIDER=google-workspace`, keep `EMAIL_FROM=info@mongolway.com`, and provide the mailbox SMTP credentials in `SMTP_USER` / `SMTP_PASS`. The app keeps a provider seam, so switching between `mock`, `smtp`, and `google-workspace` does not require route or frontend changes.

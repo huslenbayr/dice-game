@@ -25,15 +25,21 @@ export default async function ContactPage() {
             <p className="section-label">{site.brandName}</p>
             <h2 className="mt-4 font-display text-3xl">{ui.common.contactPerson}</h2>
             <p className="mt-3 prose-copy">{site.contactPerson}</p>
-            <div className="mt-6 space-y-4 text-sm text-white/72">
+            <div className="mt-6 space-y-4 text-sm muted-text">
               <p>
-                <strong className="text-sand">{ui.contact.fields.phone}:</strong> {site.contact.phone}
+                <strong className="detail-value">{ui.contact.fields.phone}:</strong>{" "}
+                <a className="contact-link" href={`tel:${site.contact.phone.replace(/\s+/g, "")}`}>
+                  {site.contact.phone}
+                </a>
               </p>
               <p>
-                <strong className="text-sand">{ui.contact.fields.email}:</strong> {site.contact.email}
+                <strong className="detail-value">{ui.contact.fields.email}:</strong>{" "}
+                <a className="contact-link" href={`mailto:${site.contact.email}`}>
+                  {site.contact.email}
+                </a>
               </p>
               <p>
-                <strong className="text-sand">{ui.contact.fields.office}:</strong> {site.contact.officeLocation}
+                <strong className="detail-value">{ui.contact.fields.office}:</strong> {site.contact.officeLocation}
               </p>
             </div>
           </div>

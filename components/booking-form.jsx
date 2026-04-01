@@ -69,7 +69,10 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(values)
+          body: JSON.stringify({
+            ...values,
+            language
+          })
         });
 
         const payload = await response.json();
@@ -96,7 +99,7 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
           <h2 className="mt-3 font-display text-3xl">{ui.booking.formTitle}</h2>
           <p className="mt-3 prose-copy">{ui.booking.formBody}</p>
           {currentUser ? (
-            <div className="mt-4 surface-soft px-4 py-3 text-sm text-white/70">{ui.booking.signedInHint}</div>
+            <div className="mt-4 surface-soft px-4 py-3 text-sm muted-text">{ui.booking.signedInHint}</div>
           ) : null}
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -195,7 +198,7 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
         <button
           type="submit"
           disabled={isPending}
-          className="btn-primary mt-6 disabled:opacity-70"
+          className="btn-primary btn-cta mt-6 disabled:opacity-70"
         >
           {isPending ? "..." : ui.booking.confirm}
         </button>
@@ -216,15 +219,15 @@ export function BookingForm({ tours, language, ui, initialTourId, currentUser })
               <p className="mt-2 prose-copy">{localize(selectedTour.intro, language)}</p>
             </div>
             <div className="surface-soft space-y-4 p-5">
-              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
                 <span>{ui.booking.fields.date}</span>
                 <strong className="detail-value">{summary.date}</strong>
               </div>
-              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
                 <span>{ui.booking.fields.people}</span>
                 <strong className="detail-value">{values.people}</strong>
               </div>
-              <div className="flex items-center justify-between gap-4 text-sm text-white/70">
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
                 <span>{ui.common.from}</span>
                 <strong className="detail-value">{formatCurrency(summary.total, language)}</strong>
               </div>

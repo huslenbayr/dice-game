@@ -31,18 +31,18 @@ export default async function AccountPage() {
           <aside className="glass-panel p-6 sm:p-8">
             <p className="section-label">{ui.account.profileTitle}</p>
             <h2 className="mt-4 font-display text-3xl">{currentUser.fullName}</h2>
-            <div className="mt-6 space-y-4 text-sm text-white/72">
+            <div className="mt-6 space-y-4 text-sm muted-text">
               <p>
-                <strong className="text-sand">{ui.auth.fields.email}:</strong> {currentUser.email}
+                <strong className="detail-value">{ui.auth.fields.email}:</strong> {currentUser.email}
               </p>
               <p>
-                <strong className="text-sand">{ui.auth.fields.phone}:</strong> {currentUser.phone || "-"}
+                <strong className="detail-value">{ui.auth.fields.phone}:</strong> {currentUser.phone || "-"}
               </p>
               <p>
-                <strong className="text-sand">{ui.auth.fields.nationality}:</strong> {currentUser.nationality || "-"}
+                <strong className="detail-value">{ui.auth.fields.nationality}:</strong> {currentUser.nationality || "-"}
               </p>
               <p>
-                <strong className="text-sand">{ui.common.accountArea}:</strong>{" "}
+                <strong className="detail-value">{ui.common.accountArea}:</strong>{" "}
                 {currentUser.role === "admin" ? ui.nav.admin : ui.account.pageLabel}
               </p>
             </div>
@@ -68,25 +68,25 @@ export default async function AccountPage() {
                       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                         <div>
                           <h3 className="font-display text-2xl">{localize(localizedTourTitle, language)}</h3>
-                          <p className="mt-2 text-sm text-white/55">{formatDateTime(booking.createdAt, language)}</p>
+                          <p className="mt-2 text-sm faint-text">{formatDateTime(booking.createdAt, language)}</p>
                         </div>
                         <div className="text-left lg:text-right">
                           <p className="font-display text-2xl">{formatCurrency(amount, language)}</p>
-                          <p className="mt-1 text-sm text-white/55">{booking.date}</p>
+                          <p className="mt-1 text-sm faint-text">{booking.date}</p>
                         </div>
                       </div>
                       <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                        <div className="surface-soft-strong px-4 py-3 text-sm text-white/70">
-                          <span className="block text-xs uppercase tracking-[0.2em] text-white/42">{ui.booking.fields.people}</span>
-                          <strong className="mt-1 block text-sand">{booking.people}</strong>
+                        <div className="surface-soft-strong px-4 py-3 text-sm muted-text">
+                          <span className="block text-xs uppercase tracking-[0.2em] faint-text">{ui.booking.fields.people}</span>
+                          <strong className="mt-1 block detail-value">{booking.people}</strong>
                         </div>
-                        <div className="surface-soft-strong px-4 py-3 text-sm text-white/70">
-                          <span className="block text-xs uppercase tracking-[0.2em] text-white/42">{ui.common.status}</span>
-                          <strong className="mt-1 block text-sand">{statusLabel(booking.status, language)}</strong>
+                        <div className="surface-soft-strong px-4 py-3 text-sm muted-text">
+                          <span className="block text-xs uppercase tracking-[0.2em] faint-text">{ui.common.status}</span>
+                          <strong className="mt-1 block detail-value">{statusLabel(booking.status, language)}</strong>
                         </div>
-                        <div className="surface-soft-strong px-4 py-3 text-sm text-white/70">
-                          <span className="block text-xs uppercase tracking-[0.2em] text-white/42">{ui.common.payment}</span>
-                          <strong className="mt-1 block text-sand">{statusLabel(booking.paymentStatus, language)}</strong>
+                        <div className="surface-soft-strong px-4 py-3 text-sm muted-text">
+                          <span className="block text-xs uppercase tracking-[0.2em] faint-text">{ui.common.payment}</span>
+                          <strong className="mt-1 block detail-value">{statusLabel(booking.paymentStatus, language)}</strong>
                         </div>
                       </div>
                       <Link
@@ -100,7 +100,7 @@ export default async function AccountPage() {
                 })}
               </div>
             ) : (
-              <div className="surface-soft mt-6 px-5 py-6 text-sm text-white/70">{ui.account.noBookings}</div>
+              <div className="surface-soft mt-6 px-5 py-6 text-sm muted-text">{ui.account.noBookings}</div>
             )}
           </div>
         </div>

@@ -16,11 +16,11 @@ module.exports = {
         gold: "#0E8B92"
       },
       fontFamily: {
-        display: ["Georgia", "Times New Roman", "serif"],
-        sans: ["ui-sans-serif", "system-ui", "sans-serif"]
+        display: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"]
       },
       boxShadow: {
-        soft: "0 28px 72px rgba(8, 10, 15, 0.34)"
+        soft: "0 24px 64px var(--mw-shadow-color)"
       },
       backgroundImage: {
         "mongolway-glow":
