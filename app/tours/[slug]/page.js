@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
-import { PriceStatusNote } from "@/components/price-status-note";
+import { formatCurrency } from "@/lib/format";
 import { getCurrentLanguage, interpolate, localize } from "@/lib/i18n";
-import { buildPricingContext, getPriceDisplay } from "@/lib/pricing";
 import { getRepository } from "@/lib/repositories/content-repository";
-import { getExchangeRates } from "@/lib/services/exchange-rate-service";
 import { getUiCopy } from "@/lib/ui-copy";
 
 export default async function TourDetailsPage({ params }) {
@@ -13,7 +11,6 @@ export default async function TourDetailsPage({ params }) {
   const ui = getUiCopy(language);
   const repository = await getRepository();
   const tour = await repository.getTourBySlug(slug);
-  const pricing = buildPricingContext(language, await getExchangeRates());
 
   if (!tour) {
     return (
@@ -27,8 +24,6 @@ export default async function TourDetailsPage({ params }) {
       </section>
     );
   }
-
-  const price = getPriceDisplay(tour.price, pricing, language);
 
   return (
     <>
@@ -88,9 +83,8 @@ export default async function TourDetailsPage({ params }) {
           <aside className="space-y-6">
             <div className="glass-panel p-6 sm:p-8">
               <p className="section-label">{ui.common.bookingSummary}</p>
-              <h2 className="mt-4 font-display text-4xl tabular-nums">{price.formatted}</h2>
+              <h2 className="mt-4 font-display text-4xl">{formatCurrency(tour.price, language)}</h2>
               <p className="mt-1 text-sm faint-text">{ui.common.perPerson}</p>
-              <PriceStatusNote pricing={pricing} ui={ui} className="mt-3 text-sm muted-text" />
               <div className="mt-6 space-y-4 text-sm muted-text">
                 <div className="flex items-center justify-between gap-4">
                   <span>{ui.common.dates}</span>

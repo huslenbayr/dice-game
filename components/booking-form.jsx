@@ -2,14 +2,13 @@
 
 import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { PriceStatusNote } from "@/components/price-status-note";
-import { getPriceDisplay } from "@/lib/pricing";
+import { formatCurrency } from "@/lib/format";
 
 function localize(value, language) {
   return typeof value === "string" ? value : value?.[language] ?? value?.en ?? "";
 }
 
-export function BookingForm({ tours, pricing, language, ui, initialTourId, currentUser }) {
+export function BookingForm({ tours, language, ui, initialTourId, currentUser }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState("");
@@ -36,15 +35,12 @@ export function BookingForm({ tours, pricing, language, ui, initialTourId, curre
       return null;
     }
 
-    const total = Number(selectedTour.price) * Number(values.people || 1);
-
     return {
-      total,
-      price: getPriceDisplay(total, pricing, language),
+      total: Number(selectedTour.price) * Number(values.people || 1),
       title: localize(selectedTour.title, language),
       date: values.date
     };
-  }, [selectedTour, values.people, values.date, pricing, language]);
+  }, [selectedTour, values.people, values.date, language]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -210,7 +206,6 @@ export function BookingForm({ tours, pricing, language, ui, initialTourId, curre
 
       <aside className="glass-panel p-6 sm:p-8">
         <p className="section-label">{ui.common.bookingSummary}</p>
-        <PriceStatusNote pricing={pricing} ui={ui} className="mt-3 text-sm muted-text" />
         {summary ? (
           <div className="mt-5 space-y-5">
             <div
@@ -234,7 +229,7 @@ export function BookingForm({ tours, pricing, language, ui, initialTourId, curre
               </div>
               <div className="flex items-center justify-between gap-4 text-sm muted-text">
                 <span>{ui.common.from}</span>
-                <strong className="detail-value tabular-nums">{summary.price.formatted}</strong>
+                <strong className="detail-value">{formatCurrency(summary.total, language)}</strong>
               </div>
             </div>
           </div>

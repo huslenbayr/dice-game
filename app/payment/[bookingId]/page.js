@@ -1,12 +1,9 @@
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { PaymentPanel } from "@/components/payment-panel";
-import { PRICE_BASE_CURRENCY } from "@/lib/currency";
 import { getCurrentLanguage, localize } from "@/lib/i18n";
 import { getPaymentCheckoutContext } from "@/lib/payments/provider";
-import { buildPricingContext } from "@/lib/pricing";
 import { getRepository } from "@/lib/repositories/content-repository";
-import { getExchangeRates } from "@/lib/services/exchange-rate-service";
 import { getUiCopy } from "@/lib/ui-copy";
 
 export default async function PaymentPage({ params }) {
@@ -15,7 +12,6 @@ export default async function PaymentPage({ params }) {
   const ui = getUiCopy(language);
   const repository = await getRepository();
   const snapshot = await repository.getPublicSnapshot();
-  const pricing = buildPricingContext(language, await getExchangeRates());
   const booking = snapshot.bookings.find((item) => item.id === bookingId);
 
   if (!booking) {
@@ -30,7 +26,7 @@ export default async function PaymentPage({ params }) {
         method: rawPaymentSession.method || (String(rawPaymentSession.provider || "").includes("qpay") ? "qpay" : "card"),
         reference: rawPaymentSession.reference || rawPaymentSession.id,
         amount: rawPaymentSession.amount || Number(tour?.price || 0) * Number(booking.people || 1),
-        currency: rawPaymentSession.currency || PRICE_BASE_CURRENCY,
+        currency: rawPaymentSession.currency || "USD",
         applePayEligible: Boolean(rawPaymentSession.applePayEligible),
         deepLink: rawPaymentSession.deepLink || null
       }
@@ -53,7 +49,6 @@ export default async function PaymentPage({ params }) {
           tour={tour}
           paymentSession={paymentSession}
           paymentContext={paymentContext}
-          pricing={pricing}
           language={language}
           ui={ui}
         />

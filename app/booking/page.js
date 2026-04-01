@@ -2,9 +2,7 @@ import { BookingForm } from "@/components/booking-form";
 import { PageHero } from "@/components/page-hero";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getCurrentLanguage } from "@/lib/i18n";
-import { buildPricingContext } from "@/lib/pricing";
 import { getRepository } from "@/lib/repositories/content-repository";
-import { getExchangeRates } from "@/lib/services/exchange-rate-service";
 import { getUiCopy } from "@/lib/ui-copy";
 
 export default async function BookingPage({ searchParams }) {
@@ -14,7 +12,6 @@ export default async function BookingPage({ searchParams }) {
   const repository = await getRepository();
   const snapshot = await repository.getPublicSnapshot();
   const currentUser = await getCurrentUser();
-  const pricing = buildPricingContext(language, await getExchangeRates());
 
   return (
     <>
@@ -29,7 +26,6 @@ export default async function BookingPage({ searchParams }) {
         <div className="shell-container">
           <BookingForm
             tours={snapshot.tours}
-            pricing={pricing}
             language={language}
             ui={ui}
             initialTourId={params.tour}
