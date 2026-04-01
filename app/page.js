@@ -41,6 +41,7 @@ export default async function HomePage() {
         title={localize(site.home.heroTitle, language)}
         body={localize(site.home.heroSubtitle, language)}
         image="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80"
+        videoSrc="/huske.mp4"
         mediaContent={
           <div className="space-y-4">
             <p className="text-[11px] uppercase tracking-[0.28em] text-white/72">{heroOverlayTitle}</p>

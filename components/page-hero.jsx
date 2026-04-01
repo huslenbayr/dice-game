@@ -4,10 +4,12 @@ export function PageHero({
   body,
   actions,
   image,
+  videoSrc = null,
   variant = "default",
   mediaContent = null
 }) {
   const isHome = variant === "home";
+  const hasVideo = isHome && Boolean(videoSrc);
 
   return (
     <section className={isHome ? "section-space pb-6 pt-5 sm:pt-6 lg:pb-10 lg:pt-7" : "section-space pb-6 pt-8 lg:pb-10"}>
@@ -50,11 +52,27 @@ export function PageHero({
             {actions ? <div className={isHome ? "mt-7 flex flex-wrap gap-3" : "mt-8 flex flex-wrap gap-3"}>{actions}</div> : null}
           </div>
           <div
-            className={`relative bg-cover bg-center ${isHome ? "min-h-[280px] sm:min-h-[340px]" : "min-h-[320px]"}`}
+            className={`relative overflow-hidden bg-cover bg-center ${isHome ? "min-h-[280px] sm:min-h-[340px]" : "min-h-[320px]"}`}
             style={{
               backgroundImage: `linear-gradient(180deg, rgba(34,40,49,0.22), rgba(34,40,49,0.48)), url('${image}')`
             }}
           >
+            {hasVideo ? (
+              <>
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster={image}
+                >
+                  <source src={videoSrc} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,24,39,0.16),rgba(17,24,39,0.48))]" />
+              </>
+            ) : null}
             {mediaContent ? <div className="hero-media-panel">{mediaContent}</div> : null}
           </div>
         </div>

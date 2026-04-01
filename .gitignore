@@ -4,3 +4,5 @@ node_modules
 .env.local
 out
 public/huske.mov
+public/huske.mp4
+public/huske.mov
