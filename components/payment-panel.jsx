@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { formatCurrency } from "@/lib/format";
+import { PriceStatusNote } from "@/components/price-status-note";
 import { localize, statusLabel } from "@/lib/i18n";
+import { getPriceDisplay } from "@/lib/pricing";
 
 function MethodCard({ method, selected, recommended, language, ui, onSelect }) {
   return (
@@ -30,7 +31,7 @@ function MethodCard({ method, selected, recommended, language, ui, onSelect }) {
   );
 }
 
-export function PaymentPanel({ booking, tour, paymentSession, paymentContext, language, ui }) {
+export function PaymentPanel({ booking, tour, paymentSession, paymentContext, pricing, language, ui }) {
   const [session, setSession] = useState(paymentSession);
   const [selectedMethod, setSelectedMethod] = useState(paymentSession?.method || paymentContext.recommendedMethodId);
   const [message, setMessage] = useState("");
@@ -47,6 +48,8 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
   const selectedOption = paymentContext.methods.find((method) => method.id === selectedMethod) || paymentContext.methods[0];
   const sessionOption = paymentContext.methods.find((method) => method.id === session?.method) || selectedOption;
   const bookingAmount = Number(tour.price || 0) * Number(booking.people || 1);
+  const bookingPrice = getPriceDisplay(bookingAmount, pricing, language);
+  const paymentPrice = getPriceDisplay(session?.amount || bookingAmount, pricing, language);
 
   function handleCardChange(event) {
     const { name, value } = event.target;
@@ -133,6 +136,7 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
         <p className="section-label">{ui.payment.pageLabel}</p>
         <h2 className="mt-3 font-display text-3xl">{ui.payment.title}</h2>
         <p className="mt-3 prose-copy">{ui.payment.body}</p>
+        <PriceStatusNote pricing={pricing} ui={ui} className="mt-4 text-sm muted-text" />
 
         <div className="surface-soft mt-8 grid gap-4 p-5">
           <div className="flex items-center justify-between gap-4 text-sm muted-text">
@@ -153,7 +157,7 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
           </div>
           <div className="flex items-center justify-between gap-4 text-sm muted-text">
             <span>{ui.common.from}</span>
-            <strong className="detail-value">{formatCurrency(bookingAmount, language)}</strong>
+            <strong className="detail-value tabular-nums">{bookingPrice.formatted}</strong>
           </div>
         </div>
 
@@ -288,7 +292,7 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
                 </div>
                 <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.from}</span>
-                  <strong className="detail-value">{formatCurrency(session.amount, language)}</strong>
+                  <strong className="detail-value tabular-nums">{paymentPrice.formatted}</strong>
                 </div>
                 <div className="surface-soft-strong px-4 py-4 text-sm muted-text">
                   <p>

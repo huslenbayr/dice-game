@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
-import { formatCurrency, formatDateTime } from "@/lib/format";
+import { PriceStatusNote } from "@/components/price-status-note";
+import { formatDateTime } from "@/lib/format";
 import { getCurrentLanguage, localize, statusLabel } from "@/lib/i18n";
+import { getPriceDisplay, buildPricingContext } from "@/lib/pricing";
 import { requireAuthenticatedUser } from "@/lib/auth/session";
 import { getRepository } from "@/lib/repositories/content-repository";
+import { getExchangeRates } from "@/lib/services/exchange-rate-service";
 import { getUiCopy } from "@/lib/ui-copy";
 
 export default async function AccountPage() {
@@ -12,6 +15,7 @@ export default async function AccountPage() {
   const currentUser = await requireAuthenticatedUser("/account");
   const repository = await getRepository();
   const snapshot = await repository.getPublicSnapshot();
+  const pricing = buildPricingContext(language, await getExchangeRates());
   const bookings = await repository.getBookingsForUser({
     userId: currentUser.id,
     email: currentUser.email
@@ -56,11 +60,12 @@ export default async function AccountPage() {
 
           <div className="glass-panel p-6 sm:p-8">
             <p className="section-label">{ui.account.bookingsTitle}</p>
+            <PriceStatusNote pricing={pricing} ui={ui} className="mt-3 text-sm muted-text" />
             {bookings.length ? (
               <div className="mt-6 space-y-4">
                 {bookings.map((booking) => {
                   const tour = snapshot.tours.find((item) => item.id === booking.tourId);
-                  const amount = Number(tour?.price || 0) * Number(booking.people || 1);
+                  const price = getPriceDisplay(Number(tour?.price || 0) * Number(booking.people || 1), pricing, language);
                   const localizedTourTitle = tour?.title || booking.tourTitle;
 
                   return (
@@ -71,7 +76,7 @@ export default async function AccountPage() {
                           <p className="mt-2 text-sm faint-text">{formatDateTime(booking.createdAt, language)}</p>
                         </div>
                         <div className="text-left lg:text-right">
-                          <p className="font-display text-2xl">{formatCurrency(amount, language)}</p>
+                          <p className="font-display text-2xl tabular-nums">{price.formatted}</p>
                           <p className="mt-1 text-sm faint-text">{booking.date}</p>
                         </div>
                       </div>
