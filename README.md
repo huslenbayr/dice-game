@@ -12,6 +12,7 @@ Bilingual tourism website and admin app for a new Mongolian travel company built
   - Khuvsgul Lake Escape
 - Booking flow with server-side persistence
 - Role-aware sign-in flow with traveler and admin access paths
+- Supabase-backed Google OAuth sign-in with a server callback and local role-aware session linking
 - Server-side booking and lead email notification flow with traveler auto-replies
 - QPay-ready payment abstraction for future dynamic QR and callback integration
 - Editable admin dashboard for tours, guide names, bilingual content, contact info, bookings, and payment status
@@ -58,6 +59,8 @@ npm run start
 - Sample content is stored in [data/mongolway-db.json](./data/mongolway-db.json)
 - The current demo works without external services by using the local JSON store
 - Supabase clients and repository seams are already prepared in `lib/supabase` and `lib/repositories`
+- Google OAuth starts at `app/api/auth/oauth/[provider]/route.js` and completes in `app/auth/callback/route.js`
+- The callback exchanges the Supabase auth code on the server, then links or creates the MongolWay user and applies the app session cookie
 - Booking emails are sent from the server through `lib/email`
 - If SMTP is not configured, the booking or lead is still saved, the email is stored in `emailOutbox`, and the server logs that delivery failed
 - QPay is not implemented yet, but the payment layer is structured for future QR generation and callback handling
@@ -79,6 +82,60 @@ See `.env.example` for:
 - admin notification and sender addresses
 - email provider mode
 - SMTP / Google Workspace credentials
-- Google OAuth placeholders for future social login
+- Supabase auth URL / anon key values used by the Google OAuth flow
+
+## Google OAuth setup
+
+The app now supports `Continue with Google` through Supabase Auth. The button is shown on the sign-in page and becomes active when the Supabase auth environment variables are set.
+
+### App environment
+
+Set these in `.env.local` for local development and in Render for production:
+
+- `MONGOLWAY_SUPABASE_URL`
+- `MONGOLWAY_SUPABASE_ANON_KEY`
+- `MONGOLWAY_SUPABASE_SERVICE_ROLE_KEY`
+- `SITE_URL`
+
+The OAuth UI and callback use the Supabase URL and anon key. The service role key is still used elsewhere in the repository layer for server-side Supabase persistence.
+
+### Google Cloud
+
+1. Create or open your Google Cloud project.
+2. Configure the OAuth consent screen.
+3. Create a Web application OAuth client.
+4. Add the Supabase callback URL from your project as an authorized redirect URI.
+
+For hosted Supabase projects this is typically:
+
+```text
+https://<your-project-ref>.supabase.co/auth/v1/callback
+```
+
+### Supabase
+
+1. Open `Authentication` -> `Providers` -> `Google`.
+2. Enable the Google provider.
+3. Paste the Google client ID and client secret from Google Cloud.
+4. Set the Supabase `Site URL` to your app URL, for example:
+
+```text
+https://mongolway.com
+```
+
+5. Add redirect URLs for every environment that should complete sign-in, for example:
+
+```text
+http://localhost:3000/auth/callback
+https://mongolway.com/auth/callback
+```
+
+### Callback flow
+
+1. The sign-in page links to `/api/auth/oauth/google`.
+2. That route starts a Supabase PKCE OAuth flow and redirects the browser to Google.
+3. Google returns to Supabase, and Supabase redirects back to `/auth/callback`.
+4. The callback route exchanges the auth code for a Supabase session on the server.
+5. The app then finds or creates the local MongolWay user, preserves role-aware behavior, sets the MongolWay session cookie, and redirects the user to `/account`, `/admin`, or the requested safe `next` path.
 
 For Google Workspace delivery, set `EMAIL_PROVIDER=google-workspace`, keep `EMAIL_FROM=info@mongolway.com`, and provide the mailbox SMTP credentials in `SMTP_USER` / `SMTP_PASS`. The app keeps a provider seam, so switching between `mock`, `smtp`, and `google-workspace` does not require route or frontend changes.
