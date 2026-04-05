@@ -69,7 +69,8 @@ export default async function PaymentPage({ params, searchParams }) {
         amount: rawPaymentSession.amount || Number(tour?.price || 0) * Number(booking.people || 1),
         currency: rawPaymentSession.currency || "USD",
         applePayEligible: Boolean(rawPaymentSession.applePayEligible),
-        deepLink: rawPaymentSession.deepLink || null
+        deepLink: rawPaymentSession.deepLink || null,
+        promo: rawPaymentSession.rawResponse?.promo || null
       }
     : null;
   const paymentContext = getPaymentCheckoutContext(booking);

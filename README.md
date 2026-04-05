@@ -86,6 +86,7 @@ See `.env.example` for:
 - SMTP / Google Workspace credentials
 - Supabase auth URL / anon key values used by the social OAuth flows
 - PayPal mode and server credentials
+- checkout promo code and promo amount overrides
 
 ## Social OAuth setup
 
@@ -195,6 +196,24 @@ Set these in `.env.local` and in Render when you are ready to use PayPal outside
 3. The traveler is redirected to PayPal for approval.
 4. PayPal returns to `/api/payments/paypal/return`, where the server captures the order and updates the booking/payment status.
 5. If the traveler cancels on PayPal, they are sent to `/api/payments/paypal/cancel`, which safely marks the checkout as cancelled instead of breaking the UI.
+
+## Promotion code checkout override
+
+The payment page includes a promotion code field. When the code matches the configured server value, the checkout amount is reduced on the server before the payment session is created.
+
+Environment variables:
+
+- `CHECKOUT_PROMO_CODE`
+- `CHECKOUT_PROMO_AMOUNT`
+
+Example:
+
+```text
+CHECKOUT_PROMO_CODE=MONGOLWAY001
+CHECKOUT_PROMO_AMOUNT=0.01
+```
+
+This is useful for internal testing, influencer campaigns, or near-free promotional checkouts without changing the listed tour price.
 
 ### PayPal dashboard notes
 

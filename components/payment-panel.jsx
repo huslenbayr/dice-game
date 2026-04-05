@@ -81,6 +81,7 @@ export function PaymentPanel({
   const [message, setMessage] = useState(initialMessage);
   const [error, setError] = useState(initialError);
   const [isPending, startTransition] = useTransition();
+  const [promoCode, setPromoCode] = useState(paymentSession?.promo?.code || paymentSession?.rawResponse?.promo?.code || "");
   const [cardValues, setCardValues] = useState({
     cardholderName: booking.name || "",
     cardNumber: "",
@@ -92,11 +93,17 @@ export function PaymentPanel({
   const selectedOption = paymentContext.methods.find((method) => method.id === selectedMethod) || paymentContext.methods[0];
   const sessionOption = paymentContext.methods.find((method) => method.id === session?.method) || selectedOption;
   const bookingAmount = Number(tour.price || 0) * Number(booking.people || 1);
+  const appliedPromo = session?.promo || session?.rawResponse?.promo || null;
+  const displayedAmount = appliedPromo?.applied ? appliedPromo.finalAmount : bookingAmount;
 
   useEffect(() => {
     setMessage(initialMessage || "");
     setError(initialError || "");
   }, [initialError, initialMessage]);
+
+  useEffect(() => {
+    setPromoCode(session?.promo?.code || session?.rawResponse?.promo?.code || "");
+  }, [session?.promo?.code, session?.rawResponse?.promo?.code]);
 
   function handleCardChange(event) {
     const { name, value } = event.target;
@@ -120,7 +127,8 @@ export function PaymentPanel({
           body: JSON.stringify({
             bookingId: booking.id,
             method: selectedMethod,
-            card: selectedMethod === "card" ? cardValues : undefined
+            card: selectedMethod === "card" ? cardValues : undefined,
+            promoCode
           })
         });
 
@@ -210,10 +218,36 @@ export function PaymentPanel({
             <span>{ui.common.paymentSummary}</span>
             <strong className="detail-value">{statusLabel(session?.status || booking.paymentStatus, language)}</strong>
           </div>
-          <div className="flex items-center justify-between gap-4 text-sm muted-text">
-            <span>{ui.common.from}</span>
-            <strong className="detail-value">{formatCurrency(bookingAmount, language)}</strong>
-          </div>
+          {appliedPromo?.applied ? (
+            <>
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                <span>{ui.payment.promoApplied}</span>
+                <strong className="detail-value">{appliedPromo.code}</strong>
+              </div>
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                <span>{ui.payment.promoOriginalAmount}</span>
+                <strong className="detail-value">{formatCurrency(appliedPromo.originalAmount, language)}</strong>
+              </div>
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                <span>{ui.payment.promoDiscountAmount}</span>
+                <strong className="detail-value">-{formatCurrency(appliedPromo.discountAmount, language)}</strong>
+              </div>
+              <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                <span>{ui.payment.promoFinalAmount}</span>
+                <strong className="detail-value">
+                  {formatCurrency(appliedPromo.finalAmount, language, {
+                    currency: session?.currency || "USD",
+                    convert: false
+                  })}
+                </strong>
+              </div>
+            </>
+          ) : (
+            <div className="flex items-center justify-between gap-4 text-sm muted-text">
+              <span>{ui.common.from}</span>
+              <strong className="detail-value">{formatCurrency(bookingAmount, language)}</strong>
+            </div>
+          )}
         </div>
 
         <div className="mt-8">
@@ -233,6 +267,23 @@ export function PaymentPanel({
                 onSelect={setSelectedMethod}
               />
             ))}
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <p className="section-label">{ui.payment.promoTitle}</p>
+          <div className="surface-soft mt-4 grid gap-3 p-5">
+            <label className="field-label">
+              <span>{ui.payment.promoCodeLabel}</span>
+              <input
+                name="promoCode"
+                value={promoCode}
+                onChange={(event) => setPromoCode(event.target.value.toUpperCase())}
+                placeholder={ui.payment.promoCodePlaceholder}
+                className="field-control"
+              />
+            </label>
+            <p className="text-sm muted-text">{ui.payment.promoHint}</p>
           </div>
         </div>
 
@@ -350,7 +401,7 @@ export function PaymentPanel({
                 <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.from}</span>
                   <strong className="detail-value">
-                    {formatCurrency(session.amount, language, {
+                    {formatCurrency(displayedAmount, language, {
                       currency: session.currency || "USD",
                       convert: false
                     })}
@@ -391,7 +442,7 @@ export function PaymentPanel({
                 <div className="flex items-center justify-between gap-4 text-sm muted-text">
                   <span>{ui.common.from}</span>
                   <strong className="detail-value">
-                    {formatCurrency(session.amount, language, {
+                    {formatCurrency(displayedAmount, language, {
                       currency: session.currency || "USD",
                       convert: false
                     })}
