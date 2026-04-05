@@ -7,7 +7,9 @@ export const runtime = "nodejs";
 export async function POST(request) {
   try {
     const payload = await request.json();
-    const result = await createPaymentForBooking(payload);
+    const result = await createPaymentForBooking(payload, {
+      origin: request.nextUrl.origin
+    });
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
     logError("payment_create_failed", {

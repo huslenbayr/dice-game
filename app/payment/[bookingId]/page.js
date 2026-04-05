@@ -2,12 +2,53 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { PaymentPanel } from "@/components/payment-panel";
 import { getCurrentLanguage, localize } from "@/lib/i18n";
-import { getPaymentCheckoutContext } from "@/lib/payments/provider";
+import { getPaymentCheckoutContext, inferPaymentMethod } from "@/lib/payments/provider";
 import { getRepository } from "@/lib/repositories/content-repository";
 import { getUiCopy } from "@/lib/ui-copy";
 
-export default async function PaymentPage({ params }) {
+function resolveInitialPaymentFeedback(ui, searchParams) {
+  const paymentState = String(searchParams?.payment || "").trim().toLowerCase();
+  const method = String(searchParams?.method || "").trim().toLowerCase();
+
+  if (method !== "paypal") {
+    return {
+      initialMessage: "",
+      initialError: ""
+    };
+  }
+
+  switch (paymentState) {
+    case "paid":
+      return {
+        initialMessage: ui.payment.paypalSuccess,
+        initialError: ""
+      };
+    case "pending":
+      return {
+        initialMessage: ui.payment.paypalPending,
+        initialError: ""
+      };
+    case "cancelled":
+      return {
+        initialMessage: "",
+        initialError: ui.payment.paypalCancelled
+      };
+    case "failed":
+      return {
+        initialMessage: "",
+        initialError: ui.payment.paypalFailed
+      };
+    default:
+      return {
+        initialMessage: "",
+        initialError: ""
+      };
+  }
+}
+
+export default async function PaymentPage({ params, searchParams }) {
   const { bookingId } = await params;
+  const resolvedSearchParams = await searchParams;
   const language = await getCurrentLanguage();
   const ui = getUiCopy(language);
   const repository = await getRepository();
@@ -23,7 +64,7 @@ export default async function PaymentPage({ params }) {
   const paymentSession = rawPaymentSession
     ? {
         ...rawPaymentSession,
-        method: rawPaymentSession.method || (String(rawPaymentSession.provider || "").includes("qpay") ? "qpay" : "card"),
+        method: inferPaymentMethod(rawPaymentSession),
         reference: rawPaymentSession.reference || rawPaymentSession.id,
         amount: rawPaymentSession.amount || Number(tour?.price || 0) * Number(booking.people || 1),
         currency: rawPaymentSession.currency || "USD",
@@ -32,6 +73,7 @@ export default async function PaymentPage({ params }) {
       }
     : null;
   const paymentContext = getPaymentCheckoutContext(booking);
+  const { initialMessage, initialError } = resolveInitialPaymentFeedback(ui, resolvedSearchParams);
 
   return (
     <>
@@ -51,6 +93,8 @@ export default async function PaymentPage({ params }) {
           paymentContext={paymentContext}
           language={language}
           ui={ui}
+          initialMessage={initialMessage}
+          initialError={initialError}
         />
         </div>
       </section>

@@ -13,6 +13,7 @@ Bilingual tourism website and admin app for a new Mongolian travel company built
 - Booking flow with server-side persistence
 - Role-aware sign-in flow with traveler and admin access paths
 - Supabase-backed Google, Apple, and Facebook OAuth sign-in with a server callback and local role-aware session linking
+- PayPal redirect checkout with server-side capture return handling, plus the existing card and QPay flows
 - Server-side booking and lead email notification flow with traveler auto-replies
 - QPay-ready payment abstraction for future dynamic QR and callback integration
 - Editable admin dashboard for tours, guide names, bilingual content, contact info, bookings, and payment status
@@ -63,7 +64,8 @@ npm run start
 - The callback exchanges the Supabase auth code on the server, then links or creates the MongolWay user and applies the app session cookie
 - Booking emails are sent from the server through `lib/email`
 - If SMTP is not configured, the booking or lead is still saved, the email is stored in `emailOutbox`, and the server logs that delivery failed
-- QPay is not implemented yet, but the payment layer is structured for future QR generation and callback handling
+- QPay remains demo-mode ready for future QR generation and callback handling
+- PayPal works in `mock`, `sandbox`, or `live` mode through the Orders API redirect flow
 
 ## Demo accounts
 
@@ -83,6 +85,7 @@ See `.env.example` for:
 - email provider mode
 - SMTP / Google Workspace credentials
 - Supabase auth URL / anon key values used by the social OAuth flows
+- PayPal mode and server credentials
 
 ## Social OAuth setup
 
@@ -166,5 +169,38 @@ https://mongolway.com/auth/callback
 3. The provider returns to Supabase, and Supabase redirects back to `/auth/callback`.
 4. The callback route exchanges the auth code for a Supabase session on the server.
 5. The app then finds or creates the local MongolWay user, preserves role-aware behavior, sets the MongolWay session cookie, and redirects the user to `/account`, `/admin`, or the requested safe `next` path.
+
+## PayPal payment setup
+
+The booking payment page now supports three methods:
+
+- `QPay` for local QR / deep-link checkout
+- `PayPal` for hosted approval and return capture
+- `Card payment` as the existing manual fallback
+
+### App environment
+
+Set these in `.env.local` and in Render when you are ready to use PayPal outside demo mode:
+
+- `PAYPAL_MODE=mock|sandbox|live`
+- `PAYPAL_CLIENT_ID`
+- `PAYPAL_CLIENT_SECRET`
+
+`mock` mode keeps the full booking flow working without external credentials by redirecting back into the app and marking the session complete on the return route. `sandbox` and `live` call the PayPal Orders API on the server.
+
+### PayPal flow
+
+1. The payment page calls `/api/payments/create` with the selected `paypal` method.
+2. The server creates a PayPal order and stores the order ID plus the approval link in the payment session.
+3. The traveler is redirected to PayPal for approval.
+4. PayPal returns to `/api/payments/paypal/return`, where the server captures the order and updates the booking/payment status.
+5. If the traveler cancels on PayPal, they are sent to `/api/payments/paypal/cancel`, which safely marks the checkout as cancelled instead of breaking the UI.
+
+### PayPal dashboard notes
+
+1. Create a REST app in the PayPal developer dashboard.
+2. Use the sandbox client ID and secret for `PAYPAL_MODE=sandbox`.
+3. Switch to live credentials only after the live merchant account is approved.
+4. No client-side secret is exposed; the app uses only server-side credentials.
 
 For Google Workspace delivery, set `EMAIL_PROVIDER=google-workspace`, keep `EMAIL_FROM=info@mongolway.com`, and provide the mailbox SMTP credentials in `SMTP_USER` / `SMTP_PASS`. The app keeps a provider seam, so switching between `mock`, `smtp`, and `google-workspace` does not require route or frontend changes.

@@ -30,11 +30,56 @@ function MethodCard({ method, selected, recommended, language, ui, onSelect }) {
   );
 }
 
-export function PaymentPanel({ booking, tour, paymentSession, paymentContext, language, ui }) {
+function getSubmitLabel(methodId, ui) {
+  if (methodId === "paypal") {
+    return ui.payment.paypalSubmit;
+  }
+
+  if (methodId === "card") {
+    return ui.payment.cardSubmit;
+  }
+
+  return ui.payment.qpaySubmit;
+}
+
+function getResultTitle(methodId, ui) {
+  if (methodId === "paypal") {
+    return ui.payment.paypalResultTitle;
+  }
+
+  if (methodId === "card") {
+    return ui.payment.cardResultTitle;
+  }
+
+  return ui.payment.qpayResultTitle;
+}
+
+function getPlaceholderLabel(methodId, ui) {
+  if (methodId === "paypal") {
+    return ui.payment.paypalPanelPlaceholder;
+  }
+
+  if (methodId === "card") {
+    return ui.payment.cardPanelPlaceholder;
+  }
+
+  return ui.payment.qpayPanelPlaceholder;
+}
+
+export function PaymentPanel({
+  booking,
+  tour,
+  paymentSession,
+  paymentContext,
+  language,
+  ui,
+  initialMessage = "",
+  initialError = ""
+}) {
   const [session, setSession] = useState(paymentSession);
   const [selectedMethod, setSelectedMethod] = useState(paymentSession?.method || paymentContext.recommendedMethodId);
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState(initialMessage);
+  const [error, setError] = useState(initialError);
   const [isPending, startTransition] = useTransition();
   const [cardValues, setCardValues] = useState({
     cardholderName: booking.name || "",
@@ -47,6 +92,11 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
   const selectedOption = paymentContext.methods.find((method) => method.id === selectedMethod) || paymentContext.methods[0];
   const sessionOption = paymentContext.methods.find((method) => method.id === session?.method) || selectedOption;
   const bookingAmount = Number(tour.price || 0) * Number(booking.people || 1);
+
+  useEffect(() => {
+    setMessage(initialMessage || "");
+    setError(initialError || "");
+  }, [initialError, initialMessage]);
 
   function handleCardChange(event) {
     const { name, value } = event.target;
@@ -81,6 +131,15 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
         }
 
         setSession(payload.paymentSession);
+
+        if (payload.paymentSession.method === "paypal") {
+          if (!payload.paymentSession.deepLink) {
+            throw new Error(ui.payment.paypalRedirectMissing);
+          }
+
+          window.location.assign(payload.paymentSession.deepLink);
+          return;
+        }
 
         if (payload.paymentSession.method === "card") {
           if (payload.paymentSession.status === "paid") {
@@ -232,6 +291,10 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
               {ui.payment.applePayNote}
             </div>
           </div>
+        ) : selectedMethod === "paypal" ? (
+          <div className="surface-soft mt-8 px-5 py-4 text-sm leading-7 muted-text">
+            {ui.payment.paypalPanelNote}
+          </div>
         ) : (
           <div className="surface-soft mt-8 px-5 py-4 text-sm leading-7 muted-text">
             {ui.payment.qpayPanelNote}
@@ -247,14 +310,12 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
           disabled={isPending}
           className="btn-primary mt-6 disabled:opacity-70"
         >
-          {selectedMethod === "card" ? ui.payment.cardSubmit : ui.payment.qpaySubmit}
+          {getSubmitLabel(selectedMethod, ui)}
         </button>
       </div>
 
       <aside className="glass-panel p-6 sm:p-8">
-        <p className="section-label">
-          {session?.method === "card" ? ui.payment.cardResultTitle : ui.payment.qpayResultTitle}
-        </p>
+        <p className="section-label">{getResultTitle(session?.method || selectedMethod, ui)}</p>
         {session ? (
           <div className="mt-5 space-y-5">
             {session.method === "qpay" ? (
@@ -272,6 +333,47 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
                   <p className="mt-2 break-all text-sm muted-text">{session.deepLink}</p>
                 </div>
               </>
+            ) : session.method === "paypal" ? (
+              <div className="surface-soft space-y-4 p-5">
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                  <span>{ui.common.status}</span>
+                  <strong className="detail-value">{statusLabel(session.status, language)}</strong>
+                </div>
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                  <span>{ui.common.paymentMethod}</span>
+                  <strong className="detail-value">{localize(sessionOption.title, language)}</strong>
+                </div>
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                  <span>{ui.payment.reference}</span>
+                  <strong className="detail-value">{session.reference}</strong>
+                </div>
+                <div className="flex items-center justify-between gap-4 text-sm muted-text">
+                  <span>{ui.common.from}</span>
+                  <strong className="detail-value">
+                    {formatCurrency(session.amount, language, {
+                      currency: session.currency || "USD",
+                      convert: false
+                    })}
+                  </strong>
+                </div>
+                <div className="surface-soft-strong px-4 py-4 text-sm muted-text">
+                  <p>{localize(session.instructions, language)}</p>
+                  {session.deepLink ? (
+                    <>
+                      <p className="mt-4 text-sm font-semibold detail-value">{ui.payment.checkoutLink}</p>
+                      <p className="mt-2 break-all text-sm muted-text">{session.deepLink}</p>
+                    </>
+                  ) : null}
+                  {session.deepLink && session.status !== "paid" ? (
+                    <a
+                      href={session.deepLink}
+                      className="btn-secondary mt-4 inline-flex"
+                    >
+                      {ui.payment.paypalOpenCheckout}
+                    </a>
+                  ) : null}
+                </div>
+              </div>
             ) : (
               <div className="surface-soft space-y-4 p-5">
                 <div className="flex items-center justify-between gap-4 text-sm muted-text">
@@ -307,7 +409,7 @@ export function PaymentPanel({ booking, tour, paymentSession, paymentContext, la
           </div>
         ) : (
           <div className="mt-5 rounded-[28px] border border-dashed border-[color:var(--mw-border)] bg-[var(--mw-control-bg)] p-8 text-center text-sm faint-text">
-            {selectedMethod === "card" ? ui.payment.cardPanelPlaceholder : ui.payment.qpayPanelPlaceholder}
+            {getPlaceholderLabel(selectedMethod, ui)}
           </div>
         )}
       </aside>
