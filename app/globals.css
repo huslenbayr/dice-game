@@ -598,6 +598,35 @@ html:not([data-theme])[style*="color-scheme: light"] .landing-header {
   white-space: nowrap;
 }
 
+.landing-brand-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.landing-logo-frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0.58rem 0.8rem;
+  border: 1px solid var(--mw-landing-line);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(7, 8, 10, 0.08);
+}
+
+.landing-logo-frame .theme-logo-surface,
+.landing-logo-frame > div {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
 .landing-header-nav {
   display: none;
   align-items: center;
@@ -1009,8 +1038,16 @@ html:not([data-theme])[style*="color-scheme: light"] .landing-header {
     padding: 0.85rem 0.95rem;
   }
 
+  .landing-brand-cluster {
+    gap: 0.6rem;
+  }
+
+  .landing-logo-frame {
+    padding: 0.5rem 0.65rem;
+  }
+
   .landing-brand-mark {
-    font-size: 1.02rem;
+    font-size: 0.94rem;
   }
 
   .landing-hero-content {

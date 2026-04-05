@@ -17,6 +17,7 @@ export function AppChrome({ children, language, site, ui, currentUser, defaultTh
           <CustomCursor />
           <LandingHeader
             language={language}
+            site={site}
             ui={ui}
             currentUser={currentUser}
             defaultTheme={defaultTheme}

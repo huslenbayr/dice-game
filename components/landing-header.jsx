@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { localize } from "@/lib/i18n";
+import { BrandLogo } from "@/components/brand-logo";
 import { HeaderAuthControls } from "@/components/header-auth-controls";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-export function LandingHeader({ language, ui, currentUser, defaultTheme = null }) {
+export function LandingHeader({ language, site, ui, currentUser, defaultTheme = null }) {
   const labels = {
     experience: localize(
       {
@@ -40,8 +41,11 @@ export function LandingHeader({ language, ui, currentUser, defaultTheme = null }
     >
       <div className="shell-container">
         <div className="landing-header">
-          <Link href="/" className="landing-brand-mark">
-            mongolway.com
+          <Link href="/" className="landing-brand-cluster">
+            <span className="landing-logo-frame">
+              <BrandLogo brandName={site?.brandName || "MongolWay"} priority />
+            </span>
+            <span className="landing-brand-mark">mongolway.com</span>
           </Link>
 
           <nav className="landing-header-nav">
