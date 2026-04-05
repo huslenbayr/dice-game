@@ -1,13 +1,26 @@
 import "@/app/globals.css";
 import Script from "next/script";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getCurrentLanguage } from "@/lib/i18n";
 import { getRepository } from "@/lib/repositories/content-repository";
 import { getMetadataBase } from "@/lib/site";
 import { getStoredTheme, getThemeScript } from "@/lib/theme";
 import { getUiCopy } from "@/lib/ui-copy";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { AppChrome } from "@/components/app-chrome";
+
+const sansFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap"
+});
+
+const displayFont = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  display: "swap"
+});
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +31,7 @@ export const metadata = {
     template: "%s | MongolWay"
   },
   applicationName: "MongolWay",
-  description: "Thoughtful multilingual journeys across Mongolia with booking, payments, and tailored travel support.",
+  description: "Thoughtful multilingual journeys with booking, payments, and tailored travel support.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -51,22 +64,25 @@ export default async function RootLayout({ children }) {
   const ui = getUiCopy(language);
 
   return (
-    <html lang={language} data-theme={storedTheme || undefined} suppressHydrationWarning>
+    <html
+      lang={language}
+      data-theme={storedTheme || undefined}
+      suppressHydrationWarning
+      className={`${sansFont.variable} ${displayFont.variable}`}
+    >
       <body className="font-sans antialiased">
         <Script id="mongolway-theme-init" strategy="beforeInteractive">
           {getThemeScript()}
         </Script>
-        <div className="min-h-screen pb-6 sm:pb-8">
-          <SiteHeader
-            language={language}
-            site={snapshot.site}
-            ui={ui}
-            currentUser={currentUser}
-            defaultTheme={storedTheme}
-          />
-          <main>{children}</main>
-          <SiteFooter language={language} site={snapshot.site} ui={ui} />
-        </div>
+        <AppChrome
+          language={language}
+          site={snapshot.site}
+          ui={ui}
+          currentUser={currentUser}
+          defaultTheme={storedTheme}
+        >
+          {children}
+        </AppChrome>
       </body>
     </html>
   );

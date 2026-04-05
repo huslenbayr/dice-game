@@ -16,8 +16,8 @@ module.exports = {
         gold: "#0E8B92"
       },
       fontFamily: {
-        display: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
-        sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"]
+        display: ["var(--font-display)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"]
       },
       boxShadow: {
         soft: "0 24px 64px var(--mw-shadow-color)"
