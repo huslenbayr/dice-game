@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { logError } from "@/lib/logging";
 import { createPaymentForBooking } from "@/lib/services/payment-service";
+import { getRequestOrigin } from "@/lib/supabase/oauth";
 
 export const runtime = "nodejs";
 
@@ -8,7 +9,7 @@ export async function POST(request) {
   try {
     const payload = await request.json();
     const result = await createPaymentForBooking(payload, {
-      origin: request.nextUrl.origin
+      origin: getRequestOrigin(request)
     });
     return NextResponse.json(result, { status: 201 });
   } catch (error) {

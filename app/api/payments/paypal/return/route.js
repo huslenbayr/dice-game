@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { logError } from "@/lib/logging";
 import { capturePayPalCheckout } from "@/lib/services/payment-service";
+import { getRequestOrigin } from "@/lib/supabase/oauth";
 
 export const runtime = "nodejs";
 
 function buildRedirect(request, bookingId, state) {
-  const redirectUrl = new URL(bookingId ? `/payment/${bookingId}` : "/", request.nextUrl.origin);
+  const redirectUrl = new URL(bookingId ? `/payment/${bookingId}` : "/", getRequestOrigin(request));
   redirectUrl.searchParams.set("method", "paypal");
   redirectUrl.searchParams.set("payment", state);
   return redirectUrl;
