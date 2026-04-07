@@ -20,6 +20,7 @@ function Reveal({ children, className = "", delay = 0 }) {
 
 export function HomeLandingPage({ copy }) {
   const heroRef = useRef(null);
+  const videoRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -37,18 +38,33 @@ export function HomeLandingPage({ copy }) {
     });
   }
 
+  function freezeVideoOnLastFrame() {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    if (Number.isFinite(video.duration) && video.duration > 0) {
+      video.currentTime = Math.max(video.duration - 0.05, 0);
+    }
+
+    video.pause();
+  }
+
   return (
     <div className="landing-page">
       <section ref={heroRef} className="landing-hero">
         <motion.div className="landing-video-shell" style={{ scale: videoScale, y: videoY }}>
           <video
+            ref={videoRef}
             className="landing-video"
             src="/huske.mp4"
             autoPlay
             muted
-            loop
             playsInline
             preload="auto"
+            onEnded={freezeVideoOnLastFrame}
             aria-hidden="true"
           />
         </motion.div>
