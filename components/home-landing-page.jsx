@@ -55,33 +55,35 @@ export function HomeLandingPage({ copy }) {
         <div className="landing-video-overlay" />
         <div className="landing-video-vignette" />
 
-        <div className="landing-hero-content shell-container">
-          <motion.h1
-            className="landing-hero-brand"
-            initial={{ opacity: 0, filter: "blur(18px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ y: brandY, opacity: brandOpacity }}
-          >
-            mongolway.com
-          </motion.h1>
-
-          <motion.div
-            className="landing-hero-actions"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.95, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.button
-              type="button"
-              onClick={scrollToExperience}
-              className="landing-primary-button"
-              whileHover={prefersReducedMotion ? undefined : { y: -3, scale: 1.01 }}
-              whileTap={prefersReducedMotion ? undefined : { scale: 0.985 }}
+        <div className="landing-hero-content shell-container flex flex-col items-center justify-center text-center">
+          <div className="landing-hero-stack">
+            <motion.h1
+              className="landing-hero-brand"
+              initial={{ opacity: 0, filter: "blur(18px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
+              style={{ y: brandY, opacity: brandOpacity }}
             >
-              {copy.cta}
-            </motion.button>
-          </motion.div>
+              mongolway.com
+            </motion.h1>
+
+            <motion.div
+              className="landing-hero-actions"
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.95, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.button
+                type="button"
+                onClick={scrollToExperience}
+                className="landing-primary-button"
+                whileHover={prefersReducedMotion ? undefined : { y: -3, scale: 1.01 }}
+                whileTap={prefersReducedMotion ? undefined : { scale: 0.985 }}
+              >
+                {copy.cta}
+              </motion.button>
+            </motion.div>
+          </div>
 
           <motion.div
             className="landing-scroll-indicator"
