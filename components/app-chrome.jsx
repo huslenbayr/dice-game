@@ -33,7 +33,7 @@ export function AppChrome({ children, language, site, ui, currentUser, defaultTh
         />
       )}
       <main>{children}</main>
-      {isHome ? null : <SiteFooter language={language} site={site} ui={ui} />}
+      <SiteFooter language={language} site={site} ui={ui} />
     </div>
   );
 }

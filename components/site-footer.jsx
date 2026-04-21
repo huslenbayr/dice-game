@@ -16,6 +16,7 @@ export function SiteFooter({ language, site, ui }) {
               <h2 className="max-w-xl font-display text-3xl leading-tight detail-value">
                 {localize(site.home.heroTitle, language)}
               </h2>
+              {site.home?.heroSubtitle ? <p className="max-w-xl prose-copy">{localize(site.home.heroSubtitle, language)}</p> : null}
             </div>
             <div className="space-y-4 text-sm muted-text">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] detail-value">{ui.footer.contactTitle}</p>
@@ -31,6 +32,14 @@ export function SiteFooter({ language, site, ui }) {
                   {site.contact.email}
                 </a>
               </p>
+              {site.contact.whatsapp ? (
+                <p>
+                  <strong className="detail-value">WhatsApp:</strong>{" "}
+                  <a className="contact-link" href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, "")}`}>
+                    {site.contact.whatsapp}
+                  </a>
+                </p>
+              ) : null}
               <p className="leading-7">
                 <strong className="detail-value">{ui.common.office}:</strong> {site.contact.officeLocation}
               </p>

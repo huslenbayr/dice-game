@@ -10,23 +10,33 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export function LandingHeader({ language, site, ui, currentUser, defaultTheme = null }) {
   const labels = {
-    experience: localize(
+    welcome: localize(
       {
-        en: "Experience",
-        mn: "Мэдрэмж",
-        ja: "体験",
-        ko: "무드",
-        es: "Experiencia"
+        en: "Welcome",
+        mn: "Танилцуулга",
+        ja: "イントロ",
+        ko: "소개",
+        es: "Inicio"
       },
       language
     ),
-    signature: localize(
+    tours: localize(
       {
-        en: "Signature",
-        mn: "Онцлог",
-        ja: "シグネチャー",
-        ko: "시그니처",
-        es: "Firma"
+        en: "Tours",
+        mn: "Аяллууд",
+        ja: "ツアー",
+        ko: "투어",
+        es: "Tours"
+      },
+      language
+    ),
+    destinations: localize(
+      {
+        en: "Destinations",
+        mn: "Чиглэлүүд",
+        ja: "目的地",
+        ko: "여행지",
+        es: "Destinos"
       },
       language
     )
@@ -49,14 +59,17 @@ export function LandingHeader({ language, site, ui, currentUser, defaultTheme = 
           </Link>
 
           <nav className="landing-header-nav">
-            <a href="#experience" className="landing-header-link">
-              {labels.experience}
+            <a href="#welcome" className="landing-header-link">
+              {labels.welcome}
             </a>
-            <a href="#signature" className="landing-header-link">
-              {labels.signature}
+            <a href="#featured-tours" className="landing-header-link">
+              {labels.tours}
             </a>
-            <Link href="/tours" className="landing-header-link">
-              {ui.common.exploreTours}
+            <a href="#destinations" className="landing-header-link">
+              {labels.destinations}
+            </a>
+            <Link href="/contact" className="landing-header-link">
+              {ui.nav.contact}
             </Link>
           </nav>
 

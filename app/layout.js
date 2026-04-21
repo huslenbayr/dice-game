@@ -31,7 +31,7 @@ export const metadata = {
     template: "%s | MongolWay"
   },
   applicationName: "MongolWay",
-  description: "Thoughtful multilingual journeys with booking, payments, and tailored travel support.",
+  description: "Discover the real Mongolia through authentic journeys, nomadic culture, and unforgettable adventures.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/page-hero";
 import { getRepository } from "@/lib/repositories/content-repository";
 import { getCurrentLanguage, localize } from "@/lib/i18n";
+import { getPublishedTours } from "@/lib/tours";
 import { UI_LOCALES } from "@/lib/translations/ui-locales";
 import { getUiCopy } from "@/lib/ui-copy";
 
@@ -9,7 +10,8 @@ export default async function AboutPage() {
   const ui = getUiCopy(language);
   const repository = await getRepository();
   const snapshot = await repository.getPublicSnapshot();
-  const { site, guides, tours } = snapshot;
+  const { site, guides } = snapshot;
+  const tours = getPublishedTours(snapshot.tours);
   const uniqueGuideNames = [...new Set(tours.flatMap((tour) => tour.guideNames))];
   const guideCards = uniqueGuideNames.map((name) => guides.find((guide) => guide.name === name) || {
     id: name,

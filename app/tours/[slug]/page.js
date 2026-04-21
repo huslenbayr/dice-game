@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
-import { formatCurrency } from "@/lib/format";
+import { formatTourPriceRange } from "@/lib/format";
 import { getCurrentLanguage, interpolate, localize } from "@/lib/i18n";
 import { getRepository } from "@/lib/repositories/content-repository";
 import { getUiCopy } from "@/lib/ui-copy";
@@ -11,8 +11,11 @@ export default async function TourDetailsPage({ params }) {
   const ui = getUiCopy(language);
   const repository = await getRepository();
   const tour = await repository.getTourBySlug(slug);
+  const route = localize(tour?.route, language);
+  const overview = localize(tour?.overview || tour?.intro, language);
+  const highlights = localize(tour?.highlights, language) || [];
 
-  if (!tour) {
+  if (!tour || tour.isPublished === false) {
     return (
       <section className="section-space">
         <div className="shell-container">
@@ -28,23 +31,38 @@ export default async function TourDetailsPage({ params }) {
   return (
     <>
       <PageHero
-        eyebrow={localize(tour.destination, language)}
+        eyebrow={route || localize(tour.destination, language)}
         title={localize(tour.title, language)}
-        body={localize(tour.intro, language)}
+        body={overview}
         image={tour.gallery[0]}
-        actions={
-          <Link
-            href={`/booking?tour=${tour.id}`}
-            className="btn-primary btn-cta px-6"
-          >
-            {ui.common.startBooking}
-          </Link>
-        }
+        actions={<Link href={`/booking?tour=${tour.id}`} className="btn-primary btn-cta px-6">Book This Tour</Link>}
       />
 
       <section className="section-space pt-0">
         <div className="shell-container grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="space-y-6">
+            <div className="glass-panel p-6 sm:p-8">
+              <p className="section-label">Overview</p>
+              <h2 className="mt-4 font-display text-3xl">{localize(tour.title, language)}</h2>
+              <p className="mt-4 prose-copy">{localize(tour.intro, language)}</p>
+              {route ? (
+                <p className="mt-4 text-sm leading-7 muted-text">
+                  <strong className="detail-value">Route:</strong> {route}
+                </p>
+              ) : null}
+            </div>
+
+            {highlights.length ? (
+              <div className="glass-panel p-6 sm:p-8">
+                <p className="section-label">Highlights</p>
+                <ul className="mt-5 space-y-3 text-sm leading-7 muted-text">
+                  {highlights.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
             <div className="glass-panel p-6 sm:p-8">
               <p className="section-label">{ui.common.itinerary}</p>
               <div className="mt-6 space-y-4">
@@ -82,8 +100,8 @@ export default async function TourDetailsPage({ params }) {
 
           <aside className="space-y-6">
             <div className="glass-panel p-6 sm:p-8">
-              <p className="section-label">{ui.common.bookingSummary}</p>
-              <h2 className="mt-4 font-display text-4xl">{formatCurrency(tour.price, language)}</h2>
+              <p className="section-label">Price</p>
+              <h2 className="mt-4 font-display text-4xl">{formatTourPriceRange(tour, language)}</h2>
               <p className="mt-1 text-sm faint-text">{ui.common.perPerson}</p>
               <div className="mt-6 space-y-4 text-sm muted-text">
                 <div className="flex items-center justify-between gap-4">
@@ -91,8 +109,8 @@ export default async function TourDetailsPage({ params }) {
                   <strong className="detail-value">{tour.dates.length}</strong>
                 </div>
                 <div className="flex items-center justify-between gap-4">
-                  <span>{ui.common.guides}</span>
-                  <strong className="detail-value">{tour.guideNames.length}</strong>
+                  <span>Duration</span>
+                  <strong className="detail-value">{localize(tour.durationLabel, language)}</strong>
                 </div>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -113,7 +131,7 @@ export default async function TourDetailsPage({ params }) {
                 href={`/booking?tour=${tour.id}`}
                 className="btn-primary btn-cta mt-8 px-6"
               >
-                {ui.common.startBooking}
+                Book This Tour
               </Link>
             </div>
 

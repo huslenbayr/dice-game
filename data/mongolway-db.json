@@ -1,69 +1,58 @@
 {
   "site": {
     "brandName": "MongolWay",
-    "contactPerson": "MongolWay Team",
+    "contactPerson": "Mongolway",
     "contact": {
       "phone": "+976 94789779",
       "email": "info@mongolway.com",
-      "officeLocation": "Sukhbaatar District, Ulaanbaatar, Mongolia",
+      "officeLocation": "Ulaanbaatar, Mongolia",
       "socialLinks": {
         "instagram": "https://instagram.com/mongolway",
         "facebook": "https://facebook.com/mongolway",
         "x": "https://x.com/mongolway"
-      }
+      },
+      "whatsapp": "+976 94789779"
     },
     "home": {
       "eyebrow": {
-        "en": "Experience through all five senses",
-        "mn": "Таван мэдрэхүйгээр мэдрэх аялал"
+        "en": "Authentic journeys through Mongolia"
       },
       "heroTitle": {
-        "en": "Experience Mongolia through all five senses.",
-        "mn": "Монголыг таван мэдрэхүйгээр мэдрэх аялал."
+        "en": "Discover the Real Mongolia"
       },
       "heroSubtitle": {
-        "en": "Travel beyond the view alone. Hear the steppe, taste the table, feel the texture of felt and open air, and settle into the atmosphere of culture and landscape through calm, carefully paced journeys.",
-        "mn": "Зөвхөн үзээд өнгөрөхөөс илүү. Талын чимээ, нутгийн амт, эсгий ба задгай агаарын мэдрэмж, соёл ба байгалийн уур амьсгалыг тайван, нягт төлөвлөсөн аяллаар гүн мэдэрнэ."
+        "en": "Authentic journeys through Mongolia's breathtaking landscapes, nomadic culture, and unforgettable adventures."
       },
       "sectionIntro": {
-        "en": "Three sample journeys shaped around atmosphere, landscape, culture, and Mongolia's slower sensory rhythm.",
-        "mn": "Уур амьсгал, байгаль, соёл, Монгол орны удаан хэмнэлтэй мэдрэмжийг дагасан гурван жишиг аялал."
+        "en": "Local journeys designed around Mongolia's landscapes, culture, and the kind of travel that feels personal from start to finish."
       },
       "storyTitle": {
-        "en": "Journeys designed to let Mongolia be felt, not only seen",
-        "mn": "Монголыг зөвхөн харах бус, гүн мэдрэхэд зориулсан аяллууд"
+        "en": "Experience Mongolia Beyond Ordinary Travel"
       },
       "storyBody": {
-        "en": "Each route leaves room for the sound of open land, the warmth of shared meals, the texture of local materials, and the quiet details that make a place stay with you.",
-        "mn": "Маршрут бүр уудам нутгийн чимээ, хамтдаа зооглох ширээний дулаан, нутгийн материалын мэдрэмж, дурсамж болон үлдэх нам гүм жижиг мөчүүдэд зориуд зай гаргана."
+        "en": "At Mongolway, we believe travel should be more than just sightseeing. It should be about connection with nature, people, and culture in an authentic, comfortable, and memorable way."
       }
     },
     "about": {
       "title": {
-        "en": "A new Mongolian travel company with a simple point of view",
-        "mn": "Энгийн боловч тодорхой үзэл баримтлалтай Монголын шинэ аяллын компани"
+        "en": "Welcome to Mongolway"
       },
       "intro": {
-        "en": "MongolWay focuses on contemporary Mongolia: open space, everyday hospitality, local stories, and routes that feel personal instead of crowded.",
-        "mn": "MongolWay нь орчин цагийн Монголыг танилцуулна. Уудам орон зай, энгийн зочломтгой байдал, нутгийн түүх, хэт шахуу бус хувийн мэдрэмжтэй маршрут энд төв байрлана."
+        "en": "Mongolway is your local travel partner for discovering the true beauty of Mongolia. We create meaningful travel experiences for visitors who want to explore more than just famous places."
       },
       "approachTitle": {
-        "en": "How we want the experience to feel",
-        "mn": "Бид аяллыг ямар мэдрэмжтэй байлгахыг хүсдэг вэ"
+        "en": "Why travel with us"
       },
       "approachBody": {
-        "en": "Clear communication, adaptable pacing, and a balance between iconic moments and quieter local encounters.",
-        "mn": "Тодорхой харилцаа, уян хатан хэмнэл, алдартай цэгүүд ба нам гүм орон нутгийн мөчүүдийн тэнцвэр."
+        "en": "From Terelj and Kharkhorin to Khuvsgul Lake and the Gobi Desert, our journeys bring together local knowledge, comfortable logistics, and authentic encounters with nomadic culture."
       }
     },
     "contactPage": {
       "title": {
-        "en": "Contact MongolWay",
-        "mn": "MongolWay-тай холбогдох"
+        "en": "Plan Your Mongolia Trip"
       },
       "body": {
-        "en": "Questions about dates, custom departures, or local details are always welcome. The MongolWay team replies from info@mongolway.com and can help with planning, availability, and travel logistics.",
-        "mn": "Огноо, хувийн маршрут, эсвэл орон нутгийн мэдээлэлтэй холбоотой асуултыг бид үргэлж хүлээн авна. MongolWay баг info@mongolway.com хаягаас хариу өгч, төлөвлөлт, боломжит аялал, зохион байгуулалтын талаар тусална."
+        "en": "We would be happy to help you organize your trip to Mongolia. Send us your travel dates, number of travelers, and preferred destinations, and we will get back to you with the best option."
       }
     },
     "faqIntro": {
@@ -274,7 +263,8 @@
         "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80",
         "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1400&q=80",
         "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1400&q=80"
-      ]
+      ],
+      "isPublished": false
     },
     {
       "id": "tour-arkhangai",
@@ -416,7 +406,8 @@
         "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80",
         "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1400&q=80",
         "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80"
-      ]
+      ],
+      "isPublished": false
     },
     {
       "id": "tour-khuvsgul",
@@ -547,6 +538,331 @@
         "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80",
         "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1400&q=80",
         "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "isPublished": false
+    },
+    {
+      "id": "tour-mongolia-highlights",
+      "slug": "mongolia-highlights-tour",
+      "isPublished": true,
+      "title": {
+        "en": "7-Day Mongolia Highlights Tour"
+      },
+      "intro": {
+        "en": "This tour is ideal for travelers who want to discover Mongolia's key highlights in a shorter time. You will explore natural landscapes, historical sites, and authentic nomadic culture."
+      },
+      "overview": {
+        "en": "Discover Mongolia's natural beauty, cultural heritage, and nomadic lifestyle in one unforgettable trip."
+      },
+      "route": {
+        "en": "Ulaanbaatar – Terelj – Kharkhorin – Elsen Tasarkhai"
+      },
+      "destination": {
+        "en": "Central Mongolia Highlights"
+      },
+      "durationDays": 7,
+      "durationLabel": {
+        "en": "7 days"
+      },
+      "price": 900,
+      "priceTo": 1200,
+      "dates": [
+        "2026-06-05",
+        "2026-07-03",
+        "2026-08-14"
+      ],
+      "guideNames": [
+        "Experienced local guide"
+      ],
+      "highlights": {
+        "en": [
+          "Ulaanbaatar city tour",
+          "Gandan Monastery",
+          "Sukhbaatar Square",
+          "Terelj National Park",
+          "Horseback riding",
+          "Camel riding",
+          "Kharkhorin",
+          "Erdene Zuu Monastery",
+          "Visit to a nomadic family"
+        ]
+      },
+      "itinerary": [
+        {
+          "day": 1,
+          "title": {
+            "en": "Arrival in Ulaanbaatar"
+          },
+          "description": {
+            "en": "Meet your guide, settle into the city, and begin with key landmarks including Sukhbaatar Square."
+          }
+        },
+        {
+          "day": 2,
+          "title": {
+            "en": "Ulaanbaatar cultural highlights"
+          },
+          "description": {
+            "en": "Explore Gandan Monastery, local museums, and the capital's cultural atmosphere before leaving the city."
+          }
+        },
+        {
+          "day": 3,
+          "title": {
+            "en": "Terelj National Park"
+          },
+          "description": {
+            "en": "Travel to Terelj for fresh air, scenic rock formations, and a horseback riding experience in Mongolia's open landscape."
+          }
+        },
+        {
+          "day": 4,
+          "title": {
+            "en": "Nomadic family visit"
+          },
+          "description": {
+            "en": "Spend time with a nomadic family, experience traditional hospitality, and continue through central Mongolia."
+          }
+        },
+        {
+          "day": 5,
+          "title": {
+            "en": "Kharkhorin and Erdene Zuu"
+          },
+          "description": {
+            "en": "Visit the ancient capital of the Mongol Empire and explore the famous Erdene Zuu Monastery."
+          }
+        },
+        {
+          "day": 6,
+          "title": {
+            "en": "Elsen Tasarkhai dunes"
+          },
+          "description": {
+            "en": "Enjoy camel riding and discover the unique semi-desert scenery of Elsen Tasarkhai."
+          }
+        },
+        {
+          "day": 7,
+          "title": {
+            "en": "Return to Ulaanbaatar"
+          },
+          "description": {
+            "en": "Travel back to the city with time to reflect on the journey before departure or onward plans."
+          }
+        }
+      ],
+      "included": {
+        "en": [
+          "Tourist camp / ger accommodation",
+          "3 meals per day",
+          "4x4 transportation",
+          "English-speaking guide",
+          "All tour arrangements"
+        ]
+      },
+      "excluded": {
+        "en": [
+          "International flights",
+          "Personal expenses"
+        ]
+      },
+      "gallery": [
+        "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80"
+      ]
+    },
+    {
+      "id": "tour-mongolia-adventure",
+      "slug": "mongolia-adventure-tour",
+      "isPublished": true,
+      "title": {
+        "en": "14-Day Mongolia Adventure Tour"
+      },
+      "intro": {
+        "en": "This extended tour is perfect for travelers who want a complete Mongolia experience. Enjoy stunning nature, deeper cultural encounters, and unforgettable adventure across Mongolia's most iconic regions."
+      },
+      "overview": {
+        "en": "Experience Mongolia in a deeper and more adventurous way, from mountains and lakes to sand dunes and ancient traditions."
+      },
+      "route": {
+        "en": "Ulaanbaatar – Terelj – Khuvsgul Lake – Gobi Desert"
+      },
+      "destination": {
+        "en": "Grand Mongolia Adventure"
+      },
+      "durationDays": 14,
+      "durationLabel": {
+        "en": "14 days"
+      },
+      "price": 1800,
+      "priceTo": 2500,
+      "dates": [
+        "2026-06-12",
+        "2026-07-17",
+        "2026-08-21"
+      ],
+      "guideNames": [
+        "Experienced local guide"
+      ],
+      "highlights": {
+        "en": [
+          "All experiences from the 7-day tour",
+          "Khuvsgul Lake",
+          "Gobi Desert",
+          "Yol Valley",
+          "Khongor Sand Dunes",
+          "More adventure and local experiences"
+        ]
+      },
+      "itinerary": [
+        {
+          "day": 1,
+          "title": {
+            "en": "Arrival in Ulaanbaatar"
+          },
+          "description": {
+            "en": "Meet your team, rest after arrival, and prepare for a longer journey across Mongolia."
+          }
+        },
+        {
+          "day": 2,
+          "title": {
+            "en": "Capital city tour"
+          },
+          "description": {
+            "en": "Discover the cultural heart of Ulaanbaatar, including major landmarks and museums."
+          }
+        },
+        {
+          "day": 3,
+          "title": {
+            "en": "Terelj National Park"
+          },
+          "description": {
+            "en": "Head to Terelj for scenic landscapes, horseback riding, and time in nature."
+          }
+        },
+        {
+          "day": 4,
+          "title": {
+            "en": "Nomadic hospitality"
+          },
+          "description": {
+            "en": "Visit a nomadic family and learn about Mongolia's traditions through real local encounters."
+          }
+        },
+        {
+          "day": 5,
+          "title": {
+            "en": "Travel north toward Khuvsgul"
+          },
+          "description": {
+            "en": "Journey through changing landscapes as you make your way toward Mongolia's northern wilderness."
+          }
+        },
+        {
+          "day": 6,
+          "title": {
+            "en": "Arrival at Khuvsgul Lake"
+          },
+          "description": {
+            "en": "Settle by one of Mongolia's most beautiful lakes surrounded by forests and mountains."
+          }
+        },
+        {
+          "day": 7,
+          "title": {
+            "en": "Khuvsgul exploration"
+          },
+          "description": {
+            "en": "Enjoy peaceful lakeside time, short hikes, and the atmosphere of northern Mongolia."
+          }
+        },
+        {
+          "day": 8,
+          "title": {
+            "en": "More northern adventure"
+          },
+          "description": {
+            "en": "Continue exploring the lake region with flexible outdoor activities and local interaction."
+          }
+        },
+        {
+          "day": 9,
+          "title": {
+            "en": "Return south"
+          },
+          "description": {
+            "en": "Begin the route back toward central Mongolia with scenic overland travel."
+          }
+        },
+        {
+          "day": 10,
+          "title": {
+            "en": "Into the Gobi region"
+          },
+          "description": {
+            "en": "Shift from forests and lakes to dramatic wide-open desert landscapes."
+          }
+        },
+        {
+          "day": 11,
+          "title": {
+            "en": "Yol Valley"
+          },
+          "description": {
+            "en": "Explore the famous valley known for its cliffs, wildlife, and striking natural contrasts."
+          }
+        },
+        {
+          "day": 12,
+          "title": {
+            "en": "Khongor Sand Dunes"
+          },
+          "description": {
+            "en": "Experience the great sand dunes of the Gobi and enjoy one of Mongolia's classic desert adventures."
+          }
+        },
+        {
+          "day": 13,
+          "title": {
+            "en": "Desert culture and return drive"
+          },
+          "description": {
+            "en": "Continue with local experiences in the Gobi before beginning the return toward the capital."
+          }
+        },
+        {
+          "day": 14,
+          "title": {
+            "en": "Ulaanbaatar departure day"
+          },
+          "description": {
+            "en": "Finish the journey in Ulaanbaatar with support for departure or extra city time."
+          }
+        }
+      ],
+      "included": {
+        "en": [
+          "Accommodation",
+          "3 meals per day",
+          "Transport",
+          "Guide",
+          "Full organization"
+        ]
+      },
+      "excluded": {
+        "en": [
+          "International flights",
+          "Personal expenses"
+        ]
+      },
+      "gallery": [
+        "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=1400&q=80"
       ]
     }
   ],

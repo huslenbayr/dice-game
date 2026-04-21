@@ -3,6 +3,7 @@ import { PageHero } from "@/components/page-hero";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getCurrentLanguage } from "@/lib/i18n";
 import { getRepository } from "@/lib/repositories/content-repository";
+import { getPublishedTours } from "@/lib/tours";
 import { getUiCopy } from "@/lib/ui-copy";
 
 export default async function BookingPage({ searchParams }) {
@@ -11,6 +12,7 @@ export default async function BookingPage({ searchParams }) {
   const ui = getUiCopy(language);
   const repository = await getRepository();
   const snapshot = await repository.getPublicSnapshot();
+  const tours = getPublishedTours(snapshot.tours);
   const currentUser = await getCurrentUser();
 
   return (
@@ -25,7 +27,7 @@ export default async function BookingPage({ searchParams }) {
       <section className="section-space pt-0">
         <div className="shell-container">
           <BookingForm
-            tours={snapshot.tours}
+            tours={tours}
             language={language}
             ui={ui}
             initialTourId={params.tour}
